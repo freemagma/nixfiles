@@ -2,20 +2,9 @@
 
 {
   home.packages = with pkgs; [
-    haskellPackages.xmonad
-    haskellPackages.xmonad-extras
-    haskellPackages.xmonad-contrib_0_16
-    haskellPackages.xmobar
     picom
     nitrogen
     brightnessctl
-
-    python38
-    python38Packages.ipython
-    python38Packages.virtualenv
-    python38Packages.virtualenvwrapper
-    maven
-    jdk
 
     firefox
     chromium
@@ -23,14 +12,13 @@
     spotify
     vscode
     calibre
-    libreoffice
     steam
     zoom-us
     bluejeans-gui
     discord
     slack
     gimp
-    sage
+    # sage
     blender
     scid-vs-pc
     stockfish
@@ -38,7 +26,6 @@
 
     kitty
     unzip
-    dmenu
     xclip
     ffmpeg
     multimc
@@ -54,11 +41,7 @@
     feh
     lsof
 
-    fira-code
-    hack-font
-    dejavu_fonts
-    source-code-pro
-
+    zsh
     oh-my-zsh
     spaceship-prompt
     autojump
@@ -95,12 +78,6 @@
     enable = true;
     userName = "Charles Gunn";
     userEmail = "cjgunnmail@gmail.com";
-  };
-
-  xsession.windowManager.xmonad = {
-    enable = true;
-    enableContribAndExtras = true;
-    config = "/home/cgunn/.config/nixpkgs/xmonad/xmonad.hs";
   };
 
   programs.kitty = {

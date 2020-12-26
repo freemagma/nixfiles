@@ -8,7 +8,6 @@ import Control.Monad
 import System.Exit
 
 import XMonad
-import XMonad.Actions.Volume
 import XMonad.Actions.CycleWindows
 import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
@@ -71,6 +70,7 @@ myXPConfig' = myXPConfig {
   }
 
 -- Search Engine Prompt
+archWiki      = S.searchEngine "archwiki"       "https://wiki.archlinux.org/index.php?search="
 stackOverflow = S.searchEngine "stack overflow" "https://stackoverflow.com/search?q="
 reddit        = S.searchEngine "reddit"         "https://www.reddit.com/search/?q="
 nixOsPkgs     = S.searchEngine "nix pkgs"       ("https://nixos.org/nixos/packages.html?channel=" ++ nixOsChannel ++ "&query=")
@@ -81,14 +81,15 @@ etymonline    = S.searchEngine "etymonline"     "https://www.etymonline.com/sear
 
 searchList :: [(String, S.SearchEngine)]
 searchList = [ 
-    ("a", S.alpha)
+    ("a", archWiki)
   , ("d", S.duckduckgo)
   , ("e", etymonline)
   , ("g", S.google)
   , ("h", S.hoogle)
-  , ("n", nixOsWiki)
-  , ("o", nixOsOptions)
-  , ("p", nixOsPkgs)
+  , ("m", S.alpha)
+  -- , ("n", nixOsWiki)
+  -- , ("o", nixOsOptions)
+  -- , ("p", nixOsPkgs)
   , ("r", reddit)
   , ("s", stackOverflow)
   , ("t", thesaurus)
@@ -115,23 +116,27 @@ myKeys = [
   , ("M1-<Tab>",      windows W.focusDown)
 
   -- Volume and Brightness
-  , ("M-<Down>",      toggleMute >> return ())
-  , ("M-<Left>",     lowerVolume 3 >> return ())
-  , ("M-<Right>",      raiseVolume 3 >> return ())
+  , ("M-<Down>",      spawn "amixer set Master toggle")
+  , ("M-<Left>",      spawn "amixer set Master 5%- unmute")
+  , ("M-<Right>",     spawn "amixer set Master 5%+ unmute")
   , ("M-S-<Down>",    spawn "brightnessctl set 50%")
-  , ("M-S-<Left>",   spawn "brightnessctl set 10%-")
-  , ("M-S-<Right>",    spawn "brightnessctl set 10%+")
+  , ("M-S-<Left>",    spawn "brightnessctl set 10%-")
+  , ("M-S-<Right>",   spawn "brightnessctl set 10%+")
   
   -- Spawning Programs
   , ("M-f",           spawn "firefox")
   , ("M-<Return>",    spawn myTerminal)
 
   -- Open Configs
-  , ("M-c n",         spawn "code /home/cgunn/.config/nixpkgs")
-  , ("M-c f",         spawn "code /home/cgunn/.config/neofetch")
+  , ("M-c",           spawn "code /home/cgunn/.dotfiles")
 
   -- Prompts
   , ("M-q",           shellPrompt myXPConfig)
+
+  -- Misc
+  , ("M-t m",         spawn "maim -s /home/cgunn/images/screenshots/$(date -Iminutes).png")
+  , ("M-b b",         spawn "sh /home/cgunn/dev/sh/bluetooth.sh B4:CE:40:C2:79:31")
+  , ("M-b h",         spawn "sh /home/cgunn/dev/sh/bluetooth.sh 38:18:4C:10:0F:40")
   ]
   ++ [("M-s "   ++ k, S.promptSearch myXPConfig' f) | (k,f) <- searchList ]
   ++ [("M-S-s " ++ k, S.selectSearch             f) | (k,f) <- searchList ]
@@ -159,6 +164,8 @@ addEWMHFullscreen   = do
 myStartupHook = do
   screenConfig
   setWMName "LG3D"
+  spawnOnce "picom --config /home/cgunn/.dotfiles/picom/picom.conf"
+  spawnOnce "redshift -l 33.749:-84.38798"
 
 screenConfig = do
   spawn "nitrogen --restore"
@@ -179,7 +186,7 @@ myManageHook = composeAll [
 windowCount :: X (Maybe String)
 windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
 
-myBar = "xmobar /home/cgunn/.config/nixpkgs/xmonad/xmobar.hs"
+myBar n = "xmobar -x " ++ (show n) ++ " /home/cgunn/.dotfiles/nixpkgs/xmonad/xmobar.hs"
 myPP = xmobarPP {
     ppCurrent = xmobarColor "#dc8a0e" "" . wrap "<" ">"
   , ppVisible = xmobarColor "#d8137f" ""
@@ -200,7 +207,7 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} =
 {--  Main Method                                              --}
 {---------------------------------------------------------------}
 
-main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
+main = xmonad =<< statusBar (myBar 1) myPP toggleStrutsKey myConfig
   
 myConfig = ewmh def {
     terminal        = myTerminal
