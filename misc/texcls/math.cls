@@ -15,6 +15,8 @@
 \RequirePackage{algorithm}
 \RequirePackage[noend]{algpseudocode}
 \RequirePackage{xfp}
+\RequirePackage{pdfpages}
+\usepackage[shortlabels]{enumitem}
 
 \setlength{\headheight}{15pt}
 \lhead{\@author}\chead{\@title}\rhead{\today}
@@ -46,6 +48,7 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
+\newcommand{\F}{\mathbb{F}}
 \renewcommand{\P}{\mathbb{P}}
 
 \newcommand{\abs}[1]{\left|#1\right|}
@@ -57,8 +60,16 @@
 \newcommand{\Log}[1]{\text{Log}\:#1}
 \newcommand{\ve}{\varepsilon}
 \newcommand{\bm}[1]{\begin{bmatrix}
-    #1
+   #1
 \end{bmatrix}}
+\newcommand{\sbm}[1]{\left[\begin{smallmatrix}
+   #1
+\end{smallmatrix}\right]}
+
+\newcommand{\sep}{%
+   \vspace{8pt}
+   \hrule
+}
 
 \usepackage{xparse}
 \ExplSyntaxOn
@@ -86,4 +97,4 @@
             }{#1}
          } \pi
       }{#2} i
-   }}}
+}}}

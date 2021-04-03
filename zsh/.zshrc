@@ -81,10 +81,20 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:/home/cgunn/.local/bin:/home/cgunn/.cargo/bin
 export PATH=$PATH:/home/cgunn/src/quartus-prime/install/quartus/bin
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 alias la="ls -lah"
 alias cleo="clear && neofetch"
 alias few="feh --image-bg white"
 alias findr="sudo find / -iname"
+alias cat="bat -p --paging=never"
+alias activate="source .venv/bin/activate"
+
+# Exporting
+export DEVKITPRO=/opt/devkitpro
+export DEVKITARM=/opt/devkitpro/devkitARM
+export DEVKITPPC=/opt/devkitpro/devkitPPC
+export PATH=$PATH:${DEVKITARM}/bin
 
 neofetch

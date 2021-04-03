@@ -62,5 +62,9 @@ export GOPATH=/home/cgunn/Programs/gopath
 export PATH=$GOPATH:$GOPATH/bin:$PATH
 export PATH=$PATH:/home/cgunn/.gem/ruby/2.7.0/bin
 export TEXMFHOME=$HOME/.texmf
+export DEVKITPRO=/opt/devkitpro
+export DEVKITARM=/opt/devkitpro/devkitARM
+export DEVKITPPC=/opt/devkitpro/devkitPPC
+export PATH=$PATH:${DEVKITARM}/bin
 
 neofetch

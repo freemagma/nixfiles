@@ -133,13 +133,18 @@ myKeys = [
   -- Prompts
   , ("M-q",           shellPrompt myXPConfig)
 
-  -- Misc
-  , ("M-t m",         spawn "maim -s /home/cgunn/images/screenshots/$(date -Iminutes).png")
-  , ("M-b b",         spawn "sh /home/cgunn/dev/sh/bluetooth.sh B4:CE:40:C2:79:31")
-  , ("M-b h",         spawn "sh /home/cgunn/dev/sh/bluetooth.sh 38:18:4C:10:0F:40")
+  -- Misc Tools
+  , ("M-t m",         spawn "maim -s /home/cgunn/images/screenshots/$(date -Ins).png")
+
+  -- Misc Scipts
+  , ("M-s w",         spawn "sh /home/cgunn/dev/sh/resetwifi.sh")
+  , ("M-s b",         spawn "sh /home/cgunn/dev/sh/bluetooth.sh B4:CE:40:C2:79:31")
+  , ("M-s h",         spawn "sh /home/cgunn/dev/sh/bluetooth.sh 38:18:4C:10:0F:40")
+  , ("M-s a f",       spawn "/home/cgunn/.virtualenvs/autokey-scripts/bin/python /home/cgunn/dev/autokey-scripts/left_right.py")
+  , ("M-s a e",       spawn "/home/cgunn/.virtualenvs/autokey-scripts/bin/python /home/cgunn/dev/autokey-scripts/press_a.py")
   ]
-  ++ [("M-s "   ++ k, S.promptSearch myXPConfig' f) | (k,f) <- searchList ]
-  ++ [("M-S-s " ++ k, S.selectSearch             f) | (k,f) <- searchList ]
+  ++ [("M-w "   ++ k, S.promptSearch myXPConfig' f) | (k,f) <- searchList ]
+  ++ [("M-S-w " ++ k, S.selectSearch             f) | (k,f) <- searchList ]
 
 {---------------------------------------------------------------}
 {--  Startup Hook                                             --}
