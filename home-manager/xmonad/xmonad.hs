@@ -87,9 +87,9 @@ searchList = [
   , ("g", S.google)
   , ("h", S.hoogle)
   , ("m", S.alpha)
-  -- , ("n", nixOsWiki)
-  -- , ("o", nixOsOptions)
-  -- , ("p", nixOsPkgs)
+  , ("n", nixOsWiki)
+  , ("o", nixOsOptions)
+  , ("p", nixOsPkgs)
   , ("r", reddit)
   , ("s", stackOverflow)
   , ("t", thesaurus)
@@ -128,7 +128,7 @@ myKeys = [
   , ("M-<Return>",    spawn myTerminal)
 
   -- Open Configs
-  , ("M-c",           spawn "code /home/cgunn/.dotfiles")
+  , ("M-c",           spawn "code /home/cgunn/dev/dotfiles")
 
   -- Prompts
   , ("M-q",           shellPrompt myXPConfig)
@@ -140,8 +140,8 @@ myKeys = [
   , ("M-s w",         spawn "sh /home/cgunn/dev/sh/resetwifi.sh")
   , ("M-s b",         spawn "sh /home/cgunn/dev/sh/bluetooth.sh B4:CE:40:C2:79:31")
   , ("M-s h",         spawn "sh /home/cgunn/dev/sh/bluetooth.sh 38:18:4C:10:0F:40")
-  , ("M-s a f",       spawn "/home/cgunn/.virtualenvs/autokey-scripts/bin/python /home/cgunn/dev/autokey-scripts/left_right.py")
-  , ("M-s a e",       spawn "/home/cgunn/.virtualenvs/autokey-scripts/bin/python /home/cgunn/dev/autokey-scripts/press_a.py")
+  , ("M-s a f",       spawn "python /home/cgunn/dev/autokey-scripts/left_right.py")
+  , ("M-s a e",       spawn "python /home/cgunn/dev/autokey-scripts/press_a.py")
   ]
   ++ [("M-w "   ++ k, S.promptSearch myXPConfig' f) | (k,f) <- searchList ]
   ++ [("M-S-w " ++ k, S.selectSearch             f) | (k,f) <- searchList ]
@@ -169,7 +169,7 @@ addEWMHFullscreen   = do
 myStartupHook = do
   screenConfig
   setWMName "LG3D"
-  spawnOnce "picom --config /home/cgunn/.dotfiles/picom/picom.conf"
+  spawnOnce "picom --config /home/cgunn/dev/dotfiles/picom/picom.conf"
   spawnOnce "redshift -l 33.749:-84.38798"
 
 screenConfig = do
@@ -191,7 +191,7 @@ myManageHook = composeAll [
 windowCount :: X (Maybe String)
 windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
 
-myBar n = "xmobar -x " ++ (show n) ++ " /home/cgunn/.dotfiles/nixpkgs/xmonad/xmobar.hs"
+myBar n = "xmobar -x " ++ (show n) ++ " /home/cgunn/dev/dotfiles/home-manager/xmonad/xmobar.hs"
 myPP = xmobarPP {
     ppCurrent = xmobarColor "#dc8a0e" "" . wrap "<" ">"
   , ppVisible = xmobarColor "#d8137f" ""
