@@ -33,7 +33,7 @@
     mupdf
     xdg-user-dirs
     xmobar
-    python39
+    ( python3.withPackages ( ps: with ps; [ ipython black pip ] ))
     gnumake
     docker
     fira-code
