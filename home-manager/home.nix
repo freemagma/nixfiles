@@ -12,13 +12,15 @@
   home.packages = with pkgs; [
     picom
     nitrogen
+    brightnessctl
     
     firefox
-    chromium
     libreoffice
     spotify
     vscode
     discord
+    slack
+    bluejeans-gui
     
     kitty
     unzip
@@ -33,13 +35,15 @@
     xmobar
     python39
     gnumake
-
+    docker
     fira-code
     
     zsh
     oh-my-zsh
     spaceship-prompt
     autojump
+    
+    (import ./tex { inherit pkgs; })
   ];
 
   programs.zsh = {
@@ -89,14 +93,14 @@
 
   xdg.userDirs = {
     enable      = true;
-    desktop     = "\"\$HOME/.desktop\"";
-    documents   = "\"\$HOME/docs\"";
-    download    = "\"\$HOME/downloads\"";
-    music       = "\"\$HOME/audio/music\"";
-    pictures    = "\"\$HOME/images/pictures\"";
-    videos      = "\"\$HOME/video\"";
-    publicShare = "\"\$HOME/.useless\"";
-    templates   = "\"\$HOME/.useless\"";
+    desktop     = "\$HOME/.desktop";
+    documents   = "\$HOME/docs";
+    download    = "\$HOME/downloads";
+    music       = "\$HOME/audio/music";
+    pictures    = "\$HOME/images/pictures";
+    videos      = "\$HOME/video";
+    publicShare = "\$HOME/.useless";
+    templates   = "\$HOME/.useless";
   };
 
   xsession = {
