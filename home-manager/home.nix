@@ -21,6 +21,8 @@
     discord
     slack
     bluejeans-gui
+    teams
+    mgba
     
     kitty
     unzip
@@ -42,8 +44,10 @@
     oh-my-zsh
     spaceship-prompt
     autojump
+    bat
     
     (import ./tex { inherit pkgs; })
+    (import ./pkgs/pkhex { inherit pkgs; })
   ];
 
   programs.zsh = {
@@ -53,6 +57,8 @@
       nixr = "sudo nixos-rebuild switch";
       homr = "home-manager switch";
       cleo = "clear && neofetch";
+      cat="bat -p --paging=never";
+      activate="source .venv/bin/activate";
     };
     initExtra = ''
       source ${pkgs.spaceship-prompt}/share/zsh/themes/spaceship.zsh-theme
@@ -89,6 +95,11 @@
     opacityRule = [
       "90:class_g = 'kitty'"
     ];
+  };
+
+  xdg.configFile = {
+    "neofetch/config.conf".source = ./neofetch/config.conf;
+    "neofetch/logo.ascii".source = ./neofetch/nixos.ascii;
   };
 
   xdg.userDirs = {
