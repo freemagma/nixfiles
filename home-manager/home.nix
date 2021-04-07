@@ -47,7 +47,7 @@
     bat
     
     (import ./tex { inherit pkgs; })
-    (import ./pkgs/pkhex { inherit pkgs; })
+    # (import ./pkgs/pkhex { inherit pkgs; })
   ];
 
   programs.zsh = {
