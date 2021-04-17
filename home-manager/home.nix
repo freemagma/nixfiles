@@ -10,7 +10,6 @@
   home.homeDirectory = "/home/cgunn";
 
   home.packages = with pkgs; [
-    picom
     nitrogen
     brightnessctl
     
@@ -43,8 +42,6 @@
     fira-code
     gcc
     
-    zsh
-    oh-my-zsh
     spaceship-prompt
     autojump
     bat
@@ -60,9 +57,9 @@
       nixr = "sudo nixos-rebuild switch";
       homr = "home-manager switch";
       cleo = "clear && neofetch";
-      cat="bat -p --paging=never";
-      activate="source .venv/bin/activate";
-      ssh="kitty +kitten ssh";
+      cat = "bat -p --paging=never";
+      activate = "source .venv/bin/activate";
+      ssh = "kitty +kitten ssh";
     };
     initExtra = ''
       source ${pkgs.spaceship-prompt}/share/zsh/themes/spaceship.zsh-theme
