@@ -64,7 +64,13 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.cgunn = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "docker" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "docker" 
+      "scanner"
+      "lp"
+    ];
   };
 
   # List packages installed in system profile. To search, run:
@@ -90,10 +96,13 @@
   services.openssh.enable = true;
 
   # Hardware fixes for steam
-  # nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
   # hardware.opengl.driSupport32Bit = true;
   hardware.pulseaudio.support32Bit = true;
   # hardware.steam-hardware.enable = true;
+ 
+  hardware.sane.enable = true; 
+  hardware.sane.dsseries.enable = true;
 
   # This can be removed when the default kernel is at least version 5.6
   # https://github.com/NixOS/nixpkgs/pull/86168

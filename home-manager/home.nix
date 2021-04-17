@@ -23,9 +23,10 @@
     bluejeans-gui
     teams
     mgba
+    gimp
     
     kitty
-    unzip
+    unar
     zathura
     neofetch
     ripgrep
@@ -36,9 +37,11 @@
     xdg-user-dirs
     xmobar
     ( python3.withPackages ( ps: with ps; [ ipython black pip ] ))
+    poetry
     gnumake
     docker
     fira-code
+    gcc
     
     zsh
     oh-my-zsh
@@ -59,6 +62,7 @@
       cleo = "clear && neofetch";
       cat="bat -p --paging=never";
       activate="source .venv/bin/activate";
+      ssh="kitty +kitten ssh";
     };
     initExtra = ''
       source ${pkgs.spaceship-prompt}/share/zsh/themes/spaceship.zsh-theme
@@ -73,7 +77,12 @@
 
   programs.zsh.oh-my-zsh = {
     enable = true;
-    plugins = [ "git" "autojump" "colorize" "colored-man-pages" ];
+    plugins = [ 
+      "git" 
+      "autojump" 
+      "colorize" 
+      "colored-man-pages"
+    ];
   };
 
   programs.kitty = {
