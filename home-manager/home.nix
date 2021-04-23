@@ -14,6 +14,7 @@
     brightnessctl
     
     firefox
+    chromium
     libreoffice
     spotify
     vscode
@@ -48,6 +49,8 @@
     
     (import ./tex { inherit pkgs; })
     (import ./pkgs/pkhex { inherit pkgs; })
+    (import ./pkgs/porymap { inherit pkgs; })
+    (import ./pkgs/poryscript { inherit pkgs; })
   ];
 
   programs.zsh = {
