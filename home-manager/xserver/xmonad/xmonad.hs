@@ -169,7 +169,6 @@ addEWMHFullscreen   = do
 myStartupHook = do
   screenConfig
   setWMName "LG3D"
-  spawnOnce "picom --config /home/cgunn/dev/dotfiles/picom/picom.conf"
   spawnOnce "redshift -l 33.749:-84.38798"
 
 screenConfig = do
@@ -191,7 +190,7 @@ myManageHook = composeAll [
 windowCount :: X (Maybe String)
 windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
 
-myBar n = "xmobar -x " ++ (show n) ++ " /home/cgunn/dev/dotfiles/home-manager/xmonad/xmobar.hs"
+myBar n = "xmobar -x " ++ (show n) ++ " /home/cgunn/dev/dotfiles/home-manager/xserver/xmonad/xmobar.hs"
 myPP = xmobarPP {
     ppCurrent = xmobarColor "#dc8a0e" "" . wrap "<" ">"
   , ppVisible = xmobarColor "#d8137f" ""
