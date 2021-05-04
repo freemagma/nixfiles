@@ -10,8 +10,8 @@
             enable = true;
             enableContribAndExtras = true;
             config = ./xmonad/xmonad.hs;
-            extraPackages = haskellPackages: [
-                haskellPackages.xmobar
+            extraPackages = hp: [
+                hp.xmobar
             ];
         };
     };

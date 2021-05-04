@@ -28,7 +28,7 @@
   networking.networkmanager.enable = true;
   networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.wlan0.useDHCP = true;
-  networking.nameservers = [ "1.1.1.1" "1.0.0.1" ];
+  # networking.nameservers = [ "1.1.1.1" "1.0.0.1" ];
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

@@ -44,6 +44,8 @@
         '';
         plugins = with pkgs.vimPlugins; [
             vim-airline
+            vim-polyglot
+            vim-fugitive
         ];
     };
 
