@@ -1,4 +1,5 @@
 *.hi
 *.errors
 *.o
+home/hosts/*/modules
 xmonad-x86_64-linux

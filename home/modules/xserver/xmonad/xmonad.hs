@@ -190,7 +190,7 @@ myManageHook = composeAll [
 windowCount :: X (Maybe String)
 windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
 
-myBar n = "xmobar -x " ++ (show n) ++ " /home/cgunn/dev/dotfiles/home-manager/xserver/xmonad/xmobar.hs"
+myBar n = "xmobar -x " ++ (show n) ++ " /home/cgunn/dev/dotfiles/home/modules/xserver/xmonad/xmobar.hs"
 myPP = xmobarPP {
     ppCurrent = xmobarColor "#dc8a0e" "" . wrap "<" ">"
   , ppVisible = xmobarColor "#d8137f" ""
