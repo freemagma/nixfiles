@@ -50,27 +50,24 @@
     enableContribAndExtras = true;
   };
 
-
-  
-
-  # Configure keymap in X11
-  # services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e";
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
+  hardware.bluetooth.enable = true;
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  # Steam fixes
+  programs.steam.enable = true;
+  hardware.opengl.driSupport = true;
+  hardware.opengl.driSupport32Bit = true;
+  hardware.pulseaudio.support32Bit = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.cgunn = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "docker" "scanner" "lp" ]; # Enable ‘sudo’ for the user.
   };
 
   # List packages installed in system profile. To search, run:
@@ -83,24 +80,14 @@
     git
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  # Scanner
+  hardware.sane.enable = true;
+  hardware.sane.dsseries.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

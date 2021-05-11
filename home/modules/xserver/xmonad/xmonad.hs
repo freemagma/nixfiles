@@ -137,11 +137,9 @@ myKeys = [
   , ("M-t m",         spawn "maim -s /home/cgunn/images/screenshots/$(date -Ins).png")
 
   -- Misc Scipts
-  , ("M-s w",         spawn "sh /home/cgunn/dev/sh/resetwifi.sh")
-  , ("M-s b",         spawn "sh /home/cgunn/dev/sh/bluetooth.sh B4:CE:40:C2:79:31")
-  , ("M-s h",         spawn "sh /home/cgunn/dev/sh/bluetooth.sh 38:18:4C:10:0F:40")
-  , ("M-s a f",       spawn "python /home/cgunn/dev/autokey-scripts/left_right.py")
-  , ("M-s a e",       spawn "python /home/cgunn/dev/autokey-scripts/press_a.py")
+  , ("M-s w",         spawn "resetwifi")
+  , ("M-s b",         spawn "resetblue B4:CE:40:C2:79:31")
+  , ("M-s h",         spawn "resetblue 38:18:4C:10:0F:40")
   ]
   ++ [("M-w "   ++ k, S.promptSearch myXPConfig' f) | (k,f) <- searchList ]
   ++ [("M-S-w " ++ k, S.selectSearch             f) | (k,f) <- searchList ]

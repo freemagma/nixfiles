@@ -12,6 +12,7 @@
         ./modules/shell
         ./modules/xserver
         ./modules/userdirs
+        ./modules/scripts
     ];
 
     home.packages = with pkgs; [

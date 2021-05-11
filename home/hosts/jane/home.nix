@@ -12,13 +12,18 @@
         ./modules/shell
         ./modules/xserver
         ./modules/userdirs
+        ./modules/scripts
     ];
 
     home.packages = with pkgs; [
+        # System Control
         nitrogen
         brightnessctl
+        vulkan-tools
         openvpn
+        openconnect
         
+        # GUI Apps
         firefox
         chromium
         libreoffice
@@ -30,8 +35,9 @@
         gimp
         qbittorrent
         calibre
-        steam
+        blender
         
+        # CLI Tools
         unar
         zathura
         ripgrep
@@ -39,6 +45,9 @@
         htop
         maim
         mupdf
+        steam-run
+
+        # Development
         ( python3.withPackages ( ps: with ps; [ ipython black pip ] ))
         poetry
         gnumake
