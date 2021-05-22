@@ -5,10 +5,9 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -58,6 +57,9 @@
   hardware.pulseaudio.enable = true;
   hardware.bluetooth.enable = true;
 
+  # Docker
+  virtualisation.docker.enable = true;
+
   # Steam fixes
   programs.steam.enable = true;
   hardware.opengl.driSupport = true;
@@ -67,7 +69,13 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.cgunn = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "docker" "scanner" "lp" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "docker"
+      "scanner"
+      "lp"
+    ]; # Enable ‘sudo’ for the user.
   };
 
   # List packages installed in system profile. To search, run:

@@ -5,11 +5,10 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./xserver.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./xserver.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -47,19 +46,14 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.cgunn = {
     isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-      "docker" 
-      "scanner"
-      "lp"
-    ];
+    extraGroups = [ "wheel" "networkmanager" "docker" "scanner" "lp" ];
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget vim
+    wget
+    vim
     firefox
     networkmanager
     sof-firmware
@@ -83,14 +77,13 @@
   # hardware.opengl.driSupport32Bit = true;
   hardware.pulseaudio.support32Bit = true;
   # hardware.steam-hardware.enable = true;
- 
-  hardware.sane.enable = true; 
+
+  hardware.sane.enable = true;
   hardware.sane.dsseries.enable = true;
 
   # This can be removed when the default kernel is at least version 5.6
   # https://github.com/NixOS/nixpkgs/pull/86168
-  boot.kernelPackages = lib.mkIf
-    (lib.versionOlder pkgs.linux.version "5.6")
+  boot.kernelPackages = lib.mkIf (lib.versionOlder pkgs.linux.version "5.6")
     (lib.mkDefault pkgs.linuxPackages_latest);
 
   # This can be removed when PulseAudio is at least version 14

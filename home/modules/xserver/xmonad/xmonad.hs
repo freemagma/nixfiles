@@ -140,6 +140,7 @@ myKeys = [
   , ("M-s w",         spawn "resetwifi")
   , ("M-s b",         spawn "resetblue B4:CE:40:C2:79:31")
   , ("M-s h",         spawn "resetblue 38:18:4C:10:0F:40")
+  , ("M-s d",         spawn "bluetoothctl -- disconnect")
   ]
   ++ [("M-w "   ++ k, S.promptSearch myXPConfig' f) | (k,f) <- searchList ]
   ++ [("M-S-w " ++ k, S.selectSearch             f) | (k,f) <- searchList ]

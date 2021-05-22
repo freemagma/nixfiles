@@ -1,11 +1,8 @@
-{ pkgs, ... }:
-{
-    home.packages = with pkgs; [
-        neofetch
-    ];
+{ pkgs, ... }: {
+  home.packages = with pkgs; [ neofetch ];
 
-    xdg.configFile = {
-        "neofetch/config.conf".source = ./config.conf;
-        "neofetch/logo.ascii".source = ./nixos.ascii;
-    };
+  xdg.configFile = {
+    "neofetch/config.conf".source = ./config.conf;
+    "neofetch/logo.ascii".source = ./nixos.ascii;
+  };
 }
