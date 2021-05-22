@@ -12,6 +12,8 @@
     ./modules/xserver
     ./modules/userdirs
     ./modules/scripts
+    ./modules/doom-emacs
+    ./modules/neovim
   ];
 
   home.packages = with pkgs; [
@@ -21,6 +23,7 @@
 
     firefox
     chromium
+    google-chrome
     libreoffice
     spotify
     vscode

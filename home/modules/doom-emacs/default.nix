@@ -41,13 +41,13 @@ with pkgs; {
   home.packages = [
     # required dependencies
     git
-    emacs
     ripgrep
     nixfmt
   ];
 
   home.sessionPath = [ "~/.emacs.d/bin" ];
 
+  programs.emacs.enable = true;
   services.emacs.enable = true;
 }
 
