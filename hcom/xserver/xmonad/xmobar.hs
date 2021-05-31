@@ -1,15 +1,15 @@
 Config { 
-    font =         "xft:Fira Code:size=11:bold:antialias=true"
+    font =         "xft:JetBrains Mono:size=11:bold:antialias=true"
   , bgColor =      "#2e2a31"
   , fgColor =      "#bcbabe"
   , position =     Top
 
-  , iconRoot = "/home/cgunn/.config/nixpkgs/xmonad/icons"
+  , iconRoot = "/home/cgunn/dev/dotfiles/hcom/xserver/xmonad/icons"
 
   -- layout
   , sepChar =  "%"
   , alignSep = "}{"
-  , template = " %UnsafeStdinReader% }{ %battery% <fc=#4a464d>|</fc> %date% "
+  , template = " %UnsafeStdinReader% }{ %battery% | %date% "
 
   -- general behavior
   , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -32,7 +32,7 @@ Config {
         , "-o", "<left>%", "-i", "<left>%", "-O", "<left>%"
       ] 50
     -- (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-    , Run Date "%a %F <fc=#4a464d>|</fc> %T" "date" 10
+    , Run Date "%a %F | %T" "date" 10
     , Run UnsafeStdinReader
     ]
 }

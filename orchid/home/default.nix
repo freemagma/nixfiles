@@ -37,7 +37,6 @@
 
             firefox
             chromium
-            google-chrome
             libreoffice
             spotify
             vscode

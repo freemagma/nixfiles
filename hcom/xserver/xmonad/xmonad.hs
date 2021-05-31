@@ -51,7 +51,7 @@ nixOsChannel = "unstable"
 
 myXPConfig :: XPConfig
 myXPConfig = def { 
-    font                = "xft:Fira Code:size=11:bold:antialias=true"
+    font                = "xft:Source Code Pro:size=11:bold:antialias=true"
   , bgColor             = "#2e2a31"
   , fgColor             = "#bcbabe"
   , bgHLight            = "#d8d7da"
@@ -189,7 +189,7 @@ myManageHook = composeAll [
 windowCount :: X (Maybe String)
 windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
 
-myBar n = "xmobar -x " ++ (show n) ++ " /home/cgunn/dev/dotfiles/home/modules/xserver/xmonad/xmobar.hs"
+myBar n = "xmobar -x " ++ (show n) ++ " /home/cgunn/dev/dotfiles/hcom/xserver/xmonad/xmobar.hs"
 myPP = xmobarPP {
     ppCurrent = xmobarColor "#dc8a0e" "" . wrap "<" ">"
   , ppVisible = xmobarColor "#d8137f" ""
