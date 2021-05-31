@@ -93,6 +93,9 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+  # RatBag
+  services.ratbagd.enable = true;
+
   # Scanner
   hardware.sane.enable = true;
   hardware.sane.dsseries.enable = true;

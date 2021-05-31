@@ -42,12 +42,19 @@ with pkgs; {
     # required dependencies
     git
     ripgrep
+    # cc
+    clang-tools
+    irony-server
+    # nix
     nixfmt
+    # haskell
+    cabal-install
+    (haskell.packages.ghc8104.ghcWithPackages (hp: with hp; [ hoogle ]))
   ];
 
   home.sessionPath = [ "~/.emacs.d/bin" ];
 
   programs.emacs.enable = true;
-  services.emacs.enable = true;
+  # services.emacs.enable = true;
 }
 

@@ -1,5 +1,5 @@
 { pkgs, ... }:
 
 pkgs.writeShellScriptBin "em" ''
-  emacsclient --create-frame --alternate-editor=""
+  emacs -bg "#21242b"
 ''

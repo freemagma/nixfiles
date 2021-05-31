@@ -27,6 +27,7 @@
     # GUI Apps
     firefox
     chromium
+    google-chrome
     libreoffice
     spotify
     vscode
@@ -51,6 +52,7 @@
     htop
     maim
     mupdf
+    ffmpeg-full
 
     # Development
     (python3.withPackages (ps:
@@ -65,6 +67,6 @@
     poetry
     gnumake
     docker
-    gcc
+    valgrind
   ];
 }

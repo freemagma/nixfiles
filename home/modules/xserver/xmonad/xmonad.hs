@@ -43,7 +43,7 @@ myLayout = noBorders $ tall ||| full
           (Border 4 4 4 4) True
           (Border 4 4 4 4) True
 
-nixOsChannel = "nixos-20.03"
+nixOsChannel = "unstable"
 
 {---------------------------------------------------------------}
 {--  Prompt Settings                                          --}
