@@ -1,5 +1,5 @@
 *.hi
 *.errors
 *.o
-home/hosts/*/modules
+configuration.nix
 xmonad-x86_64-linux

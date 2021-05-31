@@ -7,7 +7,7 @@
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./xserver.nix
+    ../com/xserver
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -39,9 +39,6 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
   hardware.bluetooth.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.cgunn = {
@@ -108,4 +105,3 @@
   system.stateVersion = "20.09"; # Did you read the comment?
 
 }
-
