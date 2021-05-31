@@ -1,14 +1,14 @@
 {
-    # Nvidia
-    nixpkgs.config.allowUnfree = true;
-    services.xserver.videoDrivers = [ "nvidia" ];
+  # Nvidia
+  nixpkgs.config.allowUnfree = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
 
-    # CUPS
-    services.printing.enable = true;
+  # CUPS
+  services.printing.enable = true;
 
-    # OpenSSH
-    services.openssh.enable = true;
+  # OpenSSH
+  services.openssh.enable = true;
 
-    # RatBag
-    services.ratbagd.enable = true;
+  # RatBag
+  services.ratbagd.enable = true;
 }

@@ -1,15 +1,11 @@
 { pkgs, ... }: {
 
-  home.packages = with pkgs; [
-    haskellPackages.xmobar
-  ];
+  home.packages = with pkgs; [ haskellPackages.xmobar ];
 
   xsession.windowManager.xmonad = {
     enable = true;
-      enableContribAndExtras = true;
-      extraPackages = hp: [
-        hp.xmobar
-      ];
+    enableContribAndExtras = true;
+    extraPackages = hp: [ hp.xmobar ];
     config = ./xmonad/xmonad.hs;
   };
 
