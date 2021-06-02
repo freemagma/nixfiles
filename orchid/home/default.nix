@@ -10,6 +10,11 @@
 
   home-manager.useGlobalPkgs = true;
   home-manager.users.cgunn = { pkgs, ... }: {
+
+    _module.args = {
+      style = import ../../hcom/style;
+      machine.wireless_interface = "wlan0";
+    };
     imports = [
       ../../hcom/pkgs
       ../../hcom/neofetch

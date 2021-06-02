@@ -1,4 +1,4 @@
-{ pkgs, style, ... }:
+{ pkgs, style, machine, ... }:
 
 # Created By @icanwalkonwater
 # Edited and ported to Nix by Th0rgal
@@ -83,7 +83,7 @@
 
       "module/wireless" = {
         type = "internal/network";
-        interface = "wlp4s0";
+        interface = machine.wireless_interface;
 
         label-connected = " %essid% %signal%";
         label-connected-foreground = dark_bg;
