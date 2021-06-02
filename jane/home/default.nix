@@ -10,6 +10,8 @@
 
   home-manager.useGlobalPkgs = true;
   home-manager.users.cgunn = { pkgs, ... }: {
+
+    _module.args.style = import ../../hcom/style;
     imports = [
       ../../hcom/pkgs
       ../../hcom/neofetch

@@ -55,6 +55,6 @@ with pkgs; {
   home.sessionPath = [ "~/.emacs.d/bin" ];
 
   programs.emacs.enable = true;
-  # services.emacs.enable = true;
+  services.emacs.enable = true;
 }
 

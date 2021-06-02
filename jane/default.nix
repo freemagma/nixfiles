@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./boot ./hardware ./services ./programs ./home ../com/xserver ];
+  imports = [ ../com/xserver ./boot ./hardware ./services ./programs ./home ];
 
   networking.hostName = "jane";
   time.timeZone = "America/New_York";
