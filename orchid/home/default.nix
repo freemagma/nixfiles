@@ -14,6 +14,7 @@
     _module.args = {
       style = import ../../hcom/style;
       machine.wireless_interface = "wlan0";
+      machine.hasBattery = true;
     };
     imports = [
       ../../hcom/pkgs
@@ -33,7 +34,7 @@
       openvpn
 
       firefox
-      chromium
+      google-chrome
       libreoffice
       spotify
       vscode

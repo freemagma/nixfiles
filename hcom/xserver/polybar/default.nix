@@ -43,7 +43,10 @@
 
         modules-left = "i3";
         modules-center = "title";
-        modules-right = "wireless date";
+        modules-right = if machine.hasBattery then
+          "battery wireless date"
+        else
+          "wireless date";
 
         locale = "en_US.UTF-8";
       };
@@ -123,6 +126,44 @@
         label-urgent-background = dark_bg;
         label-urgent-foreground = red;
         label-urgent-padding = 1;
+      };
+
+      "module/battery" = rec {
+        type = "internal/battery";
+
+        battery = "BAT0";
+        adapter = "AC";
+
+        format-charging = "<animation-charging> <label-charging>";
+        format-discharging = "<ramp-capacity> <label-discharging>";
+        format-full = "<ramp-capacity> <label-full>";
+
+        format-charging-background = green;
+        format-discharging-background = format-charging-background;
+        format-full-background = format-charging-background;
+        format-charging-foreground = dark_bg;
+        format-discharging-foreground = format-charging-foreground;
+        format-full-foreground = format-charging-foreground;
+
+        label-charging = "%percentage%%";
+        label-discharging = "%percentage%%";
+        label-full = "100%";
+        format-charging-padding = 1;
+        format-discharging-padding = format-charging-padding;
+        format-full-padding = format-charging-padding;
+
+        ramp-capacity-0 = "";
+        ramp-capacity-1 = "";
+        ramp-capacity-2 = "";
+        ramp-capacity-3 = "";
+        ramp-capacity-4 = "";
+
+        animation-charging-0 = "";
+        animation-charging-1 = "";
+        animation-charging-2 = "";
+        animation-charging-3 = "";
+        animation-charging-4 = "";
+        animation-charging-framerate = 750;
       };
 
       "module/title" = {

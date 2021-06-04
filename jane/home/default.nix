@@ -14,6 +14,7 @@
     _module.args = {
       style = import ../../hcom/style;
       machine.wireless_interface = "wlp4s0";
+      machine.hasBattery = false;
     };
     imports = [
       ../../hcom/pkgs
