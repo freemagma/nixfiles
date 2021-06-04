@@ -2,7 +2,11 @@
 
   imports = [ ./polybar ./i3 ];
 
-  # home.packages = with pkgs; [ haskellPackages.xmobar ];
+  home.packages = with pkgs;
+    [
+      papirus-icon-theme
+      # haskellPackages.xmobar
+    ];
   # xsession.windowManager.xmonad = {
   #   enable = true;
   #   enableContribAndExtras = true;

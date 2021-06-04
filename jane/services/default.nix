@@ -11,4 +11,7 @@
 
   # RatBag
   services.ratbagd.enable = true;
+
+  # blueman
+  services.blueman.enable = true;
 }

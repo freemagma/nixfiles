@@ -6,12 +6,16 @@
 {
   home.packages = with pkgs; [ nerdfonts ];
 
+  services.blueman-applet.enable = true;
+  services.network-manager-applet.enable = true;
+
   services.polybar = {
     enable = true;
 
     package = pkgs.polybar.override {
       i3GapsSupport = true;
       alsaSupport = true;
+      pulseSupport = true;
     };
 
     script = "polybar -q -r top & polybar -q -r bottom &";
@@ -40,6 +44,8 @@
         font-1 = "Fira Code:style=Bold:size=12;3";
         font-2 = "Fira Code:size=12;2";
         font-3 = "FontAwesome:style=Regular:size=12;3";
+
+        # tray-position = "center";
 
         modules-left = "i3";
         modules-center = "title";
@@ -123,8 +129,8 @@
         label-visible-padding = 1;
 
         label-urgent = "%index%";
-        label-urgent-background = dark_bg;
-        label-urgent-foreground = red;
+        label-urgent-background = red;
+        label-urgent-foreground = dark_bg;
         label-urgent-padding = 1;
       };
 

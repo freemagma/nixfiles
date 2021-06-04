@@ -4,5 +4,6 @@
     (pkgs.callPackage ./poryscript { })
     (pkgs.callPackage ./porymap { })
     (pkgs.callPackage ./tex { })
+    (pkgs.callPackage ./ekhex { })
   ];
 }

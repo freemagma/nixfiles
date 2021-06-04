@@ -87,7 +87,7 @@
         "${modifier}+Shift+e" = "reload";
         "${modifier}+Shift+Ctrl+e" = "restart";
         "${modifier}+Shift+r" = "exec reboot";
-        "${modifier}+Escape" = "exit";
+        # "${modifier}+Escape" = "exit";
         "${modifier}+Shift+Escape" = "exec shutdown now";
         "${modifier}+Shift+c" = "kill";
 
@@ -104,6 +104,11 @@
 
         # resize mode
         "${modifier}+r" = ''mode "resize"'';
+
+        # volume control
+        "${modifier}+Left" = "exec amixer set Master 5%- unmute";
+        "${modifier}+Right" = "exec amixer set Master 5%+ unmute";
+        "${modifier}+Down" = "exec amixer set Master toggle";
 
         # launch things
         "${modifier}+Return" = "exec kitty";
