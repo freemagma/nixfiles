@@ -82,8 +82,8 @@
         date = "%Y-%m-%d";
         time = "%H:%M:%S";
 
-        format = "<label>";
-        format-background = blue;
+        format = " <label>";
+        format-background = bright_blue;
         format-foreground = dark_bg;
         format-padding = 1;
 
@@ -96,12 +96,12 @@
 
         label-connected = " %essid% %signal%";
         label-connected-foreground = dark_bg;
-        format-connected-background = cyan;
+        format-connected-background = bright_cyan;
         format-connected-padding = 1;
 
         label-disconnected = " disconnected";
         label-disconnected-foreground = dark_bg;
-        format-disconnected-background = red;
+        format-disconnected-background = bright_red;
         format-disconnected-padding = 1;
       };
 
@@ -110,7 +110,7 @@
         pin-workspaces = false;
         strip-wsnumbers = false;
         format = "<label-state> <label-mode>";
-        format-background = cyan;
+        format-background = bright_cyan;
 
         label-mode = "%mode%";
         label-mode-foreground = dark_bg;
@@ -129,7 +129,7 @@
         label-visible-padding = 1;
 
         label-urgent = "%index%";
-        label-urgent-background = red;
+        label-urgent-background = bright_red;
         label-urgent-foreground = dark_bg;
         label-urgent-padding = 1;
       };
@@ -144,7 +144,7 @@
         format-discharging = "<ramp-capacity> <label-discharging>";
         format-full = "<ramp-capacity> <label-full>";
 
-        format-charging-background = green;
+        format-charging-background = bright_green;
         format-discharging-background = format-charging-background;
         format-full-background = format-charging-background;
         format-charging-foreground = dark_bg;
