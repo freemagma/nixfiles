@@ -18,12 +18,12 @@
       modifier = "Mod4";
       colors = with style.color; rec {
         background = bg;
-        focused = {
-          background = green;
-          border = green;
-          text = green;
-          childBorder = green;
-          indicator = green;
+        focused = rec {
+          background = purple;
+          border = background;
+          text = background;
+          childBorder = background;
+          indicator = background;
         };
         focusedInactive = focused // {
           background = blue;
