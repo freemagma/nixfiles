@@ -109,6 +109,9 @@
         "${modifier}+Left" = "exec amixer set Master 5%- unmute";
         "${modifier}+Right" = "exec amixer set Master 5%+ unmute";
         "${modifier}+Down" = "exec amixer set Master toggle";
+        "${modifier}+Shift+Left" = "exec brightnessctl set 10%-";
+        "${modifier}+Shift+Right" = "exec brightnessctl set 10%+";
+        "${modifier}+Shift+Down" = "exec brightnessctl set 50%";
 
         # launch things
         "${modifier}+Return" = "exec kitty";
