@@ -9,6 +9,7 @@
     ./hardware-configuration.nix
     ./home
     ../com/xserver
+    ../com/options
   ];
 
   # Use the systemd-boot EFI boot loader.

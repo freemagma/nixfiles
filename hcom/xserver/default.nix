@@ -5,7 +5,7 @@
   services.picom = {
     enable = true;
     backend = "xrender";
-    inactiveDim = "0.25";
+    # inactiveDim = "0.25";
     opacityRule = [ "90:class_g = 'kitty'" ];
   };
 

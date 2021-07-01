@@ -1,6 +1,9 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [ spaceship-prompt fira-code autojump bat ];
 
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
+
   programs.zsh = {
     enable = true;
     shellAliases = {

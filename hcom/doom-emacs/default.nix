@@ -21,27 +21,33 @@
 #   };
 # }
 
+# home.file.".doom.d" = {
+#   source = ./doom;
+#   recursive = true;
+#   onChange = ''
+#     DOOM="$HOME/.emacs.d"
+#
+#     if [ ! -d "$DOOM" ]; then
+#       git clone https://github.com/hlissner/doom-emacs.git $DOOM
+#       $DOOM/bin/doom -y install
+#     fi
+#
+#     $DOOM/bin/doom sync
+#   '';
+# };
+
 { pkgs, ... }:
 with pkgs; {
   home.file.".doom.d" = {
     source = ./doom;
     recursive = true;
-    onChange = ''
-      DOOM="$HOME/.emacs.d"
-
-      if [ ! -d "$DOOM" ]; then
-        git clone https://github.com/hlissner/doom-emacs.git $DOOM
-        $DOOM/bin/doom -y install
-      fi
-
-      $DOOM/bin/doom sync
-    '';
   };
 
   home.packages = [
     # required dependencies
     git
     ripgrep
+    fd
     # cc
     clang-tools
     irony-server
