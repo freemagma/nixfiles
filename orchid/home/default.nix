@@ -42,6 +42,7 @@
       slack
       teams
       bluejeans-gui
+      zoom-us
       mgba
       gimp
       qbittorrent

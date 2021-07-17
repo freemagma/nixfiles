@@ -51,6 +51,7 @@
       calibre
       blender
       desmume
+      zoom-us
 
       # Minecraft
       minecraft
