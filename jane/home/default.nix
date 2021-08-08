@@ -51,6 +51,7 @@
       calibre
       blender
       desmume
+      inkscape
 
       # Minecraft
       minecraft
