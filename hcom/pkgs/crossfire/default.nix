@@ -14,7 +14,7 @@ stdenv.mkDerivation {
   installPhase = ''
     mkdir -pv $out/share/java $out/bin
     cp -r * $out/share/java
-    makeWrapper ${jdk8}/bin/java $out/bin/crossfire \
+    makeWrapper ${jre8}/bin/java $out/bin/crossfire \
       --add-flags "-jar $out/share/java/CrossFire.jar" \
       --set LD_LIBRARY_PATH "${lib.makeLibraryPath [ cups.out ]}"
   '';
