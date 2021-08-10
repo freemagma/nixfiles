@@ -35,6 +35,7 @@
 
       firefox
       google-chrome
+      chromium
       libreoffice
       spotify
       vscode
@@ -47,6 +48,7 @@
       gimp
       qbittorrent
       calibre
+      ffmpeg-full
 
       unar
       zathura
