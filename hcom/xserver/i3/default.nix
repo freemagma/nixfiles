@@ -116,6 +116,7 @@
         # launch things
         "${modifier}+Return" = "exec kitty";
         "${modifier}+f" = "exec firefox";
+        "${modifier}+Shift+f" = "exec firefox --private-window";
         "${modifier}+q" = "exec ${pkgs.rofi}/bin/rofi -show run";
 
         # script keybindings
