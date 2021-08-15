@@ -1,4 +1,4 @@
-{ pkgs, style, machine, ... }:
+{ pkgs, lib, style, machine, ... }:
 
 # Created By @icanwalkonwater
 # Edited and ported to Nix by Th0rgal
@@ -28,7 +28,7 @@
 
       #====================BARS====================#
 
-      "bar/top" = {
+      "bar/top" = rec {
         bottom = false;
         fixed-center = true;
 
@@ -47,12 +47,16 @@
 
         # tray-position = "center";
 
+        network = if lib.hasPrefix "e" machine.netInterface then
+          "wired"
+        else
+          "wireless";
         modules-left = "i3";
         modules-center = "title";
         modules-right = if machine.hasBattery then
-          "battery wireless date"
+          "battery ${network} date"
         else
-          "wireless date";
+          "${network} date";
 
         locale = "en_US.UTF-8";
       };
@@ -92,7 +96,7 @@
 
       "module/wireless" = {
         type = "internal/network";
-        interface = machine.wireless_interface;
+        interface = machine.netInterface;
 
         label-connected = " %essid% %signal%";
         label-connected-foreground = dark_bg;
@@ -100,6 +104,21 @@
         format-connected-padding = 1;
 
         label-disconnected = " disconnected";
+        label-disconnected-foreground = dark_bg;
+        format-disconnected-background = bright_red;
+        format-disconnected-padding = 1;
+      };
+
+      "module/wired" = {
+        type = "internal/network";
+        interface = machine.netInterface;
+
+        label-connected = "%downspeed% %upspeed%";
+        label-connected-foreground = dark_bg;
+        format-connected-background = bright_cyan;
+        format-connected-padding = 1;
+
+        label-disconnected = "disconnected";
         label-disconnected-foreground = dark_bg;
         format-disconnected-background = bright_red;
         format-disconnected-padding = 1;

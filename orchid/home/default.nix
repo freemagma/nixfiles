@@ -13,7 +13,7 @@
 
     _module.args = {
       style = import ../../hcom/style;
-      machine.wireless_interface = "wlan0";
+      machine.netInterface = "wlan0";
       machine.hasBattery = true;
     };
     imports = [
