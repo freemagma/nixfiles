@@ -5,7 +5,8 @@
 
   users.users.cgunn = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "docker" "scanner" "lp" ];
+    extraGroups =
+      [ "wheel" "networkmanager" "docker" "scanner" "lp" "adbusers" ];
   };
 
   home-manager.useGlobalPkgs = true;

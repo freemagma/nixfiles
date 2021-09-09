@@ -48,7 +48,8 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.cgunn = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "docker" "scanner" "lp" ];
+    extraGroups =
+      [ "wheel" "networkmanager" "docker" "scanner" "lp" "adbusers" ];
   };
 
   # List packages installed in system profile. To search, run:
@@ -61,13 +62,8 @@
     sof-firmware
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  # Programs
+  programs.adb.enable = true;
 
   # List services that you want to enable:
 
