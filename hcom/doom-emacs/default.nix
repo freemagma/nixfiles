@@ -55,7 +55,7 @@ with pkgs; {
     nixfmt
     # haskell
     cabal-install
-    (haskell.packages.ghc8104.ghcWithPackages (hp: with hp; [ hoogle ]))
+    (haskellPackages.ghcWithPackages (hp: with hp; [ hoogle ]))
   ];
 
   home.sessionPath = [ "~/.emacs.d/bin" ];
