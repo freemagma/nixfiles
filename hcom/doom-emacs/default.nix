@@ -56,6 +56,8 @@ with pkgs; {
     # haskell
     cabal-install
     (haskellPackages.ghcWithPackages (hp: with hp; [ hoogle ]))
+    # prettier
+    nodePackages.prettier
   ];
 
   home.sessionPath = [ "~/.emacs.d/bin" ];

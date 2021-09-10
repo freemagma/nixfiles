@@ -7,4 +7,7 @@
   hardware.opengl.driSupport = true;
   hardware.opengl.driSupport32Bit = true;
   hardware.pulseaudio.support32Bit = true;
+
+  # ADB
+  programs.adb.enable = true;
 }

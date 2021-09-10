@@ -1,10 +1,14 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+with pkgs;
+
+{
   home.packages = with pkgs; [
-    (pkgs.callPackage ./pkhex { })
-    (pkgs.callPackage ./poryscript { })
-    (pkgs.callPackage ./porymap { })
-    (pkgs.callPackage ./tex { })
-    (pkgs.callPackage ./ekhex { })
-    (pkgs.callPackage ./crossfire { })
+    (callPackage ./pkhex { })
+    (callPackage ./poryscript { })
+    (callPackage ./porymap { })
+    (callPackage ./tex { })
+    (callPackage ./ekhex { })
+    (callPackage ./circuitsim { })
+    (callPackage ./crossfire { })
   ];
 }
