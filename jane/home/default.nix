@@ -56,6 +56,7 @@
       desmume
       inkscape
       bluejeans-gui
+      teams
 
       # Minecraft
       minecraft
