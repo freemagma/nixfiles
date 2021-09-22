@@ -57,6 +57,8 @@ with pkgs; {
     cabal-install
     (haskell.packages.ghc8104.ghcWithPackages (hp: with hp; [ hoogle ]))
     nodePackages.prettier
+    # cmake
+    cmake-format
   ];
 
   home.sessionPath = [ "~/.emacs.d/bin" ];
