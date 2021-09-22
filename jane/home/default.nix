@@ -27,6 +27,7 @@
       ../../hcom/scripts
       ../../hcom/doom-emacs
       ../../hcom/neovim
+      ../../hcom/chess
     ];
 
     home.packages = with pkgs; [
@@ -36,6 +37,7 @@
       vulkan-tools
       openvpn
       openconnect
+      pavucontrol
 
       # GUI Apps
       firefox
@@ -53,6 +55,8 @@
       blender
       desmume
       inkscape
+      bluejeans-gui
+      teams
 
       # Minecraft
       minecraft
