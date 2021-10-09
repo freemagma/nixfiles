@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ <home-manager/nixos> ];
 
   users.users.cgunn = {
     isNormalUser = true;
@@ -10,7 +9,8 @@
   };
 
   home-manager.useGlobalPkgs = true;
-  home-manager.users.cgunn = { pkgs, ... }: {
+  home-manager.useUserPackages = true;
+  home-manager.users.cgunn = {
 
     _module.args = {
       style = import ../../hcom/style;
@@ -45,7 +45,6 @@
       google-chrome
       libreoffice
       spotify
-      vscode
       discord
       slack
       mgba
@@ -53,7 +52,7 @@
       qbittorrent
       calibre
       blender
-      desmume
+      melonDS
       inkscape
       bluejeans-gui
       teams

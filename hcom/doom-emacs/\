@@ -39,6 +39,11 @@
 { pkgs, ... }:
 with pkgs; 
 
+let
+  emacs-lucid = emacs.override {
+    toolkit = "lucid";
+  };
+in
 {
   home.file.".doom.d" = {
     source = ./doom;
@@ -65,6 +70,8 @@ with pkgs;
   home.sessionPath = [ "~/.emacs.d/bin" ];
 
   programs.emacs.enable = true;
+  programs.emacs.package = emacs-lucid;
   services.emacs.enable = true;
+  services.emacs.package = emacs-lucid;
 }
 

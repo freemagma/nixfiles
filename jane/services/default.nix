@@ -1,4 +1,9 @@
+{ pkgs, ... }:
+
 {
+  # udev
+  services.udev.packages = [ pkgs.qmk-udev-rules ];
+
   # Nvidia
   nixpkgs.config.allowUnfree = true;
   services.xserver.videoDrivers = [ "nvidia" ];

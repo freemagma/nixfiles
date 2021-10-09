@@ -77,7 +77,7 @@
         "${modifier}+a" = "focus parent";
         "${modifier}+Shift+a" = "focus child";
 
-        #move focused window
+        # move focused window
         "${modifier}+Shift+h" = "move left";
         "${modifier}+Shift+j" = "move down";
         "${modifier}+Shift+k" = "move up";
@@ -99,8 +99,8 @@
         "${modifier}+w" = "layout tabbed";
         "${modifier}+x" = "layout stacking";
         "${modifier}+b" = "fullscreen toggle";
-        "${modifier}+minus" = "split h";
-        "${modifier}+backslash" = "split v";
+        "${modifier}+minus" = "split v";
+        "${modifier}+backslash" = "split h";
 
         # resize mode
         "${modifier}+r" = ''mode "resize"'';
