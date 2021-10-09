@@ -30,6 +30,15 @@
         modules =
           [ ./jane home-manager.nixosModules.home-manager useFlakes pinFlakes ];
       };
+      nixosConfigurations.orchid = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./orchid
+          home-manager.nixosModules.home-manager
+          useFlakes
+          pinFlakes
+        ];
+      };
 
     };
 }

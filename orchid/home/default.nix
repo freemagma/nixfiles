@@ -1,15 +1,14 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ <home-manager/nixos> ];
-
   users.users.cgunn = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "docker" "scanner" "lp" ];
   };
 
   home-manager.useGlobalPkgs = true;
-  home-manager.users.cgunn = { pkgs, ... }: {
+  home-manager.useUserPackages = true;
+  home-manager.users.cgunn = {
 
     _module.args = {
       style = import ../../hcom/style;
