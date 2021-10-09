@@ -36,6 +36,7 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.printing.drivers = [ pkgs.hplip ];
 
   # Enable docker
   virtualisation.docker.enable = true;

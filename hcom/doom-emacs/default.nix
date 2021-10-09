@@ -60,6 +60,8 @@ with pkgs;
     (haskellPackages.ghcWithPackages (hp: with hp; [ hoogle ]))
     # prettier
     nodePackages.prettier
+    # cmake
+    cmake-format
   ];
 
   home.sessionPath = [ "~/.emacs.d/bin" ];
