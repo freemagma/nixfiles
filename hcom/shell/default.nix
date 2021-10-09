@@ -11,7 +11,7 @@
     enable = true;
     shellAliases = {
       la = "ls -lah";
-      nixr = "sudo nixos-rebuild switch";
+      nixr = "sudo nixos-rebuild switch --flake ~/dev/dotfiles";
       cleo = "clear && neofetch";
       cat = "bat -p --paging=never";
       activate = "source .venv/bin/activate";
