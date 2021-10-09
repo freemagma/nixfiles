@@ -5,7 +5,7 @@
     enable = true;
     settings = with style.color; {
       shell = "zsh";
-      enable_auto_bell = "no";
+      enable_audio_bell = "no";
       font_family = "Fira Code";
       font_size = 12;
 
