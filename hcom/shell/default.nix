@@ -42,6 +42,7 @@
     enable = true;
     userName = "Charles Gunn";
     userEmail = "me@cjgunn.com";
+    extraConfig.init.defaultBranch = "main";
   };
 
 }
