@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, custom, machine, ... }:
 
 {
   users.users.cgunn = {
@@ -12,8 +12,7 @@
 
     _module.args = {
       style = import ../../hcom/style;
-      machine.netInterface = "wlan0";
-      machine.hasBattery = true;
+      inherit custom machine;
     };
     imports = [
       ../../hcom/pkgs
@@ -48,6 +47,8 @@
       qbittorrent
       calibre
       ffmpeg-full
+      custom.pkgs.crossfire
+      custom.pkgs.circuitsim
 
       unar
       zathura
@@ -61,6 +62,7 @@
       gnumake
       docker
       gcc
+      custom.pkgs.mytex
     ];
   };
 }
