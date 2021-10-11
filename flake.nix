@@ -7,36 +7,17 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager }:
-    let
-      useFlakes = { pkgs, ... }: {
-        nix = {
-          package = pkgs.nixFlakes;
-          extraOptions = ''
-            experimental-features = nix-command flakes ca-references
-          '';
-        };
-      };
-      pinFlakes = {
-        nix.registry = {
-          nixpkgs.flake = nixpkgs;
-          home-manager.flake = home-manager;
-        };
-        nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
-      };
+  outputs = { self, nixpkgs, home-manager }@inputs:
+    let mylib = import ./lib { inherit (nixpkgs) lib; };
     in {
-      nixosConfigurations.jane = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules =
-          [ ./jane home-manager.nixosModules.home-manager useFlakes pinFlakes ];
-      };
+      nixosConfigurations.jane = import ./jane (inputs // { inherit mylib; });
       nixosConfigurations.orchid = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./orchid
           home-manager.nixosModules.home-manager
-          useFlakes
-          pinFlakes
+          mylib.flakes.useFlakes
+          (mylib.flakes.pinFlakes { inherit nixpkgs home-manager; })
         ];
       };
 

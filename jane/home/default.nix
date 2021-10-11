@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, custom, ... }:
 
 {
 
@@ -12,11 +12,7 @@
   home-manager.useUserPackages = true;
   home-manager.users.cgunn = {
 
-    _module.args = {
-      style = import ../../hcom/style;
-      machine.netInterface = "enp6s0";
-      machine.hasBattery = false;
-    };
+    _module.args = { style = import ../../hcom/style; };
     imports = [
       ../../hcom/pkgs
       ../../hcom/neofetch
@@ -56,6 +52,8 @@
       inkscape
       bluejeans-gui
       teams
+      custom.pkgs.circuitsim
+      custom.pkgs.crossfire
 
       # Minecraft
       minecraft
@@ -85,6 +83,13 @@
       gnumake
       docker
       valgrind
+      custom.pkgs.mytex
+
+      # pokemon
+      custom.pkgs.pkhex
+      custom.pkgs.ekhex
+      custom.pkgs.porycript
+      custom.pkgs.porymap
     ];
   };
 }
