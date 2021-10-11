@@ -1,10 +1,6 @@
 { pkgs, ... }:
 
 {
-  _module.args = {
-    machine.netInterface = "enp6s0";
-    machine.hasBattery = "false";
-  };
   imports = [
     ../com/xserver
     ../com/options
