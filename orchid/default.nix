@@ -6,7 +6,7 @@ nixpkgs.lib.nixosSystem rec {
     args = {
       machine.netInterface = "wlan0";
       machine.hasBattery = true;
-      custom.pkgs = import ../pkgs { pkgs = nixpkgs.legacyPacakges.${system}; };
+      custom.pkgs = import ../pkgs { pkgs = nixpkgs.legacyPackages.${system}; };
     };
     mainModule = import ./configuration.nix;
   in [

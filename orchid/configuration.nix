@@ -6,10 +6,6 @@
 
 {
 
-  _module.args = {
-    style = import ../../hcom/style;
-    inherit custom machine;
-  };
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./home
