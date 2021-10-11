@@ -1,5 +1,4 @@
 *.hi
 *.errors
 *.o
-configuration.nix
 xmonad-x86_64-linux

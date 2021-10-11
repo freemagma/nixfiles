@@ -1,4 +1,4 @@
-{ config, pkgs, custom, ... }:
+{ config, pkgs, custom, machine, ... }:
 
 {
 
@@ -12,9 +12,11 @@
   home-manager.useUserPackages = true;
   home-manager.users.cgunn = {
 
-    _module.args = { style = import ../../hcom/style; };
+    _module.args = {
+      style = import ../../hcom/style;
+      inherit custom machine;
+    };
     imports = [
-      ../../hcom/pkgs
       ../../hcom/neofetch
       ../../hcom/kitty
       ../../hcom/shell
