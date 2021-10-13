@@ -7,7 +7,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager }@inputs:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let mylib = import ./lib { inherit (nixpkgs) lib; };
     in {
       nixosConfigurations.jane = import ./jane (inputs // { inherit mylib; });

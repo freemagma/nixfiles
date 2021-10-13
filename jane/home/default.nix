@@ -1,4 +1,4 @@
-{ config, pkgs, custom, machine, ... }:
+{ config, pkgs, custom, machine, inputs, ... }:
 
 {
 
@@ -14,7 +14,7 @@
 
     _module.args = {
       style = import ../../hcom/style;
-      inherit custom machine;
+      inherit custom machine inputs;
     };
     imports = [
       ../../hcom/neofetch
@@ -54,6 +54,7 @@
       inkscape
       bluejeans-gui
       teams
+      zoom-us
       custom.pkgs.circuitsim
       custom.pkgs.crossfire
 
