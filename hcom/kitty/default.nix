@@ -9,6 +9,8 @@
       font_family = "Fira Code";
       font_size = 12;
 
+      scrollback_lines = 10000;
+
       window_margin_width = 6;
 
       foreground = fg;
