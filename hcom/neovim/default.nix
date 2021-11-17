@@ -5,13 +5,15 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
-    extraConfig = "";
+
     plugins = with pkgs.vimPlugins; [
-      vim-airline
+      lightline-vim
       vim-polyglot
       vim-fugitive
       nerdtree
     ];
+
+    extraConfig = "";
   };
 
   home.sessionVariables = {

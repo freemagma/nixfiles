@@ -87,6 +87,7 @@
       docker
       valgrind
       custom.pkgs.mytex
+      agda
 
       # pokemon
       custom.pkgs.pkhex
