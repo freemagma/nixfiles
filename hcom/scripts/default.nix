@@ -5,5 +5,6 @@
     (pkgs.callPackage ./resetwifi.nix { })
     (pkgs.callPackage ./resetblue.nix { })
     (pkgs.callPackage ./em.nix { })
+    (pkgs.callPackage ./gtvpn.nix { })
   ];
 }
