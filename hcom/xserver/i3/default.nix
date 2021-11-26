@@ -139,6 +139,7 @@
 
         scripts = {
           b = ''exec "resetblue B4:CE:40:C2:79:31"; mode "default"'';
+          h = ''exec "resetblue 10:29:59:5E:68:9A"; mode "default"'';
           d = ''exec "bluetoothctl -- disconnect"; mode "default"'';
           m = ''
             exec "maim -s /home/cgunn/images/screenshots/$(date -Ins).png"; mode "default"'';
