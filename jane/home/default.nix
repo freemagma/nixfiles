@@ -71,6 +71,7 @@
       maim
       mupdf
       ffmpeg-full
+      awscli2
 
       # Development
       (python3.withPackages (ps:
