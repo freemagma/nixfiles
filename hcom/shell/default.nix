@@ -23,6 +23,7 @@
       SPACESHIP_CHAR_SYMBOL="$";
       SPACESHIP_CHAR_SUFFIX=" ";
       SPACESHIP_GIT_STATUS_DELETED="X";
+      SPACESHIP_BATTERY_SHOW=false;
       neofetch
     '';
 
