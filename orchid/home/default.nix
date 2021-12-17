@@ -35,7 +35,6 @@
       chromium
       libreoffice
       spotify
-      vscode
       discord
       slack
       teams
