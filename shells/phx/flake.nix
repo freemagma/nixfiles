@@ -30,7 +30,7 @@
       in {
         devShell = mkShell {
           buildInputs =
-            [ git elixir inotify-tools postgresql phxinit pgstart pgstop ];
+            [ git elixir nodejs-17_x inotify-tools postgresql phxinit pgstart pgstop ];
           shellHook = ''
             mkdir -p .artifacts
             export ARTIFACT_DIR=$PWD/.artifacts
