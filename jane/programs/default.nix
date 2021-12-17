@@ -23,7 +23,4 @@ in {
     extraPackages = [ nvidia_gl ];
     extraPackages32 = [ nvidia_gl_32 ];
   };
-
-  # ADB
-  programs.adb.enable = true;
 }
