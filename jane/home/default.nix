@@ -15,7 +15,7 @@
       inherit custom machine inputs;
     };
     imports = [
-      ../../hcom/pkgs
+      ../../hcom/pkglist
       ../../hcom/neofetch
       ../../hcom/kitty
       ../../hcom/shell

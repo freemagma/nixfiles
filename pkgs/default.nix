@@ -3,7 +3,7 @@ with pkgs;
 
 {
   pkhex = (callPackage ./pkhex { });
-  porycript = (callPackage ./poryscript { });
+  poryscript = (callPackage ./poryscript { });
   porymap = (callPackage ./porymap { });
   mytex = (callPackage ./tex { });
   ekhex = (callPackage ./ekhex { });

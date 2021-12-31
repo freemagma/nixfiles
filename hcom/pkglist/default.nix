@@ -64,7 +64,7 @@
     # pokemon
     custom.pkgs.pkhex
     custom.pkgs.ekhex
-    custom.pkgs.porycript
+    custom.pkgs.poryscript
     custom.pkgs.porymap
   ];
 }
