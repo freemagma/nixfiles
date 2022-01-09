@@ -9,4 +9,5 @@ with pkgs;
   ekhex = (callPackage ./ekhex { });
   circuitsim = (callPackage ./circuitsim { });
   crossfire = (callPackage ./crossfire { });
+  pokemon-colorscripts = (callPackage ./pokemon-colorscripts { });
 }

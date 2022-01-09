@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, custom, ... }: {
   home.packages = with pkgs; [ spaceship-prompt fira-code bat ];
 
   programs.direnv = {
@@ -11,7 +11,6 @@
     shellAliases = {
       la = "ls -lah";
       nixr = "sudo nixos-rebuild switch --flake ~/dev/nixfiles";
-      cleo = "clear && neofetch";
       cat = "bat -p --paging=never";
       activate = "source .venv/bin/activate";
       ssh = "kitty +kitten ssh";
@@ -24,7 +23,7 @@
       SPACESHIP_CHAR_SUFFIX=" ";
       SPACESHIP_GIT_STATUS_DELETED="X";
       SPACESHIP_BATTERY_SHOW=false;
-      neofetch
+      ${custom.pkgs.pokemon-colorscripts}/bin/pokemon-colorscripts -r
     '';
 
     oh-my-zsh = {

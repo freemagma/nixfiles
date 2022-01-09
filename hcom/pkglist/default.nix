@@ -66,5 +66,6 @@
     custom.pkgs.ekhex
     custom.pkgs.poryscript
     custom.pkgs.porymap
+    custom.pkgs.pokemon-colorscripts
   ];
 }
