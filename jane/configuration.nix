@@ -4,7 +4,7 @@
   imports = [
     ../com/xserver
     ../com/options
-    ./boot
+    ../com/boot
     ./hardware
     ./services
     ./programs
