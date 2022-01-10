@@ -6,7 +6,7 @@
     enable = true;
     backend = "xrender";
     # inactiveDim = "0.25";
-    opacityRule = [ "90:class_g = 'kitty'" ];
+    # opacityRule = [ "90:class_g = 'kitty'" ];
   };
 
   gtk = {

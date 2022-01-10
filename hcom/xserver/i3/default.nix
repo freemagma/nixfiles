@@ -31,9 +31,9 @@
           text = blue;
         };
         unfocused = focused // {
-          background = bg;
-          border = bg;
-          text = bg;
+          background = bg2;
+          border = bg2;
+          text = bg2;
         };
         urgent = focused // {
           background = red;
