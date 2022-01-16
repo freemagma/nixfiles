@@ -16,17 +16,20 @@
     vimAlias = true;
 
     plugins = with pkgs.vimPlugins; [
-      # visual
-      gruvbox
-      lualine-nvim
-
       # general
       which-key-nvim
       nvim-treesitter
 
+      # visual
+      gruvbox
+      lualine-nvim
+
       # navigation
+      nvim-tree-lua
+      nvim-web-devicons
       telescope-nvim
       telescope-fzf-native-nvim
+      project-nvim
 
       # git
       vim-fugitive
@@ -48,10 +51,15 @@
 
     extraConfig = ''
       colorscheme gruvbox
-      ${builtins.readFile ./config.vim}
+      ${builtins.readFile ./base.vim}
 
       lua << EOF
-        ${builtins.readFile ./config.lua}
+        ${builtins.readFile ./base.lua}
+        ${builtins.readFile ./visual.lua}
+        ${builtins.readFile ./treesitter.lua}
+        ${builtins.readFile ./completion.lua}
+        ${builtins.readFile ./LSP.lua}
+        ${builtins.readFile ./navigation.lua}
       EOF
     '';
   };
