@@ -2,6 +2,8 @@
 
   imports = [ ./polybar ./i3 ];
 
+  home.packages = with pkgs; [ nerdfonts ];
+
   services.picom = {
     enable = true;
     backend = "xrender";

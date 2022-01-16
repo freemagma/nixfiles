@@ -6,7 +6,7 @@
     settings = with style.color; {
       shell = "zsh";
       enable_audio_bell = "no";
-      font_family = "Fira Code";
+      font_family = "FiraCode Nerd Font";
       font_size = 12;
 
       scrollback_lines = 10000;
@@ -35,8 +35,5 @@
       color14 = color14;
       color15 = color15;
     };
-    # extraConfig = ''
-    #   include ${./kitty.conf}
-    # '';
   };
 }

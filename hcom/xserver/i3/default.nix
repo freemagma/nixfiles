@@ -9,11 +9,11 @@
       bars = [ ];
       defaultWorkspace = "workspace number 1";
       fonts = {
-        names = [ "Fira Code" "DejaVu Sans Mono" "FontAwesome" ];
+        names = [ "Fira Code Nerd Font" ];
         # hacky way to control titlebar height
         size = 6.0;
       };
-      window.border = 0;
+      window.border = 4;
       gaps.inner = 10;
       modifier = "Mod4";
       colors = with style.color; rec {
@@ -22,23 +22,26 @@
           background = purple;
           border = background;
           text = background;
-          childBorder = background;
-          indicator = background;
+          childBorder = purple;
+          indicator = red;
         };
         focusedInactive = focused // {
           background = blue;
           border = blue;
           text = blue;
+          childBorder = blue;
         };
         unfocused = focused // {
           background = bg2;
           border = bg2;
           text = bg2;
+          childBorder = bg2;
         };
         urgent = focused // {
           background = red;
           border = red;
           text = red;
+          childBorder = red;
         };
         placeholder = unfocused;
       };
@@ -166,7 +169,7 @@
       ];
     };
     extraConfig = ''
-      for_window [class=".*"] border pixel 0
+      smart_borders on
       for_window [class=".*"] title_format " %title"
     '';
   };

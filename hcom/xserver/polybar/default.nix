@@ -4,8 +4,6 @@
 # Edited and ported to Nix by Th0rgal
 
 {
-  home.packages = with pkgs; [ nerdfonts ];
-
   # services.blueman-applet.enable = true;
   # services.network-manager-applet.enable = true;
 
@@ -40,10 +38,10 @@
 
         radius = 0;
 
-        font-0 = "Fira Code:size=12;3";
-        font-1 = "Fira Code:style=Bold:size=12;3";
-        font-2 = "Fira Code:size=12;2";
-        font-3 = "FontAwesome:style=Regular:size=12;3";
+        font-0 = "Fira Code Nerd Font:size=12;3";
+        font-1 = "Fira Code Nerd Font:style=Bold:size=12;3";
+        font-2 = "Fira Code Nerd Font:size=12;2";
+        # font-3 = "FontAwesome:style=Regular:size=12;3";
 
         # tray-position = "center";
 

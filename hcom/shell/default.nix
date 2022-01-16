@@ -1,5 +1,5 @@
 { pkgs, custom, ... }: {
-  home.packages = with pkgs; [ spaceship-prompt fira-code bat ];
+  home.packages = with pkgs; [ spaceship-prompt bat ];
 
   programs.direnv = {
     enable = true;
