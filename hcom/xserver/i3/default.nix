@@ -102,8 +102,8 @@
         "${modifier}+w" = "layout tabbed";
         "${modifier}+x" = "layout stacking";
         "${modifier}+b" = "fullscreen toggle";
-        "${modifier}+minus" = "split v";
-        "${modifier}+backslash" = "split h";
+        "${modifier}+s" = "split v";
+        "${modifier}+v" = "split h";
 
         # resize mode
         "${modifier}+r" = ''mode "resize"'';
@@ -123,7 +123,7 @@
         "${modifier}+q" = "exec ${pkgs.rofi}/bin/rofi -show run";
 
         # script keybindings
-        "${modifier}+s" = ''mode "scripts"'';
+        "${modifier}+Shift+s" = ''mode "scripts"'';
       };
       modes = {
         resize = {

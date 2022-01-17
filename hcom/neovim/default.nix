@@ -4,6 +4,11 @@
   home.packages = with pkgs; [
     # general
     gcc
+    efm-langserver
+
+    # lua
+    sumneko-lua-language-server
+    luaformatter
 
     # python
     nodePackages.pyright
@@ -58,7 +63,7 @@
         ${builtins.readFile ./visual.lua}
         ${builtins.readFile ./treesitter.lua}
         ${builtins.readFile ./completion.lua}
-        ${builtins.readFile ./LSP.lua}
+        ${builtins.readFile ./lsp.lua}
         ${builtins.readFile ./navigation.lua}
       EOF
     '';

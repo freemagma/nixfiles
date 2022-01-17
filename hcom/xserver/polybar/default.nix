@@ -111,7 +111,7 @@
         type = "internal/network";
         interface = machine.netInterface;
 
-        label-connected = "%downspeed% %upspeed%";
+        label-connected = " %downspeed%  %upspeed%";
         label-connected-foreground = dark_bg;
         format-connected-background = bright_cyan;
         format-connected-padding = 1;
