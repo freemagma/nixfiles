@@ -24,6 +24,7 @@
       # general
       which-key-nvim
       nvim-treesitter
+      lightspeed-nvim
       vim-surround
 
       # visual
