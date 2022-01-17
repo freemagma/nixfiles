@@ -175,17 +175,17 @@
         format-discharging-padding = format-charging-padding;
         format-full-padding = format-charging-padding;
 
-        ramp-capacity-0 = "";
-        ramp-capacity-1 = "";
-        ramp-capacity-2 = "";
-        ramp-capacity-3 = "";
-        ramp-capacity-4 = "";
+        ramp-capacity-0 = " ";
+        ramp-capacity-1 = " ";
+        ramp-capacity-2 = " ";
+        ramp-capacity-3 = " ";
+        ramp-capacity-4 = " ";
 
-        animation-charging-0 = "";
-        animation-charging-1 = "";
-        animation-charging-2 = "";
-        animation-charging-3 = "";
-        animation-charging-4 = "";
+        animation-charging-0 = " ";
+        animation-charging-1 = " ";
+        animation-charging-2 = " ";
+        animation-charging-3 = " ";
+        animation-charging-4 = " ";
         animation-charging-framerate = 750;
       };
 
