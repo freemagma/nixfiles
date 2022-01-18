@@ -16,6 +16,9 @@ lspconfig.sumneko_lua.setup {
 -- nix
 lspconfig.rnix.setup {}
 
+-- tex
+lspconfig.texlab.setup {}
+
 -- EFM
 lspconfig.efm.setup {
     init_options = {documentFormatting = true},

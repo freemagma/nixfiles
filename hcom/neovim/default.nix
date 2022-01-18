@@ -10,6 +10,12 @@
     sumneko-lua-language-server
     luaformatter
 
+    # nix
+    rnix-lsp
+
+    # tex
+    texlab
+
     # python
     nodePackages.pyright
   ];
