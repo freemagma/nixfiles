@@ -31,7 +31,7 @@
 
     # Minecraft
     minecraft
-    multimc
+    polymc
 
     # CLI Tools
     unar
