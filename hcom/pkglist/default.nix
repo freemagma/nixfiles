@@ -43,6 +43,7 @@
     mupdf
     ffmpeg-full
     awscli2
+    helix
 
     # Development
     (python3.withPackages (ps:
