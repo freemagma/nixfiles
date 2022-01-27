@@ -5,19 +5,20 @@ local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol
 local lspconfig = require("lspconfig")
 
 -- python
-lspconfig.pyright.setup {capabilities = capabilities}
+-- lspconfig.pyright.setup {capabilities = capabilities}
 
 -- lua
 lspconfig.sumneko_lua.setup {
     cmd = {"lua-language-server"},
-    settings = {Lua = {diagnostics = {globals = {'vim'}}}}
+    settings = {Lua = {diagnostics = {globals = {'vim'}}}},
+    capabilities = capabilities
 }
 
 -- nix
-lspconfig.rnix.setup {}
+lspconfig.rnix.setup {capabilities = capabilities}
 
 -- tex
-lspconfig.texlab.setup {}
+lspconfig.texlab.setup {capabilities = capabilities}
 
 -- EFM
 lspconfig.efm.setup {
