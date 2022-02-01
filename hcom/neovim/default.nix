@@ -32,6 +32,7 @@
       nvim-treesitter
       lightspeed-nvim
       vim-surround
+      direnv-vim
 
       # visual
       gruvbox
@@ -49,6 +50,9 @@
 
       # LSP
       nvim-lspconfig
+
+      # jupyter
+      # vim-ipython
 
       # completion
       nvim-cmp

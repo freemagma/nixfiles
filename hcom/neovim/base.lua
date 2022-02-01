@@ -1,5 +1,6 @@
 -- general
 vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 vim.o.showmode = false
 
 vim.o.tabstop = 4
