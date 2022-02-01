@@ -51,9 +51,6 @@
       # LSP
       nvim-lspconfig
 
-      # jupyter
-      # vim-ipython
-
       # completion
       nvim-cmp
       cmp-nvim-lsp
