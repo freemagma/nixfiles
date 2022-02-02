@@ -1,5 +1,18 @@
 { pkgs, custom, ... }:
-
+let
+  python = pkgs.python39.override {
+    packageOverrides = self: super: {
+      jupyter-client = super.jupyter-client.overridePythonAttrs (old: rec {
+        version = "6.1.12";
+        src = super.fetchPypi {
+          inherit version;
+          pname = old.pname;
+          sha256 = "xLyh0IRhhsqL6X9NL6bSuuiJzOSJKhZ/+humvR9z54I=";
+        };
+      });
+    };
+  };
+in
 {
   home.packages = with pkgs; [
     # System Control
@@ -46,14 +59,17 @@
     helix
 
     # Development
-    (python3.withPackages (ps:
+    (python.withPackages (ps:
       with ps; [
         ipython
-        pip
-        # emacs features
         black
         isort
-        pyflakes
+        jupytext
+        # for magma-nvim
+        pynvim
+        jupyter-client
+        ueberzug
+        cairosvg
       ]))
     poetry
     gnumake
