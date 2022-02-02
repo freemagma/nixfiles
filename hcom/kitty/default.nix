@@ -50,7 +50,7 @@
 
       scrollback_lines = 10000;
 
-      enabled_layouts = "tall:bias=60;full_size=1;mirrored=false";
+      enabled_layouts = "tall:bias=50;full_size=1;mirrored=false";
       window_margin_width = 4;
       window_padding_width = 4;
       window_border_width = "4px";
