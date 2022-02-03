@@ -2,6 +2,18 @@
 
 
 let
+  python = pkgs.python39.override {
+    packageOverrides = self: super: {
+      jupyter-client = super.jupyter-client.overridePythonAttrs (old: rec {
+        version = "6.1.12";
+        src = super.fetchPypi {
+          inherit version;
+          pname = old.pname;
+          sha256 = "xLyh0IRhhsqL6X9NL6bSuuiJzOSJKhZ/+humvR9z54I=";
+        };
+      });
+    };
+  };
   magma-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
     pname = "magma-nvim";
     version = "2022-02-02";
@@ -38,6 +50,14 @@ in
     enable = true;
     viAlias = true;
     vimAlias = true;
+
+    withPython3 = true;
+    extraPython3Packages = (ps: with python.pkgs; [
+      pynvim
+      jupyter-client
+      ueberzug
+      cairosvg
+    ]);
 
     plugins = with pkgs.vimPlugins; [
       # general

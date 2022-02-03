@@ -65,12 +65,13 @@ in
         black
         isort
         jupytext
-        # for magma-nvim
+        # magma-nvim
         pynvim
         jupyter-client
         ueberzug
         cairosvg
       ]))
+    jupyter
     poetry
     gnumake
     docker
