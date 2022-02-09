@@ -45,6 +45,10 @@ in
     nodePackages.pyright
   ];
 
+  home.file.".config/nvim/lua/lib" = {
+    source = ./lib;
+    recursive = true;
+  };
 
   programs.neovim = {
     enable = true;
