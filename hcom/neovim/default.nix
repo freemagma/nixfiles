@@ -110,6 +110,7 @@ in
         ${builtins.readFile ./completion.lua}
         ${builtins.readFile ./lsp.lua}
         ${builtins.readFile ./navigation.lua}
+        ${builtins.readFile ./localkeys.lua}
       EOF
     '';
   };

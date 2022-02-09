@@ -36,14 +36,14 @@ local mappings = {
     -- search
     s = {
         name = "+Search",
-        b = {"<cmd>Telescope buffers<cr>", "Open Buffers"},
+        b = {"<cmd>Telescope buffers<cr>", "Open buffers"},
         c = {"<cmd>Telescope command_history<cr>", "Previous commands"},
         f = {"<cmd>Telescope find_files<cr>", "Find File"},
-        r = {"<cmd>Telescope oldfiles<cr>", "Open Recent File"},
+        r = {"<cmd>Telescope oldfiles<cr>", "Open recent file"},
         t = {"<cmd>Telescope live_grep<cr>", "Text"},
         p = {"<cmd>Telescope projects<cr>", "Projects"}
     },
-    [" "] = {"<cmd>Telescope find_files<cr>", "Find File"},
+    [" "] = {"<cmd>Telescope find_files<cr>", "Find file"},
     -- windows
     w = {
         name = "+Window",
@@ -66,13 +66,6 @@ local mappings = {
     }
 }
 
-local opts = {
-    mode = "n",
-    prefix = "<leader>",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nowait = false
-}
+local opts = {prefix = "<leader>"}
 
 wk.register(mappings, opts)
