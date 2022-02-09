@@ -70,10 +70,13 @@ in
       lightspeed-nvim
       vim-surround
       direnv-vim
+      nvim-autopairs
+      comment-nvim
 
       # visual
       gruvbox
       lualine-nvim
+      indent-blankline-nvim
 
       # navigation
       nvim-tree-lua

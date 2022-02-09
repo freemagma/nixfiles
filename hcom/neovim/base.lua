@@ -7,6 +7,11 @@ vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
 
+-- setup various plugins
+require("indent_blankline").setup {}
+require('nvim-autopairs').setup {}
+require('Comment').setup {}
+
 -- which key
 local wk = require("which-key")
 wk.setup {}
