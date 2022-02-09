@@ -7,22 +7,28 @@ function SetKeybinds()
     local nopts = {prefix = "", buffer = 0}
     local vopts = {prefix = "", buffer = 0, mode = "v"}
     local oopts = {prefix = "", buffer = 0, mode = "o"}
-    if file_type == "python" then
+    -- jupyter python
+    if file_type == "python" and vim.fn.getline(2):match("^# jupyter:") then
         wk.register({
+            ["<CR>"] = {
+                function()
+                    jpy.goto_next_cell_start()
+                    jpy.select_cell(0)
+                    vim.cmd([[normal! zt]])
+                    -- kinda hacky, but...
+                    vim.api.nvim_feedkeys(
+                        vim.api.nvim_replace_termcodes("<leader>r", true, false,
+                                                       true), "m", true)
+                end, "Magma evaluate cell"
+            },
             ["<leader>r"] = {
                 name = "+Magma",
-                ["<CR>"] = {
-                    function()
-                        jpy.select_cell(0)
-                        vim.cmd("normal! gv <cmd>MagmaEvaluateVisual<CR>")
-                        jpy.goto_next_cell_start()
-                    end, "Magma evaluate cell"
-                },
                 i = {":MagmaInit<CR>", "Magma init"},
-                r = {":MagmaEvaluateLine<CR>", "Magma evaluate line"},
-                c = {":MagmaReevaluateCell<CR>", "Magma re-evaluate cell"},
+                -- r = {":MagmaEvaluateLine<CR>", "Magma evaluate line"},
+                r = {":MagmaReevaluateCell<CR>", "Magma re-evaluate cell"},
                 d = {":MagmaDelete<CR>", "Magma delete"},
-                o = {":MagmaShowOutput<CR>", "Magma show output"}
+                o = {":MagmaShowOutput<CR>", "Magma show output"},
+                h = {":MagmaHideOutput<CR>", "Magma hide output"}
             },
             ["[j"] = {
                 function() jpy.goto_previous_cell_start() end,
@@ -43,20 +49,9 @@ function SetKeybinds()
             ["<leader>r"] = {
                 ":<C-u>MagmaEvaluateVisual<CR>", "Magma evaluate visual"
             },
-            ij = {
-                function()
-                    jpy.select_cell(0)
-                    vim.cmd([[normal! zt]])
-                end, "Select cell"
-            }
+            ij = {function() jpy.select_cell(0) end, "Select cell"}
         }, vopts)
-        wk.register({
-            ij = {
-                function()
-                    jpy.select_cell(0)
-                    vim.cmd([[normal! zt]])
-                end, "Select cell"
-            }
-        }, oopts)
+        wk.register({ij = {function() jpy.select_cell(0) end, "Select cell"}},
+                    oopts)
     end
 end
