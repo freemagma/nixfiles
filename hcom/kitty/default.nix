@@ -22,6 +22,8 @@
       "alt+4" = "goto_tab 4";
       "alt+5" = "goto_tab 5";
       "alt+6" = "goto_tab 6";
+      "alt+tab>w" = "detach_window new-tab";
+      "alt+tab>shift+w" = "detach_window ask";
 
       "alt+enter" = "launch --cwd=current";
       "alt+w>c" = "close_window";
@@ -51,13 +53,13 @@
       scrollback_lines = 10000;
 
       enabled_layouts = "tall:bias=50;full_size=1;mirrored=false";
-      window_margin_width = 4;
       window_padding_width = 4;
       window_border_width = "4px";
-      placement_strategy = "top-left";
-      active_border_color = purple;
-      inactive_border_color = bg2;
+      placement_strategy = "center";
+      active_border_color = cyan;
+      inactive_border_color = bg;
       bell_border_color = red;
+      draw_minimal_borders = "no";
 
       tab_bar_style = "slant";
 
