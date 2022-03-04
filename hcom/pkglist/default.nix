@@ -39,6 +39,7 @@ in
     bluejeans-gui
     teams
     zoom-us
+    signal-desktop
     custom.pkgs.circuitsim
     custom.pkgs.crossfire
 
