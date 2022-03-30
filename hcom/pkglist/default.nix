@@ -24,7 +24,6 @@ in
 
     # GUI Apps
     firefox
-    chromium
     google-chrome
     libreoffice
     spotify
@@ -64,7 +63,7 @@ in
         ipython
         black
         isort
-        jupytext
+        # jupytext
         # magma-nvim
         pynvim
         jupyter-client
