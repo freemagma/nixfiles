@@ -40,7 +40,7 @@ in
     teams
     zoom-us
     signal-desktop
-    custom.pkgs.circuitsim
+    desmume
     custom.pkgs.crossfire
 
     # Minecraft
