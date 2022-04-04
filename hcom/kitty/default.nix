@@ -5,6 +5,7 @@
     enable = true;
     keybindings = {
       "alt+tab>n" = "new_tab";
+      "alt+tab>enter" = "new_tab_with_cwd";
       "alt+tab>h" = "previous_tab";
       "alt+tab>l" = "next_tab";
       "alt+tab>shift+h" = "move_tab_backward";
