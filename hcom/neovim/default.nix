@@ -14,16 +14,6 @@ let
       });
     };
   };
-  magma-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
-    pname = "magma-nvim";
-    version = "2022-02-02";
-    src = pkgs.fetchFromGitHub {
-      owner = "dccsillag";
-      repo = "magma-nvim";
-      rev = "0102629ff197c7faedc47c0fc8c8841d8c66a8cb";
-      sha256 = "AusXdjilCf/m3CpXBEXb4epapSk/ATyqj2EkvxX0KBo=";
-    };
-  };
 in
 {
   home.packages = with pkgs; [
@@ -87,9 +77,6 @@ in
 
       # git
       vim-fugitive
-
-      # jupyter
-      magma-nvim
 
       # LSP
       nvim-lspconfig

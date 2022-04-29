@@ -40,6 +40,7 @@ in
     zoom-us
     signal-desktop
     desmume
+    vlc
     custom.pkgs.crossfire
 
     # Minecraft
@@ -55,7 +56,7 @@ in
     maim
     mupdf
     ffmpeg-full
-    awscli2
+    yt-dlp
 
     # Development
     (python.withPackages (ps:
@@ -63,12 +64,6 @@ in
         ipython
         black
         isort
-        # jupytext
-        # magma-nvim
-        pynvim
-        jupyter-client
-        ueberzug
-        cairosvg
       ]))
     jupyter
     poetry
