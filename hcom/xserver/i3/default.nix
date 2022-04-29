@@ -162,6 +162,11 @@
           notification = false;
         }
         {
+          command = "syncthing serve --no-browser";
+          always = true;
+          notification = false;
+        }
+        {
           command = "rm /home/cgunn/.config/autostart/teams.desktop";
           always = true;
           notification = false;
