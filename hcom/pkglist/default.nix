@@ -43,6 +43,7 @@
     mupdf
     # ffmpeg-full
     yt-dlp
+    croc
 
     # Development
     (python3.withPackages (ps:
