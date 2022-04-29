@@ -54,7 +54,7 @@ in
     htop
     maim
     mupdf
-    ffmpeg-full
+    # ffmpeg-full
     awscli2
 
     # Development
