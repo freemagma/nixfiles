@@ -55,7 +55,7 @@ in
     htop
     maim
     mupdf
-    ffmpeg-full
+    # ffmpeg-full
     yt-dlp
 
     # Development
