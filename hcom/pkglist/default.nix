@@ -27,7 +27,6 @@
     signal-desktop
     desmume
     vlc
-    syncthing
     custom.pkgs.crossfire
 
     # Minecraft
