@@ -68,7 +68,7 @@
         compositing-background = "source";
         compositing-foreground = "over";
         compositing-overline = "over";
-        comppositing-underline = "over";
+        compositing-underline = "over";
         compositing-border = "over";
 
         pseudo-transparency = "false";

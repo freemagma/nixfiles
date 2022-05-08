@@ -5,7 +5,8 @@ nixpkgs.lib.nixosSystem rec {
   modules = let
     args = {
       inherit inputs;
-      machine.netInterface = "enp6s0";
+      # machine.netInterface = "enp6s0";
+      machine.netInterface = "wlp4s0";
       machine.hasBattery = false;
       custom.pkgs = import ../pkgs { pkgs = nixpkgs.legacyPackages.${system}; };
     };
