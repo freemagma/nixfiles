@@ -19,7 +19,7 @@
     wget
     vim
     firefox
-    networkmanager
+    git
     sof-firmware
   ];
 

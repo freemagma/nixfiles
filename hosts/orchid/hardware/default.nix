@@ -5,10 +5,27 @@ with pkgs;
   imports = [ ./hardware-configuration.nix ];
 
   # Networking
-  networking.useDHCP = false;
-  networking.networkmanager.enable = true;
-  networking.interfaces.enp0s31f6.useDHCP = true;
-  networking.interfaces.wlan0.useDHCP = true;
+  networking = {
+    networkmanager.enable = true;
+    wireless.enable = false;
+
+    useDHCP = false;
+    interfaces = {
+      enp0s31f6.useDHCP = true;
+      wlan0.useDHCP = true;
+    };
+
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [ ];
+      allowedUDPPorts = [ ];
+    };
+
+    nameservers = [
+      "8.8.8.8"
+      "8.8.4.4"
+    ];
+  };
 
   # Sound
   sound.enable = true;
