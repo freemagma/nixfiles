@@ -1,0 +1,4 @@
+{
+  xserver = import ./xserver;
+}
+

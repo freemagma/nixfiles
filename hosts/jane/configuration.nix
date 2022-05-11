@@ -1,25 +1,10 @@
-{ pkgs, ... }:
-
 {
-  imports = [
-    ../../com/xserver
-    ../../com/options
-    ../../com/boot
-    ./hardware
-    ./services
-    ./programs
-    ./home
-  ];
-
   networking.hostName = "jane";
-  time.timeZone = "America/New_York";
-
-  environment.systemPackages = with pkgs; [
-    wget
-    vim
-    firefox
-    git
-  ];
+  networking.interfaces = {
+    enp5s0.useDHCP = true;
+    enp6s0.useDHCP = true;
+    wlp4s0.useDHCP = true;
+  };
 
   system.stateVersion = "21.05";
 }

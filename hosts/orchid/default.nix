@@ -1,26 +1,30 @@
-{ self, nixpkgs, home-manager, mylib, ... }@inputs:
+{ self, nixpkgs, home-manager, ... }@inputs:
 
 nixpkgs.lib.nixosSystem rec {
   system = "x86_64-linux";
   modules =
     let
       args = {
-        inherit inputs;
+        inherit inputs system self;
         machine.netInterface = "wlan0";
         machine.hasBattery = true;
-        custom.pkgs = import ../../pkgs { pkgs = nixpkgs.legacyPackages.${system}; };
-      };
-      mainModule = import ./configuration.nix;
-      addOverlays = {
-        nixpkgs.overlays = [ ];
       };
     in
     [
-      (mylib.flakes.passArgs args)
-      mainModule
+      (self.lib.flakes.passArgs args)
+      (self.lib.flakes.pinFlakes { inherit nixpkgs home-manager; })
+      self.lib.flakes.useFlakes
       home-manager.nixosModules.home-manager
-      mylib.flakes.useFlakes
-      addOverlays
-      (mylib.flakes.pinFlakes { inherit nixpkgs home-manager; })
-    ];
+
+      ./configuration.nix
+      ./hardware-configuration.nix
+
+    ] ++ (with self.nixosModules;
+    [
+      base
+      desktop.xserver
+
+      cgunn.base
+      cgunn.home
+    ]);
 }

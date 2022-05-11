@@ -1,4 +1,4 @@
-{ pkgs, custom, ... }: {
+{ pkgs, self, system, ... }: {
   home.packages = with pkgs; [ spaceship-prompt bat ];
 
   programs.direnv = {
@@ -23,7 +23,7 @@
       SPACESHIP_CHAR_SUFFIX=" ";
       SPACESHIP_GIT_STATUS_DELETED="X";
       SPACESHIP_BATTERY_SHOW=false;
-      ${custom.pkgs.pokemon-colorscripts}/bin/pokemon-colorscripts -r
+      ${self.packages.${system}.pokemon-colorscripts}/bin/pokemon-colorscripts -r
     '';
 
     oh-my-zsh = {

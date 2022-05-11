@@ -1,4 +1,4 @@
-{ pkgs, custom, ... }:
+{ pkgs, self, system, ... }:
 
 {
   home.packages = with pkgs; [
@@ -27,7 +27,7 @@
     signal-desktop
     desmume
     vlc
-    custom.pkgs.crossfire
+    self.packages.${system}.crossfire
 
     # Minecraft
     minecraft
@@ -56,12 +56,12 @@
     poetry
     gnumake
     docker
-    custom.pkgs.mytex
+    self.packages.${system}.mytex
 
     # pokemon
-    custom.pkgs.pkhex
-    custom.pkgs.ekhex
-    custom.pkgs.porymap
-    custom.pkgs.pokemon-colorscripts
+    self.packages.${system}.pkhex
+    self.packages.${system}.ekhex
+    self.packages.${system}.porymap
+    self.packages.${system}.pokemon-colorscripts
   ];
 }
