@@ -22,7 +22,7 @@
     calibre
     blender
     inkscape
-    teams
+    # teams
     zoom-us
     signal-desktop
     desmume
@@ -41,7 +41,7 @@
     htop
     maim
     mupdf
-    # ffmpeg-full
+    ffmpeg-full
     yt-dlp
     croc
 
