@@ -11,20 +11,20 @@
   home-manager.users.cgunn = {
 
     _module.args = {
-      style = import ../../hcom/style;
+      style = import ../../../hcom/style;
       inherit custom machine;
     };
     imports = [
-      ../../hcom/pkglist
-      ../../hcom/neofetch
-      ../../hcom/kitty
-      ../../hcom/shell
-      ../../hcom/xserver
-      ../../hcom/userdirs
-      ../../hcom/scripts
-      ../../hcom/doom-emacs
-      ../../hcom/neovim
-      ../../hcom/chess
+      ../../../hcom/pkglist
+      ../../../hcom/neofetch
+      ../../../hcom/kitty
+      ../../../hcom/shell
+      ../../../hcom/xserver
+      ../../../hcom/userdirs
+      ../../../hcom/scripts
+      ../../../hcom/doom-emacs
+      ../../../hcom/neovim
+      ../../../hcom/chess
     ];
 
   };

@@ -10,8 +10,8 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let mylib = import ./lib { inherit (nixpkgs) lib; };
     in {
-      nixosConfigurations.jane = import ./jane (inputs // { inherit mylib; });
+      nixosConfigurations.jane = import ./hosts/jane (inputs // { inherit mylib; });
       nixosConfigurations.orchid =
-        import ./orchid (inputs // { inherit mylib; });
+        import ./hosts/orchid (inputs // { inherit mylib; });
     };
 }

@@ -3,9 +3,9 @@
 {
 
   imports = [
-    ../com/xserver
-    ../com/options
-    ../com/boot
+    ../../com/xserver
+    ../../com/options
+    ../../com/boot
     ./hardware
     ./programs
     ./services

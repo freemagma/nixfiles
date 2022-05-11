@@ -8,7 +8,7 @@ nixpkgs.lib.nixosSystem rec {
         inherit inputs;
         machine.netInterface = "wlan0";
         machine.hasBattery = true;
-        custom.pkgs = import ../pkgs { pkgs = nixpkgs.legacyPackages.${system}; };
+        custom.pkgs = import ../../pkgs { pkgs = nixpkgs.legacyPackages.${system}; };
       };
       mainModule = import ./configuration.nix;
       addOverlays = {

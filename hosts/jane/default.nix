@@ -9,7 +9,7 @@ nixpkgs.lib.nixosSystem rec {
         # machine.netInterface = "enp6s0";
         machine.netInterface = "wlp4s0";
         machine.hasBattery = false;
-        custom.pkgs = import ../pkgs { pkgs = nixpkgs.legacyPackages.${system}; };
+        custom.pkgs = import ../../pkgs { pkgs = nixpkgs.legacyPackages.${system}; };
       };
       mainModule = import ./configuration.nix;
       addOverlays = {
