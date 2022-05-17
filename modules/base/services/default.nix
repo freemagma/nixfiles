@@ -16,4 +16,7 @@
 
   # Docker
   virtualisation.docker.enable = true;
+
+  # resolved
+  services.resolved.enable = true;
 }

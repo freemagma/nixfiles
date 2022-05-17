@@ -1,15 +1,9 @@
 {
   networking = {
     networkmanager.enable = true;
-    wireless.enable = false;
+    networkmanager.dns = "systemd-resolved";
 
     useDHCP = false;
-
-    firewall = {
-      enable = true;
-      allowedTCPPorts = [ ];
-      allowedUDPPorts = [ ];
-    };
 
     nameservers = [
       "8.8.8.8"

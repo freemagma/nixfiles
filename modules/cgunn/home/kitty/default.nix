@@ -44,6 +44,10 @@
       "alt+shift+j" = "move_window down";
       "alt+shift+k" = "move_window up";
       "alt+shift+l" = "move_window right";
+
+      "alt+e>e" = "next_layout";
+      "alt+e>t" = "goto_layout tall";
+      "alt+e>h" = "goto_layout horizontal";
     };
     settings = with style.color; {
       shell = "zsh";
@@ -53,7 +57,7 @@
 
       scrollback_lines = 10000;
 
-      enabled_layouts = "tall:bias=50;full_size=1;mirrored=false";
+      enabled_layouts = "tall:bias=50;full_size=1;mirrored=false, horizontal";
       window_padding_width = 4;
       window_border_width = "4px";
       placement_strategy = "center";
