@@ -1,13 +1,11 @@
 {
   networking = {
-    networkmanager.enable = true;
-    networkmanager.dns = "systemd-resolved";
-
+    wireless.iwd.enable = true;
+    enableIPv6 = false;
+    networkmanager = {
+      enable = true;
+      wifi.backend = "iwd";
+    };
     useDHCP = false;
-
-    nameservers = [
-      "8.8.8.8"
-      "8.8.4.4"
-    ];
   };
 }

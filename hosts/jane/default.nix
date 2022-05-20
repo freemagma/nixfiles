@@ -7,7 +7,7 @@ nixpkgs.lib.nixosSystem rec {
       args = {
         inherit inputs system self;
         # machine.netInterface = "enp6s0";
-        machine.netInterface = "wlp4s0";
+        machine.netInterface = "wlan0";
         machine.hasBattery = false;
       };
     in
