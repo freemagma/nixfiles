@@ -26,7 +26,7 @@ nixpkgs.lib.nixosSystem rec {
       nvidia
       desktop.xserver
 
-      cgunn.base
-      cgunn.home
+      users.cgunn.base
+      users.cgunn.home
     ]);
 }

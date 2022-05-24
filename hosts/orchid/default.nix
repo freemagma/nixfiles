@@ -24,7 +24,7 @@ nixpkgs.lib.nixosSystem rec {
       base
       desktop.xserver
 
-      cgunn.base
-      cgunn.home
+      users.cgunn.base
+      users.cgunn.home
     ]);
 }

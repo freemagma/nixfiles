@@ -2,10 +2,6 @@
 
 {
   networking.hostName = "orchid";
-  networking.interfaces = {
-    enp0s31f6.useDHCP = true;
-    wlan0.useDHCP = true;
-  };
 
   # This can be removed when PulseAudio is at least version 14
   # https://wiki.archlinux.org/index.php/Lenovo_ThinkPad_X1_Carbon_(Gen_7)#Audio
