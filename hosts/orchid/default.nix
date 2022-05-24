@@ -21,7 +21,6 @@ self.lib.makeSystem rec {
       base
       desktop.xserver
 
-      users.cgunn.base
-      users.cgunn.home
+      users.cgunn
     ]);
 }
