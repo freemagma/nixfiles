@@ -1,19 +1,16 @@
 { self, nixpkgs, home-manager, ... }@inputs:
 
-nixpkgs.lib.nixosSystem rec {
+self.lib.makeSystem rec {
+  inherit self nixpkgs;
+
   system = "x86_64-linux";
+  args = {
+    inherit self system inputs;
+    machine.netInterface = "wlan0";
+    machine.hasBattery = true;
+  };
   modules =
-    let
-      args = {
-        inherit inputs system self;
-        machine.netInterface = "wlan0";
-        machine.hasBattery = true;
-      };
-    in
     [
-      (self.lib.flakes.passArgs args)
-      (self.lib.flakes.pinFlakes { inherit nixpkgs home-manager; })
-      self.lib.flakes.useFlakes
       home-manager.nixosModules.home-manager
 
       ./configuration.nix

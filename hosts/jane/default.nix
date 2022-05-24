@@ -1,20 +1,17 @@
 { self, nixpkgs, home-manager, ... }@inputs:
 
-nixpkgs.lib.nixosSystem rec {
+self.lib.makeSystem rec {
+  inherit self nixpkgs;
+
   system = "x86_64-linux";
+  args = {
+    inherit self system inputs;
+    # machine.netInterface = "enp6s0";
+    machine.netInterface = "wlan0";
+    machine.hasBattery = false;
+  };
   modules =
-    let
-      args = {
-        inherit inputs system self;
-        # machine.netInterface = "enp6s0";
-        machine.netInterface = "wlan0";
-        machine.hasBattery = false;
-      };
-    in
     [
-      (self.lib.flakes.passArgs args)
-      (self.lib.flakes.pinFlakes { inherit nixpkgs home-manager; })
-      self.lib.flakes.useFlakes
       home-manager.nixosModules.home-manager
 
       ./configuration.nix
@@ -26,7 +23,6 @@ nixpkgs.lib.nixosSystem rec {
       nvidia
       desktop.xserver
 
-      users.cgunn.base
-      users.cgunn.home
+      users.cgunn
     ]);
 }
