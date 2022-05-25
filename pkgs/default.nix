@@ -1,10 +1,12 @@
+{ pkgs, ... }:
+
 {
-  pkhex = (callPackage ./pkhex { });
-  poryscript = (callPackage ./poryscript { });
-  porymap = (callPackage ./porymap { });
-  mytex = (callPackage ./tex { });
-  ekhex = (callPackage ./ekhex { });
-  circuitsim = (callPackage ./circuitsim { });
-  crossfire = (callPackage ./crossfire { });
-  pokemon-colorscripts = (callPackage ./pokemon-colorscripts { });
+  pkhex = (pkgs.callPackage ./pkhex { });
+  poryscript = (pkgs.callPackage ./poryscript { });
+  porymap = (pkgs.callPackage ./porymap { });
+  mytex = (pkgs.callPackage ./tex { });
+  ekhex = (pkgs.callPackage ./ekhex { });
+  circuitsim = (pkgs.callPackage ./circuitsim { });
+  crossfire = (pkgs.callPackage ./crossfire { });
+  pokemon-colorscripts = (pkgs.callPackage ./pokemon-colorscripts { });
 }
