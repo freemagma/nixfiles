@@ -23,12 +23,14 @@
       SPACESHIP_CHAR_SUFFIX=" ";
       SPACESHIP_GIT_STATUS_DELETED="X";
       SPACESHIP_BATTERY_SHOW=false;
+      SPACESHIP_VI_MODE_SHOW=false;
+
       ${self.packages.${system}.pokemon-colorscripts}/bin/pokemon-colorscripts -r
     '';
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "colorize" "colored-man-pages" ];
+      plugins = [ "git" "colorize" "colored-man-pages" "vi-mode" ];
     };
   };
 
