@@ -1,3 +1,0 @@
-{
-  cgunn = import ./cgunn;
-}

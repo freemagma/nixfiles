@@ -15,9 +15,10 @@
         orchid = import ./hosts/orchid inputs;
       };
 
-      nixosModules = import ./modules;
+      nixosModules = import ./nixos;
+      homeModules = import ./home;
 
-      lib = import ./lib { inherit (nixpkgs) lib; };
+      lib = import ./lib { lib = nixpkgs.lib; };
 
     } // (flake-utils.lib.eachDefaultSystem (system:
       let pkgs = nixpkgs.legacyPackages.${system}; in

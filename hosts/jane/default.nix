@@ -6,7 +6,6 @@ self.lib.makeSystem rec {
   system = "x86_64-linux";
   args = {
     inherit self system inputs;
-    # machine.netInterface = "enp6s0";
     machine.netInterface = "wlan0";
     machine.hasBattery = false;
   };
@@ -23,6 +22,48 @@ self.lib.makeSystem rec {
       nvidia
       desktop.xserver
 
-      users.cgunn
+      (
+        self.lib.makeUser {
+          username = "cgunn";
+
+          inherit self system inputs;
+          machine = args.machine;
+          modules = with self.homeModules; [
+            pkglist
+            neofetch
+            kitty
+            shell
+            xserver
+            userdirs
+            scripts
+            doom-emacs
+            neovim
+            chess
+          ];
+        }
+      )
+
+      # (
+      #   { self, system, machine, inputs, ... }:
+      #
+      #   self.lib.makeUser {
+      #     username = "cgunn";
+      #
+      #     inherit self system machine inputs;
+      #     modules = with self.homeModules; [
+      #       pkglist
+      #       neofetch
+      #       kitty
+      #       shell
+      #       xserver
+      #       userdirs
+      #       scripts
+      #       doom-emacs
+      #       neovim
+      #       chess
+      #     ];
+      #   }
+      # )
+
     ]);
 }
