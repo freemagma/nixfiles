@@ -16,4 +16,7 @@
 
   # Docker
   virtualisation.docker.enable = true;
+
+  # mullvad
+  services.mullvad-vpn.enable = true;
 }

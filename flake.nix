@@ -9,8 +9,6 @@
   };
 
   outputs = { self, nixpkgs, flake-utils, home-manager, ... }@inputs:
-    let mylib = import ./lib { inherit (nixpkgs) lib; };
-    in
     {
       nixosConfigurations = {
         jane = import ./hosts/jane inputs;
@@ -19,7 +17,7 @@
 
       nixosModules = import ./modules;
 
-      lib = mylib;
+      lib = import ./lib { inherit (nixpkgs) lib; };
 
     } // (flake-utils.lib.eachDefaultSystem (system:
       let pkgs = nixpkgs.legacyPackages.${system}; in

@@ -1,6 +1,3 @@
-{ pkgs, ... }:
-with pkgs;
-
 {
   pkhex = (callPackage ./pkhex { });
   poryscript = (callPackage ./poryscript { });

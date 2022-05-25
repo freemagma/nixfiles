@@ -5,8 +5,6 @@
     # System Control
     nitrogen
     brightnessctl
-    openvpn
-    openconnect
     pavucontrol
 
     # Apps
@@ -22,15 +20,14 @@
     calibre
     blender
     inkscape
-    # teams
     zoom-us
     signal-desktop
     desmume
     vlc
+    mullvad-vpn
     self.packages.${system}.crossfire
 
     # Minecraft
-    minecraft
     polymc
 
     # CLI Tools
