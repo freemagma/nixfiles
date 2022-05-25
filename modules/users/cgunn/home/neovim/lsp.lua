@@ -8,11 +8,11 @@ local lspconfig = require("lspconfig")
 -- lspconfig.pyright.setup {capabilities = capabilities}
 
 -- lua
-lspconfig.sumneko_lua.setup {
-    cmd = {"lua-language-server"},
-    settings = {Lua = {diagnostics = {globals = {'vim'}}}},
-    capabilities = capabilities
-}
+-- lspconfig.sumneko_lua.setup {
+--     cmd = {"lua-language-server"},
+--     settings = {Lua = {diagnostics = {globals = {'vim'}}}},
+--     capabilities = capabilities
+-- }
 
 -- nix
 lspconfig.rnix.setup {capabilities = capabilities}
