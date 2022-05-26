@@ -90,7 +90,7 @@ _: { pkgs, style, config, username, ... }:
         "${modifier}+Shift+e" = "reload";
         "${modifier}+Shift+Ctrl+e" = "restart";
         "${modifier}+Shift+r" = "exec reboot";
-        # "${modifier}+Escape" = "exit";
+        "${modifier}+Escape" = "exec xfce4-session-logout -l";
         "${modifier}+Shift+Escape" = "exec shutdown now";
         "${modifier}+Shift+c" = "kill";
 

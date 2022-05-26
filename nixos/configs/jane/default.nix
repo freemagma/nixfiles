@@ -18,6 +18,7 @@ self.lib.makeSystem {
     base
     nvidia
     desktop.i3
+    desktop.gnome
 
     users.cgunn
     users.guest
