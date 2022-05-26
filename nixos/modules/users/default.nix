@@ -33,5 +33,8 @@ with self.homeModules;
       userdirs
       neovim
     ];
+    extraPkgs = p: with p; [
+      polymc
+    ];
   };
 }

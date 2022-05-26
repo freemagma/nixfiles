@@ -1,4 +1,5 @@
-_: { pkgs, ... }:
+{ self, ... }:
+{ pkgs, ... }:
 
 {
   services.xserver = {
@@ -6,7 +7,14 @@ _: { pkgs, ... }:
     layout = "us";
 
     displayManager.defaultSession = "xfce+i3";
-    displayManager.lightdm.enable = true;
+    displayManager.lightdm = {
+      enable = true;
+      background = "${self}/wallpapers/ghostly_gate_2560x1440.jpg";
+      greeters.gtk.theme = {
+        package = pkgs.gruvbox-dark-gtk;
+        name = "gruvbox-dark";
+      };
+    };
 
     desktopManager = {
       xterm.enable = false;
