@@ -122,7 +122,7 @@ _: { pkgs, lib, style, machine, ... }:
         pin-workspaces = false;
         strip-wsnumbers = false;
         format = "<label-state> <label-mode>";
-        format-background = bright_green;
+        format-background = bright_cyan;
 
         label-mode = "%mode%";
         label-mode-foreground = dark_bg;
@@ -156,7 +156,7 @@ _: { pkgs, lib, style, machine, ... }:
         format-discharging = "<ramp-capacity> <label-discharging>";
         format-full = "<ramp-capacity> <label-full>";
 
-        format-charging-background = bright_green;
+        format-charging-background = bright_cyan;
         format-discharging-background = format-charging-background;
         format-full-background = format-charging-background;
         format-charging-foreground = dark_bg;
