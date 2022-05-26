@@ -27,7 +27,7 @@ _: { pkgs, lib, style, machine, ... }:
         width = "100%";
         height = 30;
 
-        background = dark_bg;
+        background = "#61000000";
         foreground = fg;
 
         radius = 0;
@@ -35,20 +35,21 @@ _: { pkgs, lib, style, machine, ... }:
         font-0 = "Fira Code Nerd Font:size=12;3";
         font-1 = "Fira Code Nerd Font:style=Bold:size=12;3";
         font-2 = "Fira Code Nerd Font:size=12;2";
-        # font-3 = "FontAwesome:style=Regular:size=12;3";
 
         # tray-position = "center";
 
-        network = if lib.hasPrefix "e" machine.netInterface then
-          "wired"
-        else
-          "wireless";
+        network =
+          if lib.hasPrefix "e" machine.netInterface then
+            "wired"
+          else
+            "wireless";
         modules-left = "i3";
-        modules-center = "title";
-        modules-right = if machine.hasBattery then
-          "battery ${network} date"
-        else
-          "${network} date";
+        # modules-center = "title";
+        modules-right =
+          if machine.hasBattery then
+            "battery ${network} date"
+          else
+            "${network} date";
 
         locale = "en_US.UTF-8";
       };
@@ -79,7 +80,7 @@ _: { pkgs, lib, style, machine, ... }:
         time = "%H:%M:%S";
 
         format = " <label>";
-        format-background = bright_blue;
+        format-background = bright_yellow;
         format-foreground = dark_bg;
         format-padding = 1;
 
@@ -92,7 +93,7 @@ _: { pkgs, lib, style, machine, ... }:
 
         label-connected = " %essid% %signal%";
         label-connected-foreground = dark_bg;
-        format-connected-background = bright_cyan;
+        format-connected-background = bright_green;
         format-connected-padding = 1;
 
         label-disconnected = " disconnected";
@@ -107,7 +108,7 @@ _: { pkgs, lib, style, machine, ... }:
 
         label-connected = " %downspeed%  %upspeed%";
         label-connected-foreground = dark_bg;
-        format-connected-background = bright_cyan;
+        format-connected-background = bright_green;
         format-connected-padding = 1;
 
         label-disconnected = "disconnected";
@@ -121,7 +122,7 @@ _: { pkgs, lib, style, machine, ... }:
         pin-workspaces = false;
         strip-wsnumbers = false;
         format = "<label-state> <label-mode>";
-        format-background = bright_cyan;
+        format-background = bright_green;
 
         label-mode = "%mode%";
         label-mode-foreground = dark_bg;
@@ -187,8 +188,6 @@ _: { pkgs, lib, style, machine, ... }:
         type = "internal/xwindow";
         format = "<label>";
         label = "%title%";
-        label-padding = 1;
-        label-font = 3;
         label-maxlen = 70;
       };
     };

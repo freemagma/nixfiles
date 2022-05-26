@@ -23,7 +23,7 @@ _: { config, style, ... }:
           al = lit "#00000000";
           bg = lit style.color.dark_bg;
           fg = lit style.color.fg;
-          ac = lit style.color.bright_red;
+          ac = lit style.color.bright_orange;
         };
         "window" = {
           transparency = "real";
