@@ -1,4 +1,6 @@
-{ pkgs, ... }: {
+_: { pkgs, ... }:
+
+{
 
   imports = [ ./polybar ./i3 ];
 

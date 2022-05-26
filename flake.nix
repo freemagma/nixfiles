@@ -15,10 +15,10 @@
         orchid = import ./hosts/orchid inputs;
       };
 
-      nixosModules = import ./nixos;
-      homeModules = import ./home;
+      nixosModules = import ./nixos inputs;
+      homeModules = import ./home inputs;
 
-      lib = import ./lib { lib = nixpkgs.lib; };
+      lib = import ./lib inputs;
 
     } // (flake-utils.lib.eachDefaultSystem (system:
       let pkgs = nixpkgs.legacyPackages.${system}; in

@@ -1,5 +1,9 @@
-{ pkgs, self, system, ... }:
+{ self, ... }:
+{ pkgs, system, ... }:
 
+let
+  mypkgs = self.packages.${system};
+in
 {
   home.packages = with pkgs; [
     # System Control
@@ -25,7 +29,7 @@
     desmume
     vlc
     mullvad-vpn
-    self.packages.${system}.crossfire
+    mypkgs.crossfire
 
     # Minecraft
     polymc
@@ -53,12 +57,12 @@
     poetry
     gnumake
     docker
-    self.packages.${system}.mytex
+    mypkgs.mytex
 
     # pokemon
-    self.packages.${system}.pkhex
-    self.packages.${system}.ekhex
-    self.packages.${system}.porymap
-    self.packages.${system}.pokemon-colorscripts
+    mypkgs.pkhex
+    mypkgs.ekhex
+    mypkgs.porymap
+    mypkgs.pokemon-colorscripts
   ];
 }

@@ -1,26 +1,24 @@
-{ self, nixpkgs, home-manager, ... }@inputs:
+{ self, home-manager, ... }:
 
-self.lib.makeSystem rec {
-  inherit self nixpkgs;
-
+self.lib.makeSystem {
   system = "x86_64-linux";
-  args = {
-    inherit self system inputs;
-    machine.netInterface = "wlan0";
-    machine.hasBattery = true;
+
+  machine = {
+    netInterface = "wlan0";
+    hasBattery = true;
   };
-  modules =
-    [
-      home-manager.nixosModules.home-manager
 
-      ./configuration.nix
-      ./hardware-configuration.nix
+  modules = [
+    home-manager.nixosModules.home-manager
 
-    ] ++ (with self.nixosModules;
-    [
-      base
-      desktop.xserver
+    ./configuration.nix
+    ./hardware-configuration.nix
 
-      users.cgunn
-    ]);
+  ] ++ (with self.nixosModules; [
+    base
+    desktop.xserver
+
+    users.cgunn
+
+  ]);
 }

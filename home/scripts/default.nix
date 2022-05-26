@@ -1,4 +1,6 @@
-{ pkgs, ... }: {
+_: { pkgs, ... }: 
+
+{
   home.packages = with pkgs; [
     (pkgs.callPackage ./scanbatch.nix { })
     (pkgs.callPackage ./mktexdir.nix { })

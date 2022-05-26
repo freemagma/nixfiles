@@ -1,4 +1,4 @@
-{ style, ... }:
+_: { style, ... }:
 
 {
   programs.kitty = {

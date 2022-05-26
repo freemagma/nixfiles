@@ -1,13 +1,15 @@
+inputs:
+
 {
-  style = import ./style;
-  pkglist = import ./pkglist;
-  neofetch = import ./neofetch;
-  kitty = import ./kitty;
-  shell = import ./shell;
-  xserver = import ./xserver;
-  userdirs = import ./userdirs;
-  scripts = import ./scripts;
-  doom-emacs = import ./doom-emacs;
-  neovim = import ./neovim;
-  chess = import ./chess;
+  style = import ./style inputs;
+  pkglist = import ./pkglist inputs;
+  neofetch = import ./neofetch inputs;
+  kitty = import ./kitty inputs;
+  shell = import ./shell inputs;
+  xserver = import ./xserver inputs;
+  userdirs = import ./userdirs inputs;
+  scripts = import ./scripts inputs;
+  doom-emacs = import ./doom-emacs inputs;
+  neovim = import ./neovim inputs;
+  chess = import ./chess inputs;
 }

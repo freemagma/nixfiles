@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+_: { pkgs, ... }:
 with pkgs; 
 
 {

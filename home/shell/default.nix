@@ -1,4 +1,7 @@
-{ pkgs, self, system, ... }: {
+{ self, ... }:
+{ pkgs, system, ... }:
+
+{
   home.packages = with pkgs; [ spaceship-prompt bat ];
 
   programs.direnv = {

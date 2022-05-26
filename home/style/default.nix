@@ -1,3 +1,5 @@
+_:
+
 rec {
   color = gruvbox-dark;
   gruvbox-dark = rec {

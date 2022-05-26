@@ -1,12 +1,14 @@
-{ lib }:
+{ nixpkgs, ... }:
 
 {
-  makeSystem = { self, args, system, nixpkgs, modules ? [ ] }:
+  makeSystem = { system, machine, modules ? [ ] }:
     nixpkgs.lib.nixosSystem {
       inherit system;
       modules = modules ++ [
         {
-          config._module.args = args;
+          config._module.args = {
+            inherit system machine;
+          };
         }
         {
           nix.registry.nixpkgs.flake = nixpkgs;
@@ -15,7 +17,7 @@
       ];
     };
 
-  makeUser = { self, system, machine, inputs, username, modules ? [ ] }:
+  makeUser = { system, machine, style, username, modules ? [ ] }:
     {
       users.users.${username} = {
         isNormalUser = true;
@@ -25,8 +27,7 @@
       home-manager.useUserPackages = true;
       home-manager.users.${username} = {
         _module.args = {
-          inherit self system machine inputs;
-          style = self.homeModules.style;
+          inherit system machine style;
         };
         imports = modules;
       };

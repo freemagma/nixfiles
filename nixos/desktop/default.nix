@@ -1,4 +1,6 @@
+inputs:
+
 {
-  xserver = import ./xserver;
+  xserver = import ./xserver inputs;
 }
 
