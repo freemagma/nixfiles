@@ -26,7 +26,6 @@ in
     inkscape
     zoom-us
     signal-desktop
-    desmume
     vlc
     mullvad-vpn
     mypkgs.crossfire
@@ -63,6 +62,5 @@ in
     mypkgs.pkhex
     mypkgs.ekhex
     mypkgs.porymap
-    mypkgs.pokemon-colorscripts
   ];
 }

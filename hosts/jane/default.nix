@@ -20,6 +20,7 @@ self.lib.makeSystem {
     desktop.xserver
 
     users.cgunn
+    users.guest
 
   ]);
 }

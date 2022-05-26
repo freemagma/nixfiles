@@ -17,11 +17,13 @@
       ];
     };
 
-  makeUser = { system, machine, style, username, modules ? [ ] }:
+  makeUser = { system, machine, style, username, privileged ? false, modules ? [ ] }:
     {
       users.users.${username} = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "networkmanager" "docker" "scanner" "lp" ];
+        extraGroups =
+          if privileged then [ "wheel" "networkmanager" "docker" "scanner" "lp" ]
+          else [ "networkmanager" ];
       };
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
