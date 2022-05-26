@@ -6,7 +6,7 @@ inputs:
   neofetch = import ./neofetch inputs;
   kitty = import ./kitty inputs;
   shell = import ./shell inputs;
-  xserver = import ./xserver inputs;
+  desktop = import ./desktop inputs;
   userdirs = import ./userdirs inputs;
   scripts = import ./scripts inputs;
   doom-emacs = import ./doom-emacs inputs;

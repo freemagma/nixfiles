@@ -1,6 +1,6 @@
 inputs:
 
 {
-  xserver = import ./xserver inputs;
+  i3 = import ./i3 inputs;
 }
 

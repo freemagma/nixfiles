@@ -17,7 +17,7 @@ self.lib.makeSystem {
   ] ++ (with self.nixosModules; [
     base
     nvidia
-    desktop.xserver
+    desktop.i3
 
     users.cgunn
     users.guest

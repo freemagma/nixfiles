@@ -1,12 +1,26 @@
-_: { pkgs, ... }: 
+_:
 
-{
-  home.packages = with pkgs; [
-    (pkgs.callPackage ./scanbatch.nix { })
-    (pkgs.callPackage ./mktexdir.nix { })
-    (pkgs.callPackage ./resetwifi.nix { })
-    (pkgs.callPackage ./resetblue.nix { })
-    (pkgs.callPackage ./em.nix { })
-    (pkgs.callPackage ./gtvpn.nix { })
-  ];
+let
+  addPkg = path: { pkgs, ... }: {
+    home.packages = [ (pkgs.callPackage path { }) ];
+  };
+in
+rec {
+  scanbatch = addPkg ./scanbatch.nix;
+  mktexdir = addPkg ./mktexdir.nix;
+  resetwifi = addPkg ./resetwifi.nix;
+  resetblue = addPkg ./resetblue.nix;
+  em = addPkg ./em.nix;
+  gtvpn = addPkg ./gtvpn.nix;
+
+  bundles.all = {
+    imports = [
+      scanbatch
+      mktexdir
+      resetwifi
+      resetblue
+      em
+      gtvpn
+    ];
+  };
 }

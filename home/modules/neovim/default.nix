@@ -20,7 +20,7 @@ _: { pkgs, ... }:
     nodePackages.pyright
   ];
 
-  home.file.".config/nvim/lua/lib" = {
+  xdg.configFile."nvim/lua/lib" = {
     source = ./lib;
     recursive = true;
   };

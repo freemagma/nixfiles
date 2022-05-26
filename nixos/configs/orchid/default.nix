@@ -16,7 +16,7 @@ self.lib.makeSystem {
 
   ] ++ (with self.nixosModules; [
     base
-    desktop.xserver
+    desktop.i3
 
     users.cgunn
 

@@ -11,10 +11,10 @@ with self.homeModules;
       pkglist
       neofetch
       kitty
-      shell
-      xserver
+      shell.zsh
+      desktop.bundles.i3
+      scripts.bundles.all
       userdirs
-      scripts
       neovim
       chess
     ];
@@ -27,10 +27,10 @@ with self.homeModules;
     style.color = style.gruvbox-dark;
     modules = [
       kitty
-      shell
-      xserver
+      shell.zsh
+      desktop.bundles.i3
+      scripts.bundles.all
       userdirs
-      scripts
       neovim
     ];
   };
