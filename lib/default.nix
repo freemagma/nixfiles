@@ -17,7 +17,9 @@
       ];
     };
 
-  makeUser = { system, machine, style, username, privileged ? false, modules ? [ ] }:
+  makeUser =
+    { style, username, privileged ? false, modules ? [ ] }:
+    { system, machine, ... }:
     {
       users.users.${username} = {
         isNormalUser = true;

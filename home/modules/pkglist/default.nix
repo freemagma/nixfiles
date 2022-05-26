@@ -6,19 +6,18 @@ let
 in
 {
   home.packages = with pkgs; [
-    # System Control
+    # system control
     nitrogen
     brightnessctl
     pavucontrol
 
-    # Apps
+    # apps
     firefox
     google-chrome
     libreoffice
     spotify
     discord
     slack
-    mgba
     gimp
     qbittorrent
     calibre
@@ -28,12 +27,11 @@ in
     signal-desktop
     vlc
     mullvad-vpn
+    mgba
+    polymc
     mypkgs.crossfire
 
-    # Minecraft
-    polymc
-
-    # CLI Tools
+    # cmdline tools
     unar
     zathura
     ripgrep
@@ -45,16 +43,15 @@ in
     yt-dlp
     croc
 
-    # Development
+    # dev
     (python3.withPackages (ps:
       with ps; [
         ipython
         black
         isort
       ]))
-    jupyter
     poetry
-    gnumake
+    jupyter
     docker
     mypkgs.mytex
 

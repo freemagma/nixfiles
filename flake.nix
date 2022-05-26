@@ -11,12 +11,12 @@
   outputs = { self, nixpkgs, flake-utils, home-manager, ... }@inputs:
     {
       nixosConfigurations = {
-        jane = import ./hosts/jane inputs;
-        orchid = import ./hosts/orchid inputs;
+        jane = import ./nixos/configs/jane inputs;
+        orchid = import ./nixos/configs/orchid inputs;
       };
 
-      nixosModules = import ./nixos inputs;
-      homeModules = import ./home inputs;
+      nixosModules = import ./nixos/modules inputs;
+      homeModules = import ./home/modules inputs;
 
       lib = import ./lib inputs;
 
