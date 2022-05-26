@@ -27,7 +27,7 @@ _: { pkgs, lib, style, machine, ... }:
         width = "100%";
         height = 30;
 
-        background = bg;
+        background = dark_bg;
         foreground = fg;
 
         radius = 0;

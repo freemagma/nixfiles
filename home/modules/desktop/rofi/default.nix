@@ -3,158 +3,116 @@ _: { config, style, ... }:
 {
   programs.rofi = {
     enable = true;
+    extraConfig = {
+      modi = "drun,run,window";
+    };
     theme =
       let
-        inherit (config.lib.formats.rasi) mkLiteral;
+        lit = config.lib.formats.rasi.mkLiteral;
       in
-      with style.color; {
-        #****************************************************************************
-        # ROFI Color theme = Glue Pro Blue
-        # Copyright = Rasmus Steinke
-        # Modified By = Charlie Gunn
-        #****************************************************************************
+      {
+        "configuration" = {
+          font = "Fira Code Nerd Font 10";
+          show-icons = lit "true";
+          display-drun = "";
+          drun-display-format = "{name}";
+          disable-history = lit "false";
+          sidebar-mode = lit "false";
+        };
         "*" = {
-          selected-normal-foreground = mkLiteral dark_bg;
-          foreground = mkLiteral fg;
-          normal-foreground = mkLiteral "@foreground";
-          alternate-normal-background = mkLiteral "transparent";
-          red = mkLiteral bright_red;
-          selected-urgent-foreground = mkLiteral yellow;
-          blue = mkLiteral bright_cyan;
-          urgent-foreground = mkLiteral orange;
-          alternate-urgent-background = mkLiteral "transparent";
-          active-foreground = mkLiteral cyan;
-          lightbg = mkLiteral white;
-          selected-active-foreground = mkLiteral bright_blue;
-          alternate-active-background = mkLiteral "transparent";
-          background = mkLiteral "transparent";
-          bordercolor = mkLiteral bg;
-          alternate-normal-foreground = mkLiteral "@foreground";
-          normal-background = mkLiteral "transparent";
-          lightfg = mkLiteral dark_fg;
-          selected-normal-background = mkLiteral blue;
-          border-color = mkLiteral "@foreground";
-          spacing = 2;
-          separatorcolor = mkLiteral blue;
-          urgent-background = mkLiteral "transparent";
-          selected-urgent-background = mkLiteral blue;
-          alternate-urgent-foreground = mkLiteral "@urgent-foreground";
-          background-color = mkLiteral "#00000000";
-          alternate-active-foreground = mkLiteral "@active-foreground";
-          active-background = mkLiteral bg;
-          selected-active-background = mkLiteral blue;
+          al = lit "#00000000";
+          bg = lit style.color.dark_bg;
+          fg = lit style.color.fg;
+          ac = lit style.color.bright_red;
         };
-        window = {
-          background-color = mkLiteral "${bg}f2";
-          border = 1;
-          padding = 5;
+        "window" = {
+          transparency = "real";
+          background-color = lit "@bg";
+          text-color = lit "@fg";
+          border = lit "0px";
+          border-color = lit "@ac";
+          border-radius = lit "12px";
+          width = lit "30%";
+          location = lit "center";
+          x-offset = lit "0";
+          y-offset = lit "0";
         };
-        mainbox = {
-          border = 0;
-          padding = 0;
+        "prompt" = {
+          enabled = lit "true";
+          padding = lit "0.30% 1% 0% -0.5%";
+          background-color = lit "@al";
+          text-color = lit "@fg";
+          font = "Fira Code Nerd Font 12";
         };
-        message = {
-          border = mkLiteral "1px dash 0px 0px";
-          border-color = mkLiteral "@separatorcolor";
-          padding = mkLiteral "1px";
+        "entry" = {
+          background-color = lit "@al";
+          text-color = lit "@fg";
+          placeholder-color = lit "@fg";
+          expand = lit "true";
+          horizontal-align = lit "0";
+          placeholder = "Search";
+          padding = lit "0.40% 0% 0% 0%";
+          blink = lit "true";
         };
-        textbox = { text-color = mkLiteral "@foreground"; };
-        listview = {
-          fixed-height = 0;
-          border = mkLiteral "2px dash 0px 0px";
-          border-color = mkLiteral "@separatorcolor";
-          spacing = mkLiteral "2px";
-          scrollbar = true;
-          padding = mkLiteral "2px 0px 0px";
+        "inputbar" = {
+          children = lit "[ prompt, entry ]";
+          background-color = lit "@bg";
+          text-color = lit "@fg";
+          expand = lit "false";
+          border = lit "0% 0% 0% 0%";
+          border-radius = lit "0px";
+          border-color = lit "@ac";
+          margin = lit "0% 0% 0% 0%";
+          padding = lit "1.5%";
         };
-        element = {
-          border = 0;
-          padding = mkLiteral "1px";
+        "listview" = {
+          background-color = lit "@al";
+          padding = lit "10px";
+          columns = lit "2";
+          lines = lit "7";
+          spacing = lit "1%";
+          cycle = lit "false";
+          dynamic = lit "true";
+          layout = lit "vertical";
         };
-        "element.normal.normal" = {
-          background-color = mkLiteral "@normal-background";
-          text-color = mkLiteral "@normal-foreground";
+        "mainbox" = {
+          background-color = lit "@al";
+          border = lit "0% 0% 0% 0%";
+          border-radius = lit "0% 0% 0% 0%";
+          border-color = lit "@ac";
+          children = lit "[ inputbar, listview ]";
+          spacing = lit "0%";
+          padding = lit "0%";
         };
-        "element.normal.urgent" = {
-          background-color = mkLiteral "@urgent-background";
-          text-color = mkLiteral "@urgent-foreground";
+        "element" = {
+          background-color = lit "@al";
+          text-color = lit "@fg";
+          orientation = lit "horizontal";
+          border-radius = lit "0%";
+          padding = lit "0.5% 0.5% 0.5% 0.5%";
         };
-        "element.normal.active" = {
-          background-color = mkLiteral "@active-background";
-          text-color = mkLiteral "@active-foreground";
+        "element-icon" = {
+          background-color = lit "inherit";
+          text-color = lit "inherit";
+          horizontal-align = lit "0.5";
+          vertical-align = lit "0.5";
+          size = lit "24px";
+          border = lit "0px";
         };
-        "element.selected.normal" = {
-          background-color = mkLiteral "@selected-normal-background";
-          text-color = mkLiteral "@selected-normal-foreground";
+        "element-text" = {
+          background-color = lit "@al";
+          text-color = lit "inherit";
+          expand = lit "true";
+          horizontal-align = lit "0";
+          vertical-align = lit "0.5";
+          margin = lit "0% 0.25% 0% 0.25%";
         };
-        "element.selected.urgent" = {
-          background-color = mkLiteral "@selected-urgent-background";
-          text-color = mkLiteral "@selected-urgent-foreground";
-        };
-        "element.selected.active" = {
-          background-color = mkLiteral "@selected-active-background";
-          text-color = mkLiteral "@selected-active-foreground";
-        };
-        "element.alternate.normal" = {
-          background-color = mkLiteral "@alternate-normal-background";
-          text-color = mkLiteral "@alternate-normal-foreground";
-        };
-        "element.alternate.urgent" = {
-          background-color = mkLiteral "@alternate-urgent-background";
-          text-color = mkLiteral "@alternate-urgent-foreground";
-        };
-        "element.alternate.active" = {
-          background-color = mkLiteral "@alternate-active-background";
-          text-color = mkLiteral "@alternate-active-foreground";
-        };
-        scrollbar = {
-          width = mkLiteral "4px";
-          border = 0;
-          handle-width = mkLiteral "8px";
-          padding = 0;
-        };
-        mode-switcher = {
-          border = mkLiteral "2px dash 0px 0px";
-          border-color = mkLiteral "@separatorcolor";
-        };
-        "button.selected" = {
-          background-color = mkLiteral "@selected-normal-background";
-          text-color = mkLiteral "@selected-normal-foreground";
-        };
-        button = {
-          background-color = mkLiteral "@background";
-          text-color = mkLiteral "@foreground";
-        };
-        inputbar = {
-          spacing = 0;
-          text-color = mkLiteral "@normal-foreground";
-          padding = mkLiteral "1px";
-        };
-        case-indicator = {
-          spacing = 0;
-          text-color = mkLiteral "@normal-foreground";
-        };
-        entry = {
-          spacing = 0;
-          text-color = mkLiteral "@normal-foreground";
-        };
-        prompt = {
-          spacing = 0;
-          text-color = mkLiteral "@normal-foreground";
-        };
-        inputbar = {
-          children = map mkLiteral [
-            "prompt"
-            "textbox-prompt-colon"
-            "entry"
-            "case-indicator"
-          ];
-        };
-        textbox-prompt-colon = {
-          expand = false;
-          str = ":";
-          margin = mkLiteral "0px 0.3em 0em 0em";
-          text-color = mkLiteral "@normal-foreground";
+        "element selected" = {
+          background-color = lit "@ac";
+          text-color = lit "@bg";
+          border = lit "0% 0% 0% 0%";
+          border-radius = lit "12px";
+          border-color = lit "@bg";
         };
       };
   };

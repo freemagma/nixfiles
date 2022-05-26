@@ -120,7 +120,7 @@ _: { pkgs, style, config, username, ... }:
         "${modifier}+Return" = "exec kitty";
         "${modifier}+f" = "exec firefox";
         "${modifier}+Shift+f" = "exec firefox --private-window";
-        "${modifier}+q" = "exec ${pkgs.rofi}/bin/rofi -show run";
+        "${modifier}+q" = "exec ${pkgs.rofi}/bin/rofi -show drun";
 
         # script keybindings
         "${modifier}+Shift+s" = ''mode "scripts"'';
@@ -141,11 +141,11 @@ _: { pkgs, style, config, username, ... }:
         };
 
         scripts = {
+          w = ''exec "resetwifi"; mode "default"'';
           b = ''exec "resetblue B4:CE:40:C2:79:31"; mode "default"'';
           h = ''exec "resetblue 10:29:59:5E:68:9A"; mode "default"'';
           d = ''exec "bluetoothctl -- disconnect"; mode "default"'';
-          m = ''
-            exec "maim -s /home/${username}/images/screenshots/$(date -Ins).png"; mode "default"'';
+          m = ''exec "maim -s /home/${username}/images/screenshots/$(date -Ins).png"; mode "default"'';
 
           Escape = ''mode "default"'';
         };
