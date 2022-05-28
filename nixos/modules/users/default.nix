@@ -35,6 +35,8 @@ with self.homeModules;
     ];
     extraPkgs = p: with p; [
       polymc
+      google-chrome
+      spotify
     ];
   };
 }
