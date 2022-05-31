@@ -1,9 +1,9 @@
 {
   networking = {
-    wireless.iwd.enable = true;
+    # wireless.iwd.enable = true;
     networkmanager = {
       enable = true;
-      wifi.backend = "iwd";
+      # wifi.backend = "iwd";
     };
     dhcpcd.enable = false;
   };
