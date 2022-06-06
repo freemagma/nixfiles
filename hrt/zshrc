@@ -25,6 +25,7 @@ unsetopt HIST_EXPIRE_DUPS_FIRST
 setopt SHARE_HISTORY
 unsetopt EXTENDED_HISTORY
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#a89984'
 SPACESHIP_DIR_TRUNC=5;
 SPACESHIP_CHAR_SYMBOL="$";
 SPACESHIP_CHAR_SUFFIX=" ";
@@ -32,12 +33,16 @@ SPACESHIP_GIT_STATUS_DELETED="X";
 SPACESHIP_BATTERY_SHOW=false;
 SPACESHIP_VI_MODE_SHOW=false;
 
+# Path
+path+=("/usr/local/bin" "/opt/HRT/bin" "/opt/homebrew/bin" "/opt/homebrew/sbin" "/opt/salt/bin" "/usr/local/sbin" "/opt/X11/bin")
+export PATH
+
 # Aliases
 alias activate='source .venv/bin/activate'
 # alias cat='bat -p --paging=never'
 alias la='ls -lah'
-# alias ssh='kitty +kitten ssh'
-alias h='ssh shainternalgo62'
+alias ssh='kitty +kitten ssh'
+alias h='kitty +kitten ssh shainternalgo62'
 alias vim='nvim'
 
 # Global Aliases
