@@ -13,7 +13,7 @@
     enable = true;
     shellAliases = {
       la = "ls -lah";
-      nixr = "sudo nixos-rebuild switch --flake ~/dev/nixfiles";
+      nixr = "nixos-rebuild switch --use-remote-sudo --flake ~/dev/nixfiles";
       cat = "bat -p --paging=never";
       activate = "source .venv/bin/activate";
       ssh = "kitty +kitten ssh";

@@ -38,6 +38,7 @@ in
         };
         imports = modules;
         home.packages = extraPkgs pkgs;
+        home.stateVersion = "21.05";
       };
     };
 }

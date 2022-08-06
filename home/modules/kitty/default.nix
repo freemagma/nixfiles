@@ -52,6 +52,7 @@ _: { style, ... }:
     settings = with style.color; {
       shell = "zsh";
       enable_audio_bell = "no";
+      confirm_os_window_close = 0;
       font_family = "FiraCode Nerd Font";
       font_size = 12;
 
