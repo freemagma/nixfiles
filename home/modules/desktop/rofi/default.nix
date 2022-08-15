@@ -6,113 +6,107 @@ _: { config, style, ... }:
     extraConfig = {
       modi = "drun,run,window";
     };
-    theme =
+    theme = with style.color;
       let
         lit = config.lib.formats.rasi.mkLiteral;
       in
       {
         "configuration" = {
-          font = "Fira Code Nerd Font 10";
+          modi = "run,drun,window";
+          icon-theme = "Oranchelo";
           show-icons = lit "true";
-          display-drun = "";
-          drun-display-format = "{name}";
+          terminal = "alacritty";
+          drun-display-format = "{icon} {name}";
+          location = lit "0";
           disable-history = lit "false";
-          sidebar-mode = lit "false";
+          hide-scrollbar = lit "true";
+          display-drun = "   Apps ";
+          display-run = "   Run ";
+          display-window = " 﩯  Window";
+          sidebar-mode = lit "true";
         };
         "*" = {
-          al = lit "#00000000";
-          bg = lit style.color.mantle;
-          fg = lit style.color.text;
-          ac = lit style.color.rosewater;
+          bg-col = lit mantle;
+          bg-col-light = lit mantle;
+          border-col = lit mantle;
+          selected-col = lit mantle;
+          accent = lit blue;
+          fg-col = lit text;
+          fg-col2 = lit red;
+          fg-accent = lit crust;
+          grey = lit overlay0;
+          width = lit "600";
+          font = "Fira Code Nerd Font 10";
         };
-        "window" = {
-          transparency = "real";
-          background-color = lit "@bg";
-          text-color = lit "@fg";
-          border = lit "0px";
-          border-color = lit "@ac";
-          border-radius = lit "12px";
-          width = lit "30%";
-          location = lit "center";
-          x-offset = lit "0";
-          y-offset = lit "0";
-        };
-        "prompt" = {
-          enabled = lit "true";
-          padding = lit "0.30% 1% 0% -0.5%";
-          background-color = lit "@al";
-          text-color = lit "@fg";
-          font = "Fira Code Nerd Font 12";
-        };
-        "entry" = {
-          background-color = lit "@al";
-          text-color = lit "@fg";
-          placeholder-color = lit "@fg";
-          expand = lit "true";
-          horizontal-align = lit "0";
-          placeholder = "Search";
-          padding = lit "0.40% 0% 0% 0%";
-          blink = lit "true";
-        };
-        "inputbar" = {
-          children = lit "[ prompt, entry ]";
-          background-color = lit "@bg";
-          text-color = lit "@fg";
-          expand = lit "false";
-          border = lit "0% 0% 0% 0%";
-          border-radius = lit "0px";
-          border-color = lit "@ac";
-          margin = lit "0% 0% 0% 0%";
-          padding = lit "1.5%";
-        };
-        "listview" = {
-          background-color = lit "@al";
-          padding = lit "10px";
-          columns = lit "2";
-          lines = lit "7";
-          spacing = lit "1%";
-          cycle = lit "false";
-          dynamic = lit "true";
-          layout = lit "vertical";
-        };
-        "mainbox" = {
-          background-color = lit "@al";
-          border = lit "0% 0% 0% 0%";
-          border-radius = lit "0% 0% 0% 0%";
-          border-color = lit "@ac";
-          children = lit "[ inputbar, listview ]";
-          spacing = lit "0%";
-          padding = lit "0%";
-        };
-        "element" = {
-          background-color = lit "@al";
-          text-color = lit "@fg";
-          orientation = lit "horizontal";
-          border-radius = lit "0%";
-          padding = lit "0.5% 0.5% 0.5% 0.5%";
-        };
-        "element-icon" = {
+        "element-text, element-icon, mode-switcher" = {
           background-color = lit "inherit";
           text-color = lit "inherit";
-          horizontal-align = lit "0.5";
-          vertical-align = lit "0.5";
-          size = lit "24px";
-          border = lit "0px";
         };
-        "element-text" = {
-          background-color = lit "@al";
-          text-color = lit "inherit";
-          expand = lit "true";
-          horizontal-align = lit "0";
-          vertical-align = lit "0.5";
-          margin = lit "0% 0.25% 0% 0.25%";
+        "window" = {
+          height = lit "360px";
+          border = lit "3px";
+          border-color = lit "@border-col";
+          background-color = lit "@bg-col";
+        };
+        "mainbox" = {
+          background-color = lit "@bg-col";
+        };
+        "inputbar" = {
+          children = lit "[prompt,entry]";
+          background-color = lit "@bg-col";
+          border-radius = lit "5px";
+          padding = lit "2px";
+        };
+        "prompt" = {
+          background-color = lit "@accent";
+          padding = lit "6px";
+          text-color = lit "@fg-accent";
+          border-radius = lit "3px";
+          margin = lit "20px 0px 0px 20px";
+        };
+        "textbox-prompt-colon" = {
+          expand = lit "false";
+          str = ":";
+        };
+        "entry" = {
+          padding = lit "6px";
+          margin = lit "20px 0px 0px 10px";
+          text-color = lit "@fg-col";
+          background-color = lit "@bg-col";
+        };
+        "listview" = {
+          border = lit "0px 0px 0px";
+          padding = lit "6px 0px 0px";
+          margin = lit "10px 0px 0px 20px";
+          columns = lit "2";
+          lines = lit "5";
+          background-color = lit "@bg-col";
+        };
+        "element" = {
+          padding = lit "5px";
+          background-color = lit "@bg-col";
+          text-color = lit "@fg-col";
+        };
+        "element-icon" = {
+          size = lit "25px";
         };
         "element selected" = {
-          background-color = lit "@ac";
-          text-color = lit "@bg";
-          border = lit "0% 0% 0% 0%";
-          border-radius = lit "12px";
-          border-color = lit "@bg";
+          background-color = lit "@selected-col";
+          text-color = lit "@fg-col2";
+        };
+        "mode-switcher" = {
+          spacing = lit "0";
+        };
+        "button" = {
+          padding = lit "10px";
+          background-color = lit "@bg-col-light";
+          text-color = lit "@grey";
+          vertical-align = lit "0.5";
+          horizontal-align = lit "0.5";
+        };
+        "button selected" = {
+          background-color = lit "@bg-col";
+          text-color = lit "@accent";
         };
       };
   };
