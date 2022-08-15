@@ -27,8 +27,8 @@ _: { pkgs, lib, style, machine, ... }:
         width = "100%";
         height = 30;
 
-        background = "#61000000";
-        foreground = fg;
+        background = "#bb${builtins.substring 1 6 base}";
+        foreground = text;
 
         radius = 0;
 
@@ -80,8 +80,8 @@ _: { pkgs, lib, style, machine, ... }:
         time = "%H:%M:%S";
 
         format = " <label>";
-        format-background = bright_yellow;
-        format-foreground = dark_bg;
+        format-background = yellow;
+        format-foreground = crust;
         format-padding = 1;
 
         label = "%date% %time%";
@@ -92,13 +92,13 @@ _: { pkgs, lib, style, machine, ... }:
         interface = machine.netInterface;
 
         label-connected = " %essid% %signal%";
-        label-connected-foreground = dark_bg;
-        format-connected-background = bright_green;
+        label-connected-foreground = crust;
+        format-connected-background = green;
         format-connected-padding = 1;
 
         label-disconnected = " disconnected";
-        label-disconnected-foreground = dark_bg;
-        format-disconnected-background = bright_red;
+        label-disconnected-foreground = crust;
+        format-disconnected-background = peach;
         format-disconnected-padding = 1;
       };
 
@@ -107,13 +107,13 @@ _: { pkgs, lib, style, machine, ... }:
         interface = machine.netInterface;
 
         label-connected = " %downspeed%  %upspeed%";
-        label-connected-foreground = dark_bg;
-        format-connected-background = bright_green;
+        label-connected-foreground = crust;
+        format-connected-background = green;
         format-connected-padding = 1;
 
         label-disconnected = "disconnected";
-        label-disconnected-foreground = dark_bg;
-        format-disconnected-background = bright_red;
+        label-disconnected-foreground = crust;
+        format-disconnected-background = peach;
         format-disconnected-padding = 1;
       };
 
@@ -122,27 +122,27 @@ _: { pkgs, lib, style, machine, ... }:
         pin-workspaces = false;
         strip-wsnumbers = false;
         format = "<label-state> <label-mode>";
-        format-background = bright_cyan;
+        format-background = blue;
 
         label-mode = "%mode%";
-        label-mode-foreground = dark_bg;
+        label-mode-foreground = crust;
         label-mode-padding = 1;
 
         label-unfocused = "%index%";
-        label-unfocused-foreground = dark_bg;
+        label-unfocused-foreground = crust;
         label-unfocused-padding = 1;
 
         label-focused = "%index%";
         label-focused-font = 2;
-        label-focused-foreground = dark_bg;
+        label-focused-foreground = crust;
         label-focused-padding = 1;
 
         label-visible = "%index%";
         label-visible-padding = 1;
 
         label-urgent = "%index%";
-        label-urgent-background = bright_red;
-        label-urgent-foreground = dark_bg;
+        label-urgent-background = maroon;
+        label-urgent-foreground = crust;
         label-urgent-padding = 1;
       };
 
@@ -156,10 +156,10 @@ _: { pkgs, lib, style, machine, ... }:
         format-discharging = "<ramp-capacity> <label-discharging>";
         format-full = "<ramp-capacity> <label-full>";
 
-        format-charging-background = bright_cyan;
+        format-charging-background = blue;
         format-discharging-background = format-charging-background;
         format-full-background = format-charging-background;
-        format-charging-foreground = dark_bg;
+        format-charging-foreground = crust;
         format-discharging-foreground = format-charging-foreground;
         format-full-foreground = format-charging-foreground;
 

@@ -11,8 +11,8 @@
       enable = true;
       background = "${self}/wallpapers/ghostly_gate_2560x1440.jpg";
       greeters.gtk.theme = {
-        package = pkgs.gruvbox-dark-gtk;
-        name = "gruvbox-dark";
+        package = pkgs.catppuccin-gtk;
+        name = "catppuccin-gtk";
       };
     };
 

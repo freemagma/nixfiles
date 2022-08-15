@@ -6,7 +6,7 @@ with self.homeModules;
     username = "cgunn";
     privileged = true;
 
-    style.color = style.gruvbox-dark;
+    style.color = style.catppuccin-mocha;
     modules = [
       pkglist
       neofetch
@@ -24,7 +24,7 @@ with self.homeModules;
     username = "guest";
     privileged = false;
 
-    style.color = style.gruvbox-dark;
+    style.color = style.catppuccin-mocha;
     modules = [
       kitty
       shell.zsh

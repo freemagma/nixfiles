@@ -43,7 +43,7 @@ _: { pkgs, ... }:
       comment-nvim
 
       # visual
-      gruvbox
+      catppuccin-nvim
       lualine-nvim
       indent-blankline-nvim
 
@@ -73,9 +73,7 @@ _: { pkgs, ... }:
     ];
 
     extraConfig = ''
-      colorscheme gruvbox
       ${builtins.readFile ./base.vim}
-
       lua << EOF
         ${builtins.readFile ./base.lua}
         ${builtins.readFile ./visual.lua}

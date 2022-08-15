@@ -1,124 +1,61 @@
 _:
 
 rec {
-  color = gruvbox-dark;
-  gruvbox-dark = rec {
-    fg = fg1;
-    bg = bg0;
-
-    bg0 = "#282828";
-    bg1 = "#3c3836";
-    bg2 = "#504945";
-    bg3 = "#665c54";
-    bg4 = "#7c6f64";
-    bg0_hard = "#1d2021";
-    bg0_soft = "#32302f";
-
-    fg0 = "#fbf1c7";
-    fg1 = "#ebdbb2";
-    fg2 = "#d5c4a1";
-    fg3 = "#bdae93";
-    fg4 = "#a89984";
-
-    red = "#cc241d";
-    bright_red = "#fb4934";
-
-    orange = "#d65d0e";
-    bright_orange = "#fe8019";
-
-    yellow = "#d79921";
-    bright_yellow = "#fabd2f";
-
-    green = "#98971a";
-    bright_green = "#b8bb26";
-
-    cyan = "#689d6a";
-    bright_cyan = "#8ec07c";
-
-    blue = "#458588";
-    bright_blue = "#83a598";
-
-    purple = "#b16286";
-    bright_purple = "#d3869b";
-
-    white = "#a89984";
-    bright_white = fg;
-    grey = "#928374";
-    gray = grey;
-
-    select_fg = bg;
-    select_bg = fg;
-
-    dark_bg = bg0_hard;
-    dark_fg = gray;
-
-    color0 = bg;
-    color1 = red;
-    color2 = yellow;
-    color3 = green;
-    color4 = cyan;
-    color5 = blue;
-    color6 = purple;
-    color7 = white;
-
-    color8 = fg;
-    color9 = bright_red;
-    color10 = bright_yellow;
-    color11 = bright_green;
-    color12 = bright_cyan;
-    color13 = bright_blue;
-    color14 = bright_purple;
-    color15 = bright_white;
+  catppuccin-mocha = rec {
+    rosewater = "#f5e0dc";
+    flamingo = "#f2cdcd";
+    pink = "#f5c2e7";
+    mauve = "#cba6f7";
+    red = "#f38ba8";
+    maroon = "#eba0ac";
+    peach = "#fab387";
+    yellow = "#f9e2af";
+    green = "#a6e3a1";
+    teal = "#94e2d5";
+    sky = "#89dceb";
+    sapphire = "#74c7ec";
+    blue = "#89b4fa";
+    lavender = "#b4befe";
+    text = "#cdd6f4";
+    subtext1 = "#bac2de";
+    subtext0 = "#a6adc8";
+    overlay2 = "#9399b2";
+    overlay1 = "#7f849c";
+    overlay0 = "#6c7086";
+    surface2 = "#585b70";
+    surface1 = "#45475a";
+    surface0 = "#313244";
+    base = "#1e1e2e";
+    mantle = "#181825";
+    crust = "#11111b";
   };
-  custom-dark = rec {
-    fg = "#dcd0c7";
-    bg = "#151515";
-    select_fg = bg;
-    select_bg = fg;
 
-    dark_bg = "#050505";
-    dark_fg = "#404040";
-
-    red = "#e67e7e";
-    bright_red = "#ff4040";
-
-    orange = "#e6bc7e";
-    bright_orange = "#ff9f40";
-
-    yellow = "#e6e67e";
-    bright_yellow = "#ffff40";
-
-    green = "#7ee67e";
-    bright_green = "#40ff40";
-
-    cyan = "#7ee6e6";
-    bright_cyan = "#40ffff";
-
-    blue = "#7e7ee6";
-    bright_blue = "#4040ff";
-
-    purple = "#e67ee6";
-    bright_purple = "#ff40ff";
-
-    white = "#e6e6e6";
-    bright_white = "#ffffff";
-
-    color0 = dark_bg;
-    color1 = red;
-    color2 = yellow;
-    color3 = green;
-    color4 = cyan;
-    color5 = blue;
-    color6 = purple;
-    color7 = white;
-
-    color8 = dark_fg;
-    color9 = bright_red;
-    color10 = bright_yellow;
-    color11 = bright_green;
-    color12 = bright_cyan;
-    color13 = bright_blue;
-    color14 = bright_purple;
-    color15 = bright_white;
+  catppuccin-macchiato = rec {
+    rosewater = "#f4dbd6";
+    flamingo = "#f0c6c6";
+    pink = "#f5bde6";
+    mauve = "#c6a0f6";
+    red = "#ed8796";
+    maroon = "#ee99a0";
+    peach = "#f5a97f";
+    yellow = "#eed49f";
+    green = "#a6da95";
+    teal = "#8bd5ca";
+    sky = "#91d7e3";
+    sapphire = "#7dc4e4";
+    blue = "#8aadf4";
+    lavender = "#b7bdf8";
+    text = "#cad3f5";
+    subtext1 = "#b8c0e0";
+    subtext0 = "#a5adcb";
+    overlay2 = "#939ab7";
+    overlay1 = "#8087a2";
+    overlay0 = "#6e738d";
+    surface2 = "#5b6078";
+    surface1 = "#494d64";
+    surface0 = "#363a4f";
+    base = "#24273a";
+    mantle = "#1e2030";
+    crust = "#181926";
   };
 }

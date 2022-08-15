@@ -21,9 +21,9 @@ _: { config, style, ... }:
         };
         "*" = {
           al = lit "#00000000";
-          bg = lit style.color.dark_bg;
-          fg = lit style.color.fg;
-          ac = lit style.color.bright_orange;
+          bg = lit style.color.mantle;
+          fg = lit style.color.text;
+          ac = lit style.color.rosewater;
         };
         "window" = {
           transparency = "real";

@@ -17,25 +17,25 @@ _: { pkgs, style, config, username, ... }:
       gaps.inner = 10;
       modifier = "Mod4";
       colors = with style.color; rec {
-        background = bg;
-        focused = rec {
-          background = purple;
-          border = background;
-          text = background;
-          childBorder = purple;
+        background = base;
+        focused = {
+          background = lavender;
+          border = lavender;
+          text = lavender;
+          childBorder = lavender;
           indicator = red;
         };
         focusedInactive = focused // {
-          background = blue;
-          border = blue;
-          text = blue;
-          childBorder = blue;
+          background = teal;
+          border = teal;
+          text = teal;
+          childBorder = teal;
         };
         unfocused = focused // {
-          background = bg2;
-          border = bg2;
-          text = bg2;
-          childBorder = bg2;
+          background = overlay0;
+          border = overlay0;
+          text = overlay0;
+          childBorder = overlay0;
         };
         urgent = focused // {
           background = red;
@@ -182,12 +182,12 @@ _: { pkgs, style, config, username, ... }:
   gtk = {
     enable = true;
     iconTheme = {
-      name = "oomox-gruvbox-dark";
-      package = pkgs.gruvbox-dark-icons-gtk;
+      package = pkgs.luna-icons;
+      name = "luna-icons";
     };
     theme = {
-      name = "gruvbox-dark";
-      package = pkgs.gruvbox-dark-gtk;
+      package = pkgs.catppuccin-gtk;
+      name = "catppuccin-gtk";
     };
   };
 }

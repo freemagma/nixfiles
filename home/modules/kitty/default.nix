@@ -62,34 +62,52 @@ _: { style, ... }:
       window_padding_width = 4;
       window_border_width = "4px";
       placement_strategy = "center";
-      active_border_color = cyan;
-      inactive_border_color = bg;
-      bell_border_color = red;
       draw_minimal_borders = "no";
 
       tab_bar_style = "slant";
 
-      foreground = fg;
-      background = bg;
-      selection_foreground = select_fg;
-      selection_background = select_bg;
+      foreground = text;
+      background = base;
+      selection_foreground = base;
+      selection_background = rosewater;
 
-      color0 = color0;
-      color1 = color1;
-      color2 = color2;
-      color3 = color3;
-      color4 = color4;
-      color5 = color5;
-      color6 = color6;
-      color7 = color7;
-      color8 = color8;
-      color9 = color9;
-      color10 = color10;
-      color11 = color11;
-      color12 = color12;
-      color13 = color13;
-      color14 = color14;
-      color15 = color15;
+      cursor = rosewater;
+      cursor_text_color = base;
+      url_color = rosewater;
+
+      active_border_color = lavender;
+      inactive_border_color = base;
+      bell_border_color = yellow;
+
+      active_tab_foreground = crust;
+      active_tab_background = mauve;
+      inactive_tab_foreground = text;
+      inactive_tab_background = mantle;
+      tab_bar_background = crust;
+
+      mark1_foreground = base;
+      mark1_background = lavender;
+      mark2_foreground = base;
+      mark2_background = mauve;
+      mark3_foreground = base;
+      mark3_background = sapphire;
+
+      color0 = surface1;
+      color1 = red;
+      color2 = green;
+      color3 = blue;
+      color4 = yellow;
+      color5 = pink;
+      color6 = teal;
+      color7 = subtext1;
+      color8 = surface2;
+      color9 = red;
+      color10 = green;
+      color11 = blue;
+      color12 = yellow;
+      color13 = pink;
+      color14 = teal;
+      color15 = subtext0;
     };
   };
 }
