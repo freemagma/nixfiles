@@ -75,7 +75,6 @@ _: { pkgs, config, ... }:
       ascii_colors=(5 4 3 2 1 6)
       ascii_bold="on"
       image_loop="off"
-      thumbnail_dir="$(XDG_CACHE_HOME:-$(HOME)/.cache)/thumbnails/neofetch"
       crop_mode="normal"
       crop_offset="center"
       image_size="auto"
