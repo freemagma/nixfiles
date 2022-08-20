@@ -51,7 +51,6 @@ in
         isort
       ]))
     poetry
-    jupyter
     docker
     mypkgs.mytex
 
