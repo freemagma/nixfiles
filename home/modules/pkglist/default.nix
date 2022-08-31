@@ -24,11 +24,13 @@ in
     blender
     inkscape
     zoom-us
+    teams
     signal-desktop
     vlc
     mullvad-vpn
     mgba
     polymc
+    cubiomes-viewer
     mypkgs.crossfire
 
     # cmdline tools

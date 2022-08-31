@@ -1,8 +1,8 @@
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol
                                                           .make_client_capabilities())
-
 local lspconfig = require("lspconfig")
+local lspconfig_util = require("lspconfig/util")
 
 -- python
 -- lspconfig.pyright.setup {capabilities = capabilities}
@@ -15,17 +15,28 @@ local lspconfig = require("lspconfig")
 -- }
 
 -- nix
-lspconfig.rnix.setup {capabilities = capabilities}
+lspconfig.rnix.setup {
+    capabilities = capabilities,
+    root_dir = function(fname)
+        return lspconfig_util.root_pattern(".git")(fname) or
+                   lspconfig_util.path.dirname(fname)
+    end
+}
 
 -- tex
-lspconfig.texlab.setup {capabilities = capabilities}
+lspconfig.texlab.setup {
+    capabilities = capabilities,
+    settings = {texlab = {build = {onSave = true}}}
+}
+
+-- ocaml
+lspconfig.ocamllsp.setup {capabilities = capabilities}
 
 -- EFM
 lspconfig.efm.setup {
     init_options = {documentFormatting = true},
-    filetypes = {"lua", "python"},
+    filetypes = {"python", "lua"},
     settings = {
-        rootMarkers = {".git/"},
         languages = {
             python = {
                 {formatCommand = "isort --quiet -", formatStdin = true},

@@ -23,7 +23,10 @@ telescope.load_extension("fzf")
 
 -- project
 local project = require("project_nvim")
-project.setup {detection_methods = {"lsp", "pattern", ">dev"}}
+project.setup {
+    detection_methods = {"lsp", "pattern"},
+    patterns = {".git", "Makefile", "package.json", ">dev"}
+}
 telescope.load_extension("projects")
 
 -- which key

@@ -54,8 +54,11 @@
 \newcommand{\abs}[1]{\left|#1\right|}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \newcommand{\chev}[1]{\left<#1\right>}
+\newcommand{\bra}[1]{\left<#1\right|}
+\newcommand{\ket}[1]{\left|#1\right>}
 
 \newcommand{\ndiv}{\hspace{-4pt}\not|\hspace{2pt}}
+\newcommand{\mb}[1]{\mathbf{#1}}
 \newcommand{\f}[2]{\frac{#1}{#2}}
 \newcommand{\Log}[1]{\text{Log}\:#1}
 \newcommand{\ve}{\varepsilon}

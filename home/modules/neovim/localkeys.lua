@@ -54,6 +54,6 @@ function SetKeybinds()
         wk.register({ij = {function() jpy.select_cell(0) end, "Select cell"}},
                     oopts)
     elseif file_type == "tex" then
-        wk.register({["<leader>eb"] = {":TexlabBuild", "Tex Build"}}, nopts)
+        wk.register({["<leader>eb"] = {":TexlabBuild<CR>", "Tex Build"}}, nopts)
     end
 end

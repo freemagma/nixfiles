@@ -5,6 +5,7 @@ _: { pkgs, ... }:
     # general
     gcc
     efm-langserver
+    file
 
     # lua
     sumneko-lua-language-server
@@ -18,6 +19,10 @@ _: { pkgs, ... }:
 
     # python
     nodePackages.pyright
+
+    # ocaml
+    ocamlPackages.ocaml-lsp
+    ocamlformat
   ];
 
   xdg.configFile."nvim/lua/lib" = {
@@ -66,24 +71,25 @@ _: { pkgs, ... }:
       cmp-path
       cmp-buffer
       cmp-cmdline
-      cmp-treesitter
+      cmp-omni
 
       luasnip
       cmp_luasnip
     ];
 
-    extraConfig = ''
-      ${builtins.readFile ./base.vim}
-      lua << EOF
-        ${builtins.readFile ./base.lua}
-        ${builtins.readFile ./visual.lua}
-        ${builtins.readFile ./treesitter.lua}
-        ${builtins.readFile ./completion.lua}
-        ${builtins.readFile ./lsp.lua}
-        ${builtins.readFile ./navigation.lua}
-        ${builtins.readFile ./localkeys.lua}
-      EOF
-    '';
+    extraConfig =
+      ''
+        ${builtins.readFile ./base.vim}
+        lua << EOF
+          ${builtins.readFile ./base.lua}
+          ${builtins.readFile ./visual.lua}
+          ${builtins.readFile ./treesitter.lua}
+          ${builtins.readFile ./completion.lua}
+          ${builtins.readFile ./lsp.lua}
+          ${builtins.readFile ./navigation.lua}
+          ${builtins.readFile ./localkeys.lua}
+        EOF
+      '';
   };
 
   home.sessionVariables = {
