@@ -5,4 +5,5 @@ inputs:
   desktop = import ./desktop inputs;
   nvidia = import ./nvidia inputs;
   users = import ./users inputs;
+  overlays = import ./overlays inputs;
 }

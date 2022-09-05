@@ -20,6 +20,8 @@ self.lib.makeSystem {
     desktop.i3
     desktop.gnome
 
+    overlays.conda
+
     users.cgunn
     users.guest
 

@@ -52,7 +52,7 @@ in
         black
         isort
       ]))
-    poetry
+    conda
     docker
     mypkgs.mytex
 
