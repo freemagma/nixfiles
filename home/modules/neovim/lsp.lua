@@ -5,7 +5,7 @@ local lspconfig = require("lspconfig")
 local lspconfig_util = require("lspconfig/util")
 
 -- python
--- lspconfig.pyright.setup {capabilities = capabilities}
+lspconfig.pyright.setup {capabilities = capabilities}
 
 -- lua
 -- lspconfig.sumneko_lua.setup {

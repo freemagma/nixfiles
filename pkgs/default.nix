@@ -9,4 +9,5 @@
   circuitsim = (pkgs.callPackage ./circuitsim { });
   crossfire = (pkgs.callPackage ./crossfire { });
   pokemon-colorscripts = (pkgs.callPackage ./pokemon-colorscripts { });
+  scope-nvim = (pkgs.callPackage ./scope-nvim { });
 }

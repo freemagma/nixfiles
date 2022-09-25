@@ -1,5 +1,8 @@
-_: { pkgs, ... }:
+{ self, ... }: { pkgs, system, ... }:
 
+let
+  mypkgs = self.packages.${system};
+in
 {
   home.packages = with pkgs; [
     # general
@@ -50,6 +53,8 @@ _: { pkgs, ... }:
       # visual
       catppuccin-nvim
       lualine-nvim
+      bufferline-nvim
+      mypkgs.scope-nvim
       indent-blankline-nvim
 
       # navigation
