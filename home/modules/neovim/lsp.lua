@@ -26,7 +26,15 @@ lspconfig.rnix.setup {
 -- tex
 lspconfig.texlab.setup {
     capabilities = capabilities,
-    settings = {texlab = {build = {onSave = true}}}
+    settings = {
+        texlab = {
+            build = {onSave = true},
+            forwardSearch = {
+                executable = "zathura",
+                args = {"--synctex-forward", "%l:1:%f", "%p"}
+            }
+        }
+    }
 }
 
 -- ocaml
@@ -65,3 +73,4 @@ local opts = {
 }
 
 wk.register(mappings, opts)
+

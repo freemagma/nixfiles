@@ -55,6 +55,9 @@ function SetKeybinds()
                     oopts)
         -- tex
     elseif file_type == "tex" then
-        wk.register({["<leader>eb"] = {":TexlabBuild<CR>", "Tex Build"}}, nopts)
+        wk.register({
+            ["<leader>eb"] = {"<cmd>TexlabBuild<cr>", "TeX build"},
+            ["<leader>ev"] = {"<cmd>TexlabForward<cr>", "TeX forward search"}
+        }, nopts)
     end
 end
