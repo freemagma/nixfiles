@@ -90,6 +90,7 @@ in
           ${builtins.readFile ./visual.lua}
           ${builtins.readFile ./treesitter.lua}
           ${builtins.readFile ./completion.lua}
+          ${builtins.readFile ./snips.lua}
           ${builtins.readFile ./lsp.lua}
           ${builtins.readFile ./navigation.lua}
           ${builtins.readFile ./localkeys.lua}

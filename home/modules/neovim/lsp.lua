@@ -8,11 +8,13 @@ local lspconfig_util = require("lspconfig/util")
 lspconfig.pyright.setup {capabilities = capabilities}
 
 -- lua
--- lspconfig.sumneko_lua.setup {
---     cmd = {"lua-language-server"},
---     settings = {Lua = {diagnostics = {globals = {'vim'}}}},
---     capabilities = capabilities
--- }
+lspconfig.sumneko_lua.setup {
+    cmd = {"lua-language-server"},
+    settings = {
+        Lua = {diagnostics = {globals = {'vim'}}, telemetry = {enable = false}}
+    },
+    capabilities = capabilities
+}
 
 -- nix
 lspconfig.rnix.setup {
@@ -60,7 +62,20 @@ local wk = require("which-key")
 
 local mappings = {
     -- LSP
-    e = {name = "+LSP", f = {"<cmd>lua vim.lsp.buf.formatting()<CR>", "Format"}}
+    e = {
+        name = "+LSP",
+        f = {
+            function()
+                vim.lsp.buf.formatting()
+                -- 0.8
+                -- vim.lsp.buf.format({
+                --     filter = function(client)
+                --         return client.name ~= "sumneko_lua"
+                --     end
+                -- })
+            end, "Format"
+        }
+    }
 }
 
 local opts = {
@@ -73,4 +88,3 @@ local opts = {
 }
 
 wk.register(mappings, opts)
-
