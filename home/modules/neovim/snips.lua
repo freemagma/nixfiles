@@ -25,7 +25,7 @@ ls.config.setup({
 })
 
 ls.add_snippets("tex", {
-    postfix({trig = "ht", match_pattern = "[^%s{}\\]+$"}, {
+    postfix({trig = "hht", match_pattern = "[^%s{}\\]+$"}, {
         f(function(_, parent)
             return "\\hat{" .. parent.snippet.env.POSTFIX_MATCH .. "}"
         end, {})
