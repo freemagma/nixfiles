@@ -24,15 +24,31 @@ ls.config.setup({
     delete_check_events = "TextChanged"
 })
 
+-- TODO: make it easy to implement/add various conditions
+-- TODO: do the math mode conditions
 ls.add_snippets("tex", {
-    postfix({trig = "hht", match_pattern = "[^%s{}\\]+$"}, {
+    s("ooo", t("\\infty")),
+    postfix({trig = "hht", match_pattern = "\\?%w+$"}, {
         f(function(_, parent)
             return "\\hat{" .. parent.snippet.env.POSTFIX_MATCH .. "}"
         end, {})
-    }), s("beg", {
-        t("\\begin{"), i(1), t({"}", ""}), i(2), t({"", ""}),
+    }),
+    s("beg", {
+        t("\\begin{"),
+        i(1),
+        t({"}", ""}),
+        i(2),
+        t({"", ""}),
         f(function(args) return "\\end{" .. args[1][1] .. "}" end, {1})
     }, {
+        condition = function(ltc, _, _)
+            return string.match(ltc, "^%s*%a*$") ~= nil
+        end,
+        show_condition = function(ltc)
+            return string.match(ltc, "^%s*%a*$") ~= nil
+        end
+    }),
+    s("aal", {t({"\\begin{align*}", ""}), i(1), t({"", "\\end{align*}"})}, {
         condition = function(ltc, _, _)
             return string.match(ltc, "^%s*%a*$") ~= nil
         end,

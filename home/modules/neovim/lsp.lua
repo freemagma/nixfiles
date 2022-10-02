@@ -52,7 +52,7 @@ lspconfig.efm.setup {
                 {formatCommand = "isort --quiet -", formatStdin = true},
                 {formatCommand = "black --quiet -", formatStdin = true}
             },
-            lua = {{formatCommand = "lua-format -i", formatStdin = true}}
+            lua = {{formatCommand = "lua-format --chop-down-table -i", formatStdin = true}}
         }
     }
 }
