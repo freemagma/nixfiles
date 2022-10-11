@@ -26,6 +26,9 @@ in
     # ocaml
     ocamlPackages.ocaml-lsp
     ocamlformat
+
+    # zig 
+    zls
   ];
 
   xdg.configFile."nvim/lua/lib" = {

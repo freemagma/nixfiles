@@ -42,6 +42,9 @@ lspconfig.texlab.setup {
 -- ocaml
 lspconfig.ocamllsp.setup {capabilities = capabilities}
 
+-- zig 
+lspconfig.zls.setup {capabilities = capabilities}
+
 -- EFM
 lspconfig.efm.setup {
     init_options = {documentFormatting = true},
@@ -52,7 +55,12 @@ lspconfig.efm.setup {
                 {formatCommand = "isort --quiet -", formatStdin = true},
                 {formatCommand = "black --quiet -", formatStdin = true}
             },
-            lua = {{formatCommand = "lua-format --chop-down-table -i", formatStdin = true}}
+            lua = {
+                {
+                    formatCommand = "lua-format --chop-down-table -i",
+                    formatStdin = true
+                }
+            }
         }
     }
 }
@@ -73,7 +81,8 @@ local mappings = {
                 --         return client.name ~= "sumneko_lua"
                 --     end
                 -- })
-            end, "Format"
+            end,
+            "Format"
         }
     }
 }
