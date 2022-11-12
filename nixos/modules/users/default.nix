@@ -34,7 +34,7 @@ with self.homeModules;
       neovim
     ];
     extraPkgs = p: with p; [
-      polymc
+      prismlauncher
       google-chrome
       spotify
     ];

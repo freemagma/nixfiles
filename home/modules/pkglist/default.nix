@@ -29,7 +29,7 @@ in
     vlc
     mullvad-vpn
     mgba
-    polymc
+    prismlauncher
     cubiomes-viewer
     mypkgs.crossfire
 
