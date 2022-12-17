@@ -45,6 +45,10 @@ in
     yt-dlp
     croc
 
+    # ios
+    libimobiledevice
+    ifuse
+
     # dev
     (python3.withPackages (ps:
       with ps; [

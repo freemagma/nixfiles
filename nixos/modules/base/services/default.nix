@@ -19,4 +19,7 @@
 
   # mullvad
   services.mullvad-vpn.enable = true;
+
+  # usbmuxd
+  services.usbmuxd.enable = true;
 }
