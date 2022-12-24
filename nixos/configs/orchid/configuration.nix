@@ -19,5 +19,9 @@
   boot.kernelPackages = lib.mkIf (lib.versionOlder pkgs.linux.version "5.6")
     (lib.mkDefault pkgs.linuxPackages_latest);
 
+
+  # for qbittorrent
+  networking.firewall.allowedTCPPorts = [ 58276 ];
+
   system.stateVersion = "21.05";
 }
