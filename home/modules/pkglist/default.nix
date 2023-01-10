@@ -31,6 +31,7 @@ in
     mgba
     prismlauncher
     cubiomes-viewer
+    gtkwave
     mypkgs.crossfire
 
     # cmdline tools
@@ -43,7 +44,6 @@ in
     mupdf
     ffmpeg-full
     yt-dlp
-    croc
 
     # ios
     libimobiledevice
