@@ -1,4 +1,7 @@
 {
+  # command-not-found
+  programs.command-not-found.enable = false;
+
   # Steam
   programs.steam.enable = true;
   hardware.pulseaudio.support32Bit = true;

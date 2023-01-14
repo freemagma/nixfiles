@@ -50,7 +50,7 @@ _: { style, ... }:
       "alt+e>h" = "goto_layout horizontal";
     };
     settings = with style.color; {
-      shell = "zsh";
+      shell = "fish";
       enable_audio_bell = "no";
       confirm_os_window_close = 0;
       font_family = "FiraCode Nerd Font";

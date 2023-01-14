@@ -1,5 +1,5 @@
 inputs:
 
 {
-  zsh = import ./zsh inputs;
+  fish = import ./fish inputs;
 }

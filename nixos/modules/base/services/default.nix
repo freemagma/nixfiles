@@ -7,6 +7,7 @@
   # CUPS
   services.printing.enable = true;
   services.printing.drivers = [ pkgs.hplip ];
+  services.printing.cups-pdf.enable = true;
 
   # OpenSSH
   services.openssh.enable = true;

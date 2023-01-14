@@ -2,15 +2,25 @@
 { pkgs, system, ... }:
 
 {
-  home.packages = [ pkgs.bat ];
+  home.packages = [ pkgs.bat pkgs.cbonsai ];
 
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
   };
 
-  programs.zsh = {
+  programs.fish = {
     enable = true;
+    shellAbbrs = {
+      gaa = "git add --all";
+      gc = "git commit";
+      gcm = "git commit -m";
+      gdca = "git diff --cached";
+      glg = "git log";
+      gst = "git status";
+      gl = "git pull";
+      gp = "git push";
+    };
     shellAliases = {
       la = "ls -lah";
       nixr = "nixos-rebuild switch --use-remote-sudo --flake ~/dev/nixfiles";
@@ -18,28 +28,23 @@
       activate = "source .venv/bin/activate";
       ssh = "kitty +kitten ssh";
     };
-    initExtra = ''
-      source ${pkgs.spaceship-prompt}/share/zsh/themes/spaceship.zsh-theme
-
-      SPACESHIP_DIR_TRUNC=5;
-      SPACESHIP_CHAR_SYMBOL="$";
-      SPACESHIP_CHAR_SUFFIX=" ";
-      SPACESHIP_GIT_STATUS_DELETED="X";
-      SPACESHIP_BATTERY_SHOW=false;
-      SPACESHIP_VI_MODE_SHOW=false;
-
-      ${self.packages.${system}.pokemon-colorscripts}/bin/pokemon-colorscripts -r
+    shellInit = ''
+      set -g fish_greeting
+      ${pkgs.cbonsai}/bin/cbonsai -L 40 -M 5 -w 3 -S
     '';
+  };
 
-    oh-my-zsh = {
-      enable = true;
-      plugins = [ "git" "colorize" "colored-man-pages" "vi-mode" ];
+  programs.starship = {
+    enable = true;
+    enableFishIntegration = true;
+    settings = {
+      git_status.deleted = "X";
     };
   };
 
   programs.autojump = {
     enable = true;
-    enableZshIntegration = true;
+    enableFishIntegration = true;
   };
 
   programs.git = {

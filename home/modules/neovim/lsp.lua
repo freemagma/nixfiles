@@ -73,13 +73,14 @@ local mappings = {
         name = "+LSP",
         f = {
             function()
-                vim.lsp.buf.formatting()
+                -- pre 0.8
+                -- vim.lsp.buf.formatting()
                 -- 0.8
-                -- vim.lsp.buf.format({
-                --     filter = function(client)
-                --         return client.name ~= "sumneko_lua"
-                --     end
-                -- })
+                vim.lsp.buf.format({
+                    filter = function(client)
+                        return client.name ~= "sumneko_lua"
+                    end
+                })
             end,
             "Format"
         }

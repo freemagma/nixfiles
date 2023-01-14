@@ -11,7 +11,7 @@ with self.homeModules;
       pkglist
       neofetch
       kitty
-      shell.zsh
+      shell.fish
       desktop.bundles.i3
       scripts.bundles.all
       userdirs
@@ -27,7 +27,7 @@ with self.homeModules;
     style.color = style.catppuccin-mocha;
     modules = [
       kitty
-      shell.zsh
+      shell.fish
       desktop.bundles.i3
       scripts.bundles.all
       userdirs

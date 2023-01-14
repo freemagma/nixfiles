@@ -5,7 +5,7 @@ _: { pkgs, lib, style, machine, ... }:
     enable = true;
 
     package = pkgs.polybar.override {
-      i3GapsSupport = true;
+      i3Support = true;
       alsaSupport = true;
       pulseSupport = true;
     };
