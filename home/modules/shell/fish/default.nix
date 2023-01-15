@@ -2,7 +2,7 @@
 { pkgs, system, ... }:
 
 {
-  home.packages = [ pkgs.bat pkgs.cbonsai ];
+  home.packages = [ pkgs.bat ];
 
   programs.direnv = {
     enable = true;
@@ -12,6 +12,9 @@
   programs.fish = {
     enable = true;
     shellAbbrs = {
+      la = "ls -lah";
+      nixr = "nixos-rebuild switch --use-remote-sudo --flake ~/dev/nixfiles";
+      # git
       gaa = "git add --all";
       gc = "git commit";
       gcm = "git commit -m";
@@ -20,17 +23,15 @@
       gst = "git status";
       gl = "git pull";
       gp = "git push";
+      gch = "git checkout";
     };
     shellAliases = {
-      la = "ls -lah";
-      nixr = "nixos-rebuild switch --use-remote-sudo --flake ~/dev/nixfiles";
       cat = "bat -p --paging=never";
       activate = "source .venv/bin/activate";
       ssh = "kitty +kitten ssh";
     };
     shellInit = ''
       set -g fish_greeting
-      ${pkgs.cbonsai}/bin/cbonsai -L 40 -M 5 -w 3 -S
     '';
   };
 
