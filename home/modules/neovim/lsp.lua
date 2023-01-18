@@ -44,6 +44,9 @@ lspconfig.ocamllsp.setup {capabilities = capabilities}
 -- zig 
 lspconfig.zls.setup {capabilities = capabilities}
 
+-- java 
+lspconfig.java_language_server.setup {cmd = {"java-language-server"}}
+
 -- EFM
 lspconfig.efm.setup {
     init_options = {documentFormatting = true},

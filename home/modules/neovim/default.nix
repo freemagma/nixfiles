@@ -29,6 +29,9 @@ in
 
     # zig 
     zls
+
+    # java 
+    java-language-server
   ];
 
   xdg.configFile."nvim/lua/lib" = {
