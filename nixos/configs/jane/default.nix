@@ -21,7 +21,7 @@ self.lib.makeSystem {
     desktop.gnome
 
     overlays.conda
-    overlays.catppuccin-gtk-mocha-pink
+    overlays.catppuccin-gtk-macchiato-pink
 
     users.cgunn
     # users.guest
