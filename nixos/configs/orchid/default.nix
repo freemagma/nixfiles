@@ -18,7 +18,8 @@ self.lib.makeSystem {
     base
     desktop.i3
 
-    users.cgunn
+    overlays.catppuccin-gtk-macchiato-pink
 
+    users.cgunn
   ]);
 }

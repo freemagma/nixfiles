@@ -18,12 +18,10 @@ self.lib.makeSystem {
     base
     nvidia
     desktop.i3
-    desktop.gnome
 
     overlays.conda
     overlays.catppuccin-gtk-macchiato-pink
 
     users.cgunn
-    # users.guest
   ]);
 }
