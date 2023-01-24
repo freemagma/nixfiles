@@ -15,5 +15,12 @@ _:
       })
     ];
   };
+  catppuccin-gtk-macchiato-pink = {
+    nixpkgs.overlays = [
+      (final: prev: {
+        catppuccin-gtk = prev.catppuccin-gtk.override { variant = "macchiato"; accents = [ "pink" ]; };
+      })
+    ];
+  };
 }
     
