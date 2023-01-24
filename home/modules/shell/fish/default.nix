@@ -32,6 +32,7 @@
     };
     shellInit = ''
       set -g fish_greeting
+      set -x LESS "-R"
     '';
   };
 

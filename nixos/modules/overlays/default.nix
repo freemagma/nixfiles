@@ -8,5 +8,12 @@ _:
       })
     ];
   };
+  catppuccin-gtk-mocha-pink = {
+    nixpkgs.overlays = [
+      (final: prev: {
+        catppuccin-gtk = prev.catppuccin-gtk.override { variant = "mocha"; accents = [ "pink" ]; };
+      })
+    ];
+  };
 }
     

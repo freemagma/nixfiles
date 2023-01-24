@@ -10,6 +10,7 @@ in
     nitrogen
     brightnessctl
     pavucontrol
+    pamixer
 
     # apps
     firefox

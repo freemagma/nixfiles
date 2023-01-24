@@ -109,9 +109,9 @@ _: { pkgs, style, config, username, ... }:
         "${modifier}+r" = ''mode "resize"'';
 
         # volume control
-        "${modifier}+Left" = "exec amixer set Master 5%- unmute";
-        "${modifier}+Right" = "exec amixer set Master 5%+ unmute";
-        "${modifier}+Down" = "exec amixer set Master toggle";
+        "${modifier}+Left" = "exec pamixer -d 5";
+        "${modifier}+Right" = "exec pamixer -i 5";
+        "${modifier}+Down" = "exec pamixer -t";
         "${modifier}+Shift+Left" = "exec brightnessctl set 10%-";
         "${modifier}+Shift+Right" = "exec brightnessctl set 10%+";
         "${modifier}+Shift+Down" = "exec brightnessctl set 50%";
