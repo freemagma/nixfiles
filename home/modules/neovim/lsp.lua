@@ -30,7 +30,12 @@ lspconfig.texlab.setup {
     settings = {
         texlab = {
             build = {
-                args = { "-pdflua", "-interaction=nonstopmode", "-synctex=1", "%f" },
+                args = {
+                    "-pdflua",
+                    "-interaction=nonstopmode",
+                    "-synctex=1",
+                    "%f"
+                },
                 onSave = true
             },
             forwardSearch = {
@@ -50,10 +55,13 @@ lspconfig.zls.setup {capabilities = capabilities}
 -- java 
 lspconfig.java_language_server.setup {cmd = {"java-language-server"}}
 
+-- eslint 
+lspconfig.eslint.setup {}
+
 -- EFM
 lspconfig.efm.setup {
     init_options = {documentFormatting = true},
-    filetypes = {"python", "lua"},
+    filetypes = {"python", "lua", "javascript"},
     settings = {
         languages = {
             python = {
@@ -63,6 +71,12 @@ lspconfig.efm.setup {
             lua = {
                 {
                     formatCommand = "lua-format --chop-down-table -i",
+                    formatStdin = true
+                }
+            },
+            javascript = {
+                {
+                    formatCommand = "prettier --stdin-filepath ${INPUT}",
                     formatStdin = true
                 }
             }

@@ -32,6 +32,10 @@ in
 
     # java 
     java-language-server
+
+    # javascript 
+    nodePackages.vscode-langservers-extracted
+    nodePackages.prettier
   ];
 
   xdg.configFile."nvim/lua/lib" = {
