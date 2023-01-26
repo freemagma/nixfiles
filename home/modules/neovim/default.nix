@@ -36,6 +36,9 @@ in
     # javascript 
     nodePackages.vscode-langservers-extracted
     nodePackages.prettier
+
+    # verilog
+    verible
   ];
 
   xdg.configFile."nvim/lua/lib" = {
@@ -59,6 +62,7 @@ in
       direnv-vim
       nvim-autopairs
       comment-nvim
+      guess-indent-nvim
 
       # visual
       catppuccin-nvim

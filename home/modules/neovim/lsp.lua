@@ -58,10 +58,13 @@ lspconfig.java_language_server.setup {cmd = {"java-language-server"}}
 -- eslint 
 lspconfig.eslint.setup {}
 
+-- -- verilog 
+-- lspconfig.verible.setup {}
+
 -- EFM
 lspconfig.efm.setup {
     init_options = {documentFormatting = true},
-    filetypes = {"python", "lua", "javascript"},
+    filetypes = {"python", "lua", "javascript", "verilog"},
     settings = {
         languages = {
             python = {
@@ -79,7 +82,11 @@ lspconfig.efm.setup {
                     formatCommand = "prettier --stdin-filepath ${INPUT}",
                     formatStdin = true
                 }
+            },
+            verilog = {
+                {formatCommand = "verible-verilog-format -", formatStdin = true}
             }
+
         }
     }
 }

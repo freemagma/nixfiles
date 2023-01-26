@@ -11,6 +11,7 @@ vim.o.expandtab = true
 require("indent_blankline").setup {}
 require('nvim-autopairs').setup {}
 require('Comment').setup {}
+require('guess-indent').setup {}
 
 -- which key
 local wk = require("which-key")
