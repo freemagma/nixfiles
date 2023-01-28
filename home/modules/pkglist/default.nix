@@ -56,6 +56,7 @@ in
         ipython
         black
         isort
+        pygments # for latex code formatting
       ]))
     conda
     docker

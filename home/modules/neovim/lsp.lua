@@ -33,6 +33,7 @@ lspconfig.texlab.setup {
                 args = {
                     "-pdflua",
                     "-interaction=nonstopmode",
+                    "-shell-escape",
                     "-synctex=1",
                     "%f"
                 },
