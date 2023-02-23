@@ -21,6 +21,8 @@ in
     slack
     gimp
     qbittorrent
+    deluge
+    hexchat
     calibre
     blender
     inkscape
@@ -45,6 +47,7 @@ in
     mupdf
     ffmpeg-full
     yt-dlp
+    lftp
 
     # ios
     libimobiledevice
@@ -61,6 +64,7 @@ in
     conda
     docker
     mypkgs.mytex
+    mypkgs.spim-keepstats
 
     # pokemon
     mypkgs.pkhex
