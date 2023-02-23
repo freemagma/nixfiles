@@ -19,7 +19,7 @@
 \usepackage[shortlabels]{enumitem}
 
 \setlength{\headheight}{15pt}
-\lhead{\@author}\chead{\@title}\rhead{\today}
+\lhead{\@author}\chead{\@title}\rhead{\@date}
 \lfoot{}\cfoot{\thepage}\rfoot{}
 \pagestyle{fancy}
 
