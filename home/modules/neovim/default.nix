@@ -11,7 +11,7 @@ in
     file
 
     # lua
-    sumneko-lua-language-server
+    lua-language-server
     luaformatter
 
     # nix

@@ -7,7 +7,7 @@ local lspconfig_util = require("lspconfig/util")
 lspconfig.pyright.setup {capabilities = capabilities}
 
 -- lua
-lspconfig.sumneko_lua.setup {
+lspconfig.lua_ls.setup {
     cmd = {"lua-language-server"},
     settings = {
         Lua = {diagnostics = {globals = {'vim'}}, telemetry = {enable = false}}
@@ -106,7 +106,7 @@ local mappings = {
                 -- 0.8
                 vim.lsp.buf.format({
                     filter = function(client)
-                        return client.name ~= "sumneko_lua"
+                        return client.name ~= "lua_ls"
                     end
                 })
             end,

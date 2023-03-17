@@ -64,6 +64,7 @@ in
     conda
     docker
     mypkgs.mytex
+    postman
     mypkgs.spim-keepstats
 
     # pokemon
