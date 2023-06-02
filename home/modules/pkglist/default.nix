@@ -20,15 +20,12 @@ in
     discord
     slack
     gimp
-    qbittorrent
     deluge
     hexchat
     calibre
     blender
     inkscape
     zoom-us
-    teams
-    signal-desktop
     vlc
     mullvad-vpn
     mgba
@@ -53,6 +50,9 @@ in
     libimobiledevice
     ifuse
 
+    # controllers
+    joycond
+
     # dev
     (python3.withPackages (ps:
       with ps; [
@@ -64,8 +64,6 @@ in
     conda
     docker
     mypkgs.mytex
-    postman
-    mypkgs.spim-keepstats
 
     # pokemon
     mypkgs.pkhex

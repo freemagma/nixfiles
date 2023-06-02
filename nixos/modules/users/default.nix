@@ -9,7 +9,6 @@ with self.homeModules;
     style.color = style.catppuccin-macchiato;
     modules = [
       pkglist
-      neofetch
       kitty
       shell.fish
       desktop.bundles.i3
