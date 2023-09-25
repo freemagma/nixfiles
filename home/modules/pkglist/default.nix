@@ -27,11 +27,11 @@ in
     inkscape
     zoom-us
     vlc
+    mpv
     mullvad-vpn
     mgba
     prismlauncher
     cubiomes-viewer
-    gtkwave
     mypkgs.crossfire
 
     # cmdline tools
@@ -45,6 +45,7 @@ in
     ffmpeg-full
     yt-dlp
     lftp
+    rclone
 
     # ios
     libimobiledevice
@@ -67,7 +68,5 @@ in
 
     # pokemon
     mypkgs.pkhex
-    mypkgs.ekhex
-    mypkgs.porymap
   ];
 }
