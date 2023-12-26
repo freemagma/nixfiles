@@ -46,6 +46,7 @@ in
     yt-dlp
     lftp
     rclone
+    xclip
 
     # ios
     libimobiledevice
