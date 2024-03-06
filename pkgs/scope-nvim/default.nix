@@ -1,6 +1,6 @@
 { pkgs, ... }:
 
-pkgs.vimUtils.buildVimPluginFrom2Nix {
+pkgs.vimUtils.buildVimPlugin {
   pname = "scope.nvim";
   version = "2022-09-25";
   src = pkgs.fetchFromGitHub {
