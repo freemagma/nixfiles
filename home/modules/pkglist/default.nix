@@ -1,5 +1,5 @@
 { self, ... }:
-{ pkgs, system, ... }:
+{ pkgs, pkgs-stable, system, ... }:
 
 let
   mypkgs = self.packages.${system};
@@ -21,7 +21,6 @@ in
     slack
     gimp
     deluge
-    hexchat
     calibre
     blender
     inkscape
@@ -29,7 +28,7 @@ in
     vlc
     mpv
     mullvad-vpn
-    mgba
+    pkgs-stable.mgba
     prismlauncher
     cubiomes-viewer
     mypkgs.crossfire
@@ -65,9 +64,9 @@ in
       ]))
     conda
     docker
-    mypkgs.mytex
+    # mypkgs.mytex
 
     # pokemon
-    mypkgs.pkhex
+    # mypkgs.pkhex
   ];
 }

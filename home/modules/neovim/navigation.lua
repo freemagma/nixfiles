@@ -45,7 +45,8 @@ local mappings = {
         t = {"<cmd>Telescope live_grep<cr>", "Text"},
         p = {"<cmd>Telescope projects<cr>", "Projects"}
     },
-    [" "] = {"<cmd>Telescope find_files<cr>", "Find file"},
+    -- files
+    f = {name = "+File", f = {"<cmd>Telescope find_files<cr>", "Find file"}},
     -- windows
     w = {
         name = "+Window",

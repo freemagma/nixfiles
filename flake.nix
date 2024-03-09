@@ -1,6 +1,7 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.11";
     flake-utils.url = "github:numtide/flake-utils";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -8,7 +9,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, flake-utils, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, flake-utils, home-manager, ... }@inputs:
     {
       nixosConfigurations = {
         jane = import ./nixos/configs/jane inputs;
