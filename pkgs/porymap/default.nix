@@ -7,13 +7,14 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "huderlem";
     repo = "porymap";
-    rev = "4.4.0";
-    sha256 = "01mwjjsrgi8q7ppx7ynkhs1snd4nj1gpdim7nbb5gy8h4fhdamym";
+    rev = "5.4.0";
+    hash = "sha256-6USCMqOHkoX71ZSsdWuVLpfvYL/VspLR2w3Fp912RrA=";
   };
 
-  buildInputs = [ qt5.qtbase libGL ];
+  buildInputs = [ qt6.qtdeclarative ];
 
-  nativeBuildInputs = [ qt5.wrapQtAppsHook ];
+  nativeBuildInputs = [ qt6.wrapQtAppsHook ];
+  hardeningDisable = [ "format" ];
 
   buildPhase = ''
     qmake

@@ -6,8 +6,8 @@ local treesitter = require("nvim-treesitter.configs")
 treesitter.setup {
     parser_install_dir = parser_install_dir,
     ensure_installed = {
-        "c", "lua", "bibtex", "cmake", "cpp", "css", "dockerfile", "elixir",
-        "html", "javascript", "json", "latex", "lua", "make", "nix", "ocaml",
+        "c", "bibtex", "cmake", "cpp", "css", "dockerfile", "elixir",
+        "html", "javascript", "json", "latex", "make", "nix", "ocaml",
         "python", "scss", "toml", "typescript", "verilog", "yaml", "zig"
     },
     highlight = {enable = true}

@@ -7,9 +7,9 @@ buildGoModule {
   src = fetchFromGitHub {
     owner = "huderlem";
     repo = "poryscript";
-    rev = "2.12.0";
-    sha256 = "gt8ykN0PpshFPQgcHpKflo65phjDyE3y6g9C6lBk548=";
+    rev = "3.3.0";
+    hash = "sha256-TSb4zvZv7mEFwVYhjARykrAZKqASoIt4mSdGT1caKJM=";
   };
 
-  vendorHash = "0sjjj9z1dhilhpc8pq4154czrb79z9cm044jvn75kxcjv6v5l2m5";
+  vendorHash = "sha256-6hCgv2/8UIRHw1kCe3nLkxF23zE/7t5RDwEjSzX3pBQ=";
 }

@@ -10,18 +10,18 @@ in
     efm-langserver
     file
 
+    # nix
+    nixpkgs-fmt
+
     # lua
     lua-language-server
     luaformatter
-
-    # nix
-    rnix-lsp
 
     # tex
     texlab
 
     # python
-    nodePackages.pyright
+    pyright
 
     # ocaml
     ocamlPackages.ocaml-lsp

@@ -15,15 +15,6 @@ lspconfig.lua_ls.setup {
     capabilities = capabilities
 }
 
--- nix
-lspconfig.rnix.setup {
-    capabilities = capabilities,
-    root_dir = function(fname)
-        return lspconfig_util.root_pattern(".git")(fname) or
-                   lspconfig_util.path.dirname(fname)
-    end
-}
-
 -- tex
 lspconfig.texlab.setup {
     capabilities = capabilities,
@@ -65,9 +56,10 @@ lspconfig.eslint.setup {}
 -- EFM
 lspconfig.efm.setup {
     init_options = {documentFormatting = true},
-    filetypes = {"python", "lua", "javascript", "verilog"},
+    filetypes = {"nix", "python", "lua", "javascript", "verilog"},
     settings = {
         languages = {
+            nix = {{formatCommand = "nixpkgs-fmt", formatStdin = true}},
             python = {
                 {formatCommand = "isort --quiet -", formatStdin = true},
                 {formatCommand = "black --quiet -", formatStdin = true}

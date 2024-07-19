@@ -16,7 +16,6 @@ in
   environment.systemPackages = [ nvidia_x11 ];
   hardware.opengl = {
     enable = true;
-    driSupport = true;
     driSupport32Bit = true;
     extraPackages = [ nvidia_gl ];
     extraPackages32 = [ nvidia_gl_32 ];

@@ -11,4 +11,5 @@
   pokemon-colorscripts = (pkgs.callPackage ./pokemon-colorscripts { });
   scope-nvim = (pkgs.callPackage ./scope-nvim { });
   spim-keepstats = (pkgs.callPackage ./spim-keepstats { });
+  ingrid = (pkgs.callPackage ./ingrid { });
 }

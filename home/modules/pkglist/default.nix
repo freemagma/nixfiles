@@ -32,6 +32,7 @@ in
     prismlauncher
     cubiomes-viewer
     mypkgs.crossfire
+    mypkgs.ingrid
 
     # cmdline tools
     unar
@@ -60,13 +61,12 @@ in
         ipython
         black
         isort
-        pygments # for latex code formatting
       ]))
     conda
     docker
-    # mypkgs.mytex
 
     # pokemon
-    # mypkgs.pkhex
+    mypkgs.poryscript
+    mypkgs.porymap
   ];
 }

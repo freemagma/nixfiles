@@ -16,6 +16,7 @@ with self.homeModules;
       userdirs
       neovim
       chess
+      emacs
     ];
   };
 

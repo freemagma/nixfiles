@@ -10,7 +10,7 @@ _: { style, ... }:
       "alt+tab>l" = "next_tab";
       "alt+tab>shift+h" = "move_tab_backward";
       "alt+tab>shift+l" = "move_tab_forward";
-      "alt+tab>c" = "close_tab";
+      "alt+tab>d" = "close_tab";
       "alt+tab>1" = "goto_tab 1";
       "alt+tab>2" = "goto_tab 2";
       "alt+tab>3" = "goto_tab 3";
@@ -27,7 +27,7 @@ _: { style, ... }:
       "alt+tab>shift+w" = "detach_window ask";
 
       "alt+enter" = "launch --cwd=current";
-      "alt+w>c" = "close_window";
+      "alt+w>d" = "close_window";
       "alt+w>h" = "neighboring_window left";
       "alt+w>j" = "neighboring_window down";
       "alt+w>k" = "neighboring_window up";
@@ -58,7 +58,7 @@ _: { style, ... }:
 
       scrollback_lines = 10000;
 
-      enabled_layouts = "tall:bias=50;full_size=1;mirrored=false, horizontal";
+      enabled_layouts = "tall:bias=50;full_size=2;mirrored=false, horizontal";
       window_padding_width = 4;
       window_border_width = "4px";
       placement_strategy = "center";

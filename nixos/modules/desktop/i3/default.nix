@@ -2,11 +2,11 @@
 { pkgs, ... }:
 
 {
+  services.displayManager.defaultSession = "xfce+i3";
   services.xserver = {
     enable = true;
     xkb.layout = "us";
 
-    displayManager.defaultSession = "xfce+i3";
     displayManager.lightdm = {
       enable = true;
       background = "${self}/wallpapers/ghostly_gate_2560x1440.jpg";
