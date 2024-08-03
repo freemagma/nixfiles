@@ -4,7 +4,7 @@ self.lib.makeSystem {
   system = "x86_64-linux";
 
   machine = {
-    netInterface = "enp6s0";
+    netInterface = "wlp4s0";
     hasBattery = false;
   };
 
