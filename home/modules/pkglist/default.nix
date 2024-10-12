@@ -1,4 +1,4 @@
-{ self, ... }:
+{ self, suyu, ... }:
 { pkgs, pkgs-stable, system, ... }:
 
 let
@@ -18,14 +18,12 @@ in
     libreoffice
     spotify
     discord
-    slack
     gimp
     deluge
     calibre
     blender
     inkscape
     zoom-us
-    vlc
     mpv
     mullvad-vpn
     pkgs-stable.mgba
@@ -33,6 +31,7 @@ in
     cubiomes-viewer
     mypkgs.crossfire
     mypkgs.ingrid
+    suyu.packages.${system}.suyu
 
     # cmdline tools
     unar
@@ -64,9 +63,6 @@ in
       ]))
     conda
     docker
-
-    # pokemon
-    mypkgs.poryscript
-    mypkgs.porymap
+    elan
   ];
 }

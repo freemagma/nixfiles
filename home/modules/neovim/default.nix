@@ -36,9 +36,6 @@ in
     # javascript 
     nodePackages.vscode-langservers-extracted
     nodePackages.prettier
-
-    # verilog
-    verible
   ];
 
   xdg.configFile."nvim/lua/lib" = {
@@ -83,6 +80,7 @@ in
 
       # LSP
       nvim-lspconfig
+      mypkgs.lean-nvim
 
       # completion
       nvim-cmp

@@ -19,9 +19,10 @@ function SetKeybinds()
                     vim.api.nvim_feedkeys(
                         vim.api.nvim_replace_termcodes("<leader>r", true, false,
                                                        true), "m", true)
-                end, "Magma evaluate cell"
+                end,
+                "Magma evaluate cell"
             },
-            ["<leader>r"] = {
+            ["<localleader>r"] = {
                 name = "+Magma",
                 i = {":MagmaInit<CR>", "Magma init"},
                 -- r = {":MagmaEvaluateLine<CR>", "Magma evaluate line"},
@@ -35,29 +36,38 @@ function SetKeybinds()
                 "Previous cell start"
             },
             ["[J"] = {
-                function() jpy.goto_previous_cell_end() end, "Previous cell end"
+                function() jpy.goto_previous_cell_end() end,
+                "Previous cell end"
             },
             ["]j"] = {
-                function() jpy.goto_next_cell_start() end, "Previous cell start"
+                function() jpy.goto_next_cell_start() end,
+                "Previous cell start"
             },
             ["]J"] = {
-                function() jpy.goto_next_cell_end() end, "Previous cell end"
+                function() jpy.goto_next_cell_end() end,
+                "Previous cell end"
             }
 
         }, nopts)
+
         wk.register({
-            ["<leader>r"] = {
-                ":<C-u>MagmaEvaluateVisual<CR>", "Magma evaluate visual"
+            ["<localleader>r"] = {
+                ":<C-u>MagmaEvaluateVisual<CR>",
+                "Magma evaluate visual"
             },
             ij = {function() jpy.select_cell(0) end, "Select cell"}
         }, vopts)
+
         wk.register({ij = {function() jpy.select_cell(0) end, "Select cell"}},
                     oopts)
         -- tex
     elseif file_type == "tex" then
         wk.register({
-            ["<leader>eb"] = {"<cmd>TexlabBuild<cr>", "TeX build"},
-            ["<leader>ev"] = {"<cmd>TexlabForward<cr>", "TeX forward search"}
+            ["<localleader>eb"] = {"<cmd>TexlabBuild<cr>", "TeX build"},
+            ["<localleader>ev"] = {
+                "<cmd>TexlabForward<cr>",
+                "TeX forward search"
+            }
         }, nopts)
     end
 end

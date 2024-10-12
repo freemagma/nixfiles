@@ -7,9 +7,13 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    suyu = {
+      url = "github:Noodlez1232/suyu-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, flake-utils, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, flake-utils, home-manager, suyu, ... }@inputs:
     {
       nixosConfigurations = {
         jane = import ./nixos/configs/jane inputs;
@@ -22,7 +26,11 @@
       lib = import ./lib inputs;
 
     } // (flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = nixpkgs.legacyPackages.${system}; in
+      let pkgs = import nixpkgs {
+        inherit system;
+        config.allowAliases = false;
+      }; 
+      in
       {
         legacyPackages = import ./pkgs { inherit pkgs; };
         packages = flake-utils.lib.flattenTree self.legacyPackages.${system};

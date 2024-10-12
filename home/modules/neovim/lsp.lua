@@ -1,7 +1,6 @@
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local capabilities = cmp_nvim_lsp.default_capabilities()
 local lspconfig = require("lspconfig")
-local lspconfig_util = require("lspconfig/util")
 
 -- python
 lspconfig.pyright.setup {capabilities = capabilities}
@@ -47,11 +46,12 @@ lspconfig.zls.setup {capabilities = capabilities}
 -- java 
 lspconfig.java_language_server.setup {cmd = {"java-language-server"}}
 
+-- lean
+local lean = require("lean")
+lean.setup {mappings = true}
+
 -- eslint 
 lspconfig.eslint.setup {}
-
--- -- verilog 
--- lspconfig.verible.setup {}
 
 -- EFM
 lspconfig.efm.setup {
@@ -87,15 +87,32 @@ lspconfig.efm.setup {
 -- which key
 local wk = require("which-key")
 
-local mappings = {
-    -- LSP
+vim.api.nvim_create_autocmd('LspAttach', {
+    desc = 'LSP actions',
+    callback = function(event)
+        wk.register({
+            g = {
+                d = {vim.lsp.buf.definition, "Go to definition"},
+                D = {vim.lsp.buf.declaration, "Go to declaration"},
+                i = {vim.lsp.buf.implementation, "List implementations"},
+                o = {vim.lsp.buf.type_definition, "Go to type definition"},
+                r = {vim.lsp.buf.references, "List references"}
+            },
+            ["<leader>"] = {a = {vim.lsp.buf.code_action, "Code action"}}
+        }, {mode = "n", prefix = "", buffer = event.buf})
+
+        wk.register({["<C-a>"] = {vim.lsp.buf.code_action, "Code action"}},
+                    {mode = "i", prefix = "", buffer = event.buf})
+    end
+})
+
+wk.register({
+    a = {vim.lsp.buf.code_action, "Code action"},
     e = {
         name = "+LSP",
+        r = {vim.lsp.buf.rename, "Rename"},
         f = {
             function()
-                -- pre 0.8
-                -- vim.lsp.buf.formatting()
-                -- 0.8
                 vim.lsp.buf.format({
                     filter = function(client)
                         return client.name ~= "lua_ls"
@@ -103,17 +120,29 @@ local mappings = {
                 })
             end,
             "Format"
+        },
+        n = {
+            function()
+                vim.diagnostic.goto_next {popup_opts = {show_header = false}}
+            end,
+            "Next diagnostic"
+        },
+        p = {
+            function()
+                vim.diagnostic.goto_prev {popup_opts = {show_header = false}}
+            end,
+            "Next diagnostic"
+        },
+        k = {
+            function()
+                vim.diagnostic.open_float(0, {
+                    scope = "line",
+                    header = false,
+                    focus = false
+                })
+            end,
+            "Show all diagnostics"
         }
     }
-}
+}, {mode = "n", prefix = "<leader>", buffer = 0})
 
-local opts = {
-    mode = "n",
-    prefix = "<leader>",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nowait = false
-}
-
-wk.register(mappings, opts)

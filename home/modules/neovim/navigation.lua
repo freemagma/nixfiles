@@ -40,7 +40,7 @@ local mappings = {
         name = "+Search",
         b = {"<cmd>Telescope buffers<cr>", "Open buffers"},
         c = {"<cmd>Telescope command_history<cr>", "Previous commands"},
-        f = {"<cmd>Telescope find_files<cr>", "Find File"},
+        f = {"<cmd>Telescope find_files<cr>", "Find file"},
         r = {"<cmd>Telescope oldfiles<cr>", "Open recent file"},
         t = {"<cmd>Telescope live_grep<cr>", "Text"},
         p = {"<cmd>Telescope projects<cr>", "Projects"}
@@ -76,7 +76,8 @@ local mappings = {
     b = {
         h = {"<cmd>bp<cr>", "Previous buffer"},
         l = {"<cmd>bn<cr>", "Next buffer"},
-        d = {"<cmd>bdelete<cr>", "Delete buffer"}
+        d = {"<cmd>bdelete<cr>", "Delete buffer"},
+        b = {"<cmd>Telescope buffers<cr>", "Search buffers"},
     },
 
     -- tabs 
