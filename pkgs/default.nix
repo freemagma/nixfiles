@@ -13,4 +13,5 @@
   lean-nvim = (pkgs.callPackage ./lean-nvim { });
   spim-keepstats = (pkgs.callPackage ./spim-keepstats { });
   ingrid = (pkgs.callPackage ./ingrid { });
+  quackle = (pkgs.callPackage ./quackle { });
 }

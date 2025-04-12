@@ -32,76 +32,66 @@ telescope.load_extension("projects")
 -- which key
 local wk = require("which-key")
 
-local mappings = {
-    -- tree
-    p = {"<cmd>NvimTreeToggle<cr>", "Explorer"},
-    -- search
-    s = {
-        name = "+Search",
-        b = {"<cmd>Telescope buffers<cr>", "Open buffers"},
-        c = {"<cmd>Telescope command_history<cr>", "Previous commands"},
-        f = {"<cmd>Telescope find_files<cr>", "Find file"},
-        r = {"<cmd>Telescope oldfiles<cr>", "Open recent file"},
-        t = {"<cmd>Telescope live_grep<cr>", "Text"},
-        p = {"<cmd>Telescope projects<cr>", "Projects"}
-    },
+wk.add({
+    -- tabs
+    {"<leader>0", "<cmd>10tabn<cr>", desc = "Go to tab 10"},
+    {"<leader>1", "<cmd>1tabn<cr>", desc = "Go to tab 1"},
+    {"<leader>2", "<cmd>2tabn<cr>", desc = "Go to tab 2"},
+    {"<leader>3", "<cmd>3tabn<cr>", desc = "Go to tab 3"},
+    {"<leader>4", "<cmd>4tabn<cr>", desc = "Go to tab 4"},
+    {"<leader>5", "<cmd>5tabn<cr>", desc = "Go to tab 5"},
+    {"<leader>6", "<cmd>6tabn<cr>", desc = "Go to tab 6"},
+    {"<leader>7", "<cmd>7tabn<cr>", desc = "Go to tab 7"},
+    {"<leader>8", "<cmd>8tabn<cr>", desc = "Go to tab 8"},
+    {"<leader>9", "<cmd>9tabn<cr>", desc = "Go to tab 9"},
+    {"<leader><Tab><Tab>", "g<Tab>", desc = "Go to previous tab"},
+    {"<leader><Tab>H", "<cmd>-tabmove<cr>", desc = "Move tab left"},
+    {"<leader><Tab>L", "<cmd>+tabmove<cr>", desc = "Move tab right"},
+    {"<leader><Tab>d", "<cmd>tabclose<cr>", desc = "Close tab"},
+    {"<leader><Tab>h", "<cmd>tabp<cr>", desc = "Previous tab"},
+    {"<leader><Tab>l", "<cmd>tabn<cr>", desc = "Next tab"},
+    {"<leader><Tab>n", "<cmd>tabnew<cr>", desc = "New tab"},
+    -- buffers
+    {"<leader>bb", "<cmd>Telescope buffers<cr>", desc = "Search buffers"},
+    {"<leader>bd", "<cmd>bdelete<cr>", desc = "Delete buffer"},
+    {"<leader>bh", "<cmd>bp<cr>", desc = "Previous buffer"},
+    {"<leader>bl", "<cmd>bn<cr>", desc = "Next buffer"},
     -- files
-    f = {name = "+File", f = {"<cmd>Telescope find_files<cr>", "Find file"}},
+    {"<leader>f", group = "File"},
+    {"<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find file"},
+    {"<leader>p", "<cmd>NvimTreeToggle<cr>", desc = "Explorer"},
+    -- search
+    {"<leader>s", group = "Search"},
+    {"<leader>sb", "<cmd>Telescope buffers<cr>", desc = "Open buffers"},
+    {
+        "<leader>sc",
+        "<cmd>Telescope command_history<cr>",
+        desc = "Previous commands"
+    },
+    {"<leader>sf", "<cmd>Telescope find_files<cr>", desc = "Find file"},
+    {"<leader>sp", "<cmd>Telescope projects<cr>", desc = "Projects"},
+    {"<leader>sr", "<cmd>Telescope oldfiles<cr>", desc = "Open recent file"},
+    {"<leader>st", "<cmd>Telescope live_grep<cr>", desc = "Text"},
     -- windows
-    w = {
-        name = "+Window",
-        h = {"<C-w><C-h>", "Move to left window"},
-        j = {"<C-w><C-j>", "Move to below window"},
-        k = {"<C-w><C-k>", "Move to above window"},
-        l = {"<C-w><C-l>", "Move to right window"},
-        H = {"<C-w>H", "Move window left"},
-        J = {"<C-w>J", "Move window down"},
-        K = {"<C-w>K", "Move window up"},
-        L = {"<C-w>L", "Move window right"},
-        s = {"<C-w>s", "Split window"},
-        v = {"<C-w>v", "Split window vertically"},
-        c = {"<C-w>q", "Close window"},
-        o = {"<C-w>o", "Keep only current window"},
-        t = {"<C-w>T", "Move window to a tab"},
-        r = {
-            name = "+Resize",
-            h = {"<cmd>vertical resize -10<cr>", "Decrease width"},
-            j = {"<cmd>resize -10<cr>", "Decrease height"},
-            k = {"<cmd>resize +10<cr>", "Increase height"},
-            l = {"<cmd>vertical resize +10<cr>", "Increase width"}
-        }
-    },
+    {"<leader>w", group = "Window"},
+    {"<leader>wH", "<C-w>H", desc = "Move window left"},
+    {"<leader>wJ", "<C-w>J", desc = "Move window down"},
+    {"<leader>wK", "<C-w>K", desc = "Move window up"},
+    {"<leader>wL", "<C-w>L", desc = "Move window right"},
+    {"<leader>wc", "<C-w>q", desc = "Close window"},
+    {"<leader>wh", "<C-w><C-h>", desc = "Move to left window"},
+    {"<leader>wj", "<C-w><C-j>", desc = "Move to below window"},
+    {"<leader>wk", "<C-w><C-k>", desc = "Move to above window"},
+    {"<leader>wl", "<C-w><C-l>", desc = "Move to right window"},
+    {"<leader>wo", "<C-w>o", desc = "Keep only current window"},
+    -- resize 
+    {"<leader>wr", group = "Resize"},
+    {"<leader>wrh", "<cmd>vertical resize -10<cr>", desc = "Decrease width"},
+    {"<leader>wrj", "<cmd>resize -10<cr>", desc = "Decrease height"},
+    {"<leader>wrk", "<cmd>resize +10<cr>", desc = "Increase height"},
+    {"<leader>wrl", "<cmd>vertical resize +10<cr>", desc = "Increase width"},
+    {"<leader>ws", "<C-w>s", desc = "Split window"},
+    {"<leader>wt", "<C-w>T", desc = "Move window to a tab"},
+    {"<leader>wv", "<C-w>v", desc = "Split window vertically"}
+})
 
-    -- buffers 
-    b = {
-        h = {"<cmd>bp<cr>", "Previous buffer"},
-        l = {"<cmd>bn<cr>", "Next buffer"},
-        d = {"<cmd>bdelete<cr>", "Delete buffer"},
-        b = {"<cmd>Telescope buffers<cr>", "Search buffers"},
-    },
-
-    -- tabs 
-    ["1"] = {"<cmd>1tabn<cr>", "Go to tab 1"},
-    ["2"] = {"<cmd>2tabn<cr>", "Go to tab 2"},
-    ["3"] = {"<cmd>3tabn<cr>", "Go to tab 3"},
-    ["4"] = {"<cmd>4tabn<cr>", "Go to tab 4"},
-    ["5"] = {"<cmd>5tabn<cr>", "Go to tab 5"},
-    ["6"] = {"<cmd>6tabn<cr>", "Go to tab 6"},
-    ["7"] = {"<cmd>7tabn<cr>", "Go to tab 7"},
-    ["8"] = {"<cmd>8tabn<cr>", "Go to tab 8"},
-    ["9"] = {"<cmd>9tabn<cr>", "Go to tab 9"},
-    ["0"] = {"<cmd>10tabn<cr>", "Go to tab 10"},
-    ["<Tab>"] = {
-        ["<Tab>"] = {"g<Tab>", "Go to previous tab"},
-        n = {"<cmd>tabnew<cr>", "New tab"},
-        h = {"<cmd>tabp<cr>", "Previous tab"},
-        l = {"<cmd>tabn<cr>", "Next tab"},
-        H = {"<cmd>-tabmove<cr>", "Move tab left"},
-        L = {"<cmd>+tabmove<cr>", "Move tab right"},
-        d = {"<cmd>tabclose<cr>", "Close tab"}
-    }
-}
-
-local opts = {prefix = "<leader>"}
-
-wk.register(mappings, opts)

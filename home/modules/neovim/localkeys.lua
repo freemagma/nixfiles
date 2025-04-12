@@ -4,13 +4,12 @@ local jpy = require("lib.jupyter")
 vim.cmd("autocmd FileType * lua SetKeybinds()")
 function SetKeybinds()
     local file_type = vim.api.nvim_buf_get_option(0, "filetype")
-    local nopts = {prefix = "", buffer = 0}
-    local vopts = {prefix = "", buffer = 0, mode = "v"}
-    local oopts = {prefix = "", buffer = 0, mode = "o"}
     -- jupyter python
     if file_type == "python" and vim.fn.getline(2):match("^# jupyter:") then
-        wk.register({
-            ["<CR>"] = {
+        wk.add({
+            buffer = 0,
+            {
+                "<CR>",
                 function()
                     jpy.goto_next_cell_start()
                     jpy.select_cell(0)
@@ -20,54 +19,74 @@ function SetKeybinds()
                         vim.api.nvim_replace_termcodes("<leader>r", true, false,
                                                        true), "m", true)
                 end,
-                "Magma evaluate cell"
+                desc = "Magma evaluate cell"
             },
-            ["<localleader>r"] = {
-                name = "+Magma",
-                i = {":MagmaInit<CR>", "Magma init"},
-                -- r = {":MagmaEvaluateLine<CR>", "Magma evaluate line"},
-                r = {":MagmaReevaluateCell<CR>", "Magma re-evaluate cell"},
-                d = {":MagmaDelete<CR>", "Magma delete"},
-                o = {":MagmaShowOutput<CR>", "Magma show output"},
-                h = {":MagmaHideOutput<CR>", "Magma hide output"}
+            {"<localleader>r", group = "Magma"},
+            {"<localleader>ri", ":MagmaInit<CR>", desc = "Magma init"},
+            -- {"<localleader>rr", ":MagmaEvaluateLine<CR>", desc = "Magma evaluate line"},
+            {
+                "<localleader>rr",
+                ":MagmaReevaluateCell<CR>",
+                desc = "Magma re-evaluate cell"
             },
-            ["[j"] = {
+            {"<localleader>rd", ":MagmaDelete<CR>", desc = "Magma delete"},
+            {
+                "<localleader>ro",
+                ":MagmaShowOutput<CR>",
+                desc = "Magma show output"
+            },
+            {
+                "<localleader>rh",
+                ":MagmaHideOutput<CR>",
+                desc = "Magma hide output"
+            },
+            {
+                "[j",
                 function() jpy.goto_previous_cell_start() end,
-                "Previous cell start"
+                desc = "Previous cell start"
             },
-            ["[J"] = {
+            {
+                "[J",
                 function() jpy.goto_previous_cell_end() end,
-                "Previous cell end"
+                desc = "Previous cell end"
             },
-            ["]j"] = {
+            {
+                "]j",
                 function() jpy.goto_next_cell_start() end,
-                "Previous cell start"
+                desc = "Previous cell start"
             },
-            ["]J"] = {
+            {
+                "]J",
                 function() jpy.goto_next_cell_end() end,
-                "Previous cell end"
-            }
-
-        }, nopts)
-
-        wk.register({
-            ["<localleader>r"] = {
-                ":<C-u>MagmaEvaluateVisual<CR>",
-                "Magma evaluate visual"
+                desc = "Previous cell end"
             },
-            ij = {function() jpy.select_cell(0) end, "Select cell"}
-        }, vopts)
+            {
+                mode = "v",
+                {
+                    "<localleader>r",
+                    ":<C-u>MagmaEvaluateVisual<CR>",
+                    desc = "Magma evaluate visual"
 
-        wk.register({ij = {function() jpy.select_cell(0) end, "Select cell"}},
-                    oopts)
+                },
+                {"ij", function() jpy.select_cell(0) end, desc = "Select cell"}
+
+            },
+            {
+                mode = "o",
+                {"ij", function() jpy.select_cell(0) end, desc = "Select cell"}
+
+            }
+        })
+
         -- tex
     elseif file_type == "tex" then
-        wk.register({
-            ["<localleader>eb"] = {"<cmd>TexlabBuild<cr>", "TeX build"},
-            ["<localleader>ev"] = {
+        wk.add({
+            {"<localleader>eb", "<cmd>TexlabBuild<cr>", desc = "TeX build"},
+            {
+                "<localleader>ev",
                 "<cmd>TexlabForward<cr>",
-                "TeX forward search"
+                desc = "TeX forward search"
             }
-        }, nopts)
+        })
     end
 end
