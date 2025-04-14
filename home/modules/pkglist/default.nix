@@ -1,5 +1,5 @@
 { self, suyu, ... }:
-{ pkgs, pkgs-stable, system, ... }:
+{ pkgs, system, ... }:
 
 let
   mypkgs = self.packages.${system};
@@ -26,7 +26,7 @@ in
     zoom-us
     mpv
     mullvad-vpn
-    pkgs-stable.mgba
+    mgba
     prismlauncher
     cubiomes-viewer
     mypkgs.crossfire

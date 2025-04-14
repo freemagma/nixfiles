@@ -10,7 +10,6 @@
   crossfire = (pkgs.callPackage ./crossfire { });
   pokemon-colorscripts = (pkgs.callPackage ./pokemon-colorscripts { });
   scope-nvim = (pkgs.callPackage ./scope-nvim { });
-  lean-nvim = (pkgs.callPackage ./lean-nvim { });
   spim-keepstats = (pkgs.callPackage ./spim-keepstats { });
   ingrid = (pkgs.callPackage ./ingrid { });
   quackle = (pkgs.callPackage ./quackle { });

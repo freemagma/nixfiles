@@ -1,11 +1,7 @@
-{ nixpkgs, nixpkgs-stable, ... }:
+{ nixpkgs, ... }:
 
 let
   lib = nixpkgs.lib;
-  pkgs-stable = { system }: import nixpkgs-stable {
-    inherit system;
-    config.allowUnfree = true;
-  };
 in
 {
   makeSystem = { system, machine, modules ? [ ] }:
@@ -16,7 +12,6 @@ in
         {
           config._module.args = {
             inherit system machine;
-            pkgs-stable = pkgs-stable { inherit system; };
           };
         }
         {
@@ -41,7 +36,6 @@ in
       home-manager.users.${username} = {
         _module.args = {
           inherit username system machine style;
-          pkgs-stable = pkgs-stable { inherit system; };
         };
         imports = modules;
         home.packages = extraPkgs pkgs;

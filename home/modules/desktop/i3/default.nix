@@ -182,8 +182,8 @@ _: { pkgs, style, config, username, ... }:
   gtk = {
     enable = true;
     iconTheme = {
-      package = pkgs.luna-icons;
-      name = "luna-icons";
+      package = pkgs.kora-icon-theme;
+      name = "kora-icon-theme";
     };
     theme = {
       package = pkgs.catppuccin-gtk;

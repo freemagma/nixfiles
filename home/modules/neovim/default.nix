@@ -80,7 +80,7 @@ in
 
       # LSP
       nvim-lspconfig
-      mypkgs.lean-nvim
+      lean-nvim
 
       # completion
       nvim-cmp

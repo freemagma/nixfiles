@@ -1,10 +1,9 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     flake-utils.url = "github:numtide/flake-utils";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     suyu = {
@@ -13,7 +12,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, flake-utils, home-manager, suyu, ... }@inputs:
+  outputs = { self, nixpkgs, flake-utils, home-manager, suyu, ... }@inputs:
     {
       nixosConfigurations = {
         jane = import ./nixos/configs/jane inputs;
