@@ -22,5 +22,12 @@ _:
       })
     ];
   };
+  mgba-lua-5-3 = {
+    nixpkgs.overlays = [
+      (final: prev: {
+        mgba = prev.mgba.override { lua = prev.lua5_3; };
+      })
+    ];
+  };
 }
     

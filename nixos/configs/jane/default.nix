@@ -21,6 +21,7 @@ self.lib.makeSystem {
 
     overlays.conda
     overlays.catppuccin-gtk-macchiato-pink
+    overlays.mgba-lua-5-3
 
     users.cgunn
   ]);

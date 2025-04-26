@@ -25,10 +25,11 @@
       lib = import ./lib inputs;
 
     } // (flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = import nixpkgs {
-        inherit system;
-        config.allowAliases = false;
-      }; 
+      let
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowAliases = false;
+        };
       in
       {
         legacyPackages = import ./pkgs { inherit pkgs; };
