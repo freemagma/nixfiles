@@ -32,6 +32,7 @@ in
     mypkgs.crossfire
     mypkgs.ingrid
     suyu.packages.${system}.suyu
+    mypkgs.ekhex
 
     # cmdline tools
     unar

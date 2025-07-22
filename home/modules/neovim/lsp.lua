@@ -40,17 +40,17 @@ lspconfig.texlab.setup {
 -- ocaml
 lspconfig.ocamllsp.setup {capabilities = capabilities}
 
--- zig 
+-- zig
 lspconfig.zls.setup {capabilities = capabilities}
 
--- java 
+-- java
 lspconfig.java_language_server.setup {cmd = {"java-language-server"}}
 
 -- lean
 local lean = require("lean")
 lean.setup {mappings = true}
 
--- eslint 
+-- eslint
 lspconfig.eslint.setup {}
 
 -- EFM
@@ -108,17 +108,7 @@ wk.add({
     {"<C-a>", vim.lsp.buf.code_action, desc = "Code action", mode = "i"},
     {"<leader>e", group = "LSP"},
     {"<leader>er", vim.lsp.buf.rename, desc = "Rename"},
-    {
-        "<leader>ef",
-        function()
-            vim.lsp.buf.format({
-                filter = function(client)
-                    return client.name ~= "lua_ls"
-                end
-            })
-        end,
-        desc = "Format"
-    },
+    {"<leader>ef", vim.lsp.buf.format, desc = "Format"},
     {
         "<leader>en",
         function()
@@ -145,4 +135,3 @@ wk.add({
         desc = "Show all diagnostics"
     }
 })
-
