@@ -56,7 +56,7 @@ lspconfig.eslint.setup {}
 -- EFM
 lspconfig.efm.setup {
     init_options = {documentFormatting = true},
-    filetypes = {"nix", "python", "lua", "javascript", "verilog"},
+    filetypes = {"nix", "python", "lua", "javascript", "verilog", "ocaml"},
     settings = {
         languages = {
             nix = {{formatCommand = "nixpkgs-fmt", formatStdin = true}},
@@ -78,8 +78,10 @@ lspconfig.efm.setup {
             },
             verilog = {
                 {formatCommand = "verible-verilog-format -", formatStdin = true}
+            },
+            ocaml = {
+                {formatCommand = "ocamlformat --name ${INPUT} -", formatStdin = true}
             }
-
         }
     }
 }

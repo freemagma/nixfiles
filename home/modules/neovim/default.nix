@@ -23,10 +23,6 @@ in
     # python
     pyright
 
-    # ocaml
-    ocamlPackages.ocaml-lsp
-    ocamlformat
-
     # zig 
     zls
 

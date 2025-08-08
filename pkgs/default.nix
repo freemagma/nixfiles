@@ -13,4 +13,5 @@
   spim-keepstats = (pkgs.callPackage ./spim-keepstats { });
   ingrid = (pkgs.callPackage ./ingrid { });
   quackle = (pkgs.callPackage ./quackle { });
+  zyzzyva = (pkgs.callPackage ./zyzzyva { });
 }

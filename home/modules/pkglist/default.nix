@@ -33,6 +33,7 @@ in
     mypkgs.ingrid
     suyu.packages.${system}.suyu
     mypkgs.ekhex
+    mypkgs.zyzzyva
 
     # cmdline tools
     unar

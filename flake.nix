@@ -29,6 +29,9 @@
         pkgs = import nixpkgs {
           inherit system;
           config.allowAliases = false;
+          config.permittedInsecurePackages = [
+            "openssl-1.1.1w"
+          ];
         };
       in
       {
