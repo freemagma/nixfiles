@@ -34,6 +34,7 @@ in
     suyu.packages.${system}.suyu
     mypkgs.ekhex
     mypkgs.zyzzyva
+    mypkgs.xhaven-assistant
 
     # cmdline tools
     unar

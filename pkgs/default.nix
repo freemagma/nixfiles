@@ -14,4 +14,5 @@
   ingrid = (pkgs.callPackage ./ingrid { });
   quackle = (pkgs.callPackage ./quackle { });
   zyzzyva = (pkgs.callPackage ./zyzzyva { });
+  xhaven-assistant = (pkgs.callPackage ./xhaven-assistant { });
 }
