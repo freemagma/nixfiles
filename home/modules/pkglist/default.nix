@@ -31,7 +31,7 @@ in
     cubiomes-viewer
     mypkgs.crossfire
     mypkgs.ingrid
-    suyu.packages.${system}.suyu
+    # suyu.packages.${system}.suyu
     mypkgs.ekhex
     mypkgs.zyzzyva
     mypkgs.xhaven-assistant
