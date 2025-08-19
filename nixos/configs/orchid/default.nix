@@ -18,7 +18,9 @@ self.lib.makeSystem {
     base
     desktop.i3
 
+    overlays.conda
     overlays.catppuccin-gtk-macchiato-pink
+    overlays.mgba-lua-5-3
 
     users.cgunn
   ]);
