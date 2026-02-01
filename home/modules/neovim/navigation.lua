@@ -22,9 +22,8 @@ telescope.setup {
 telescope.load_extension("fzf")
 
 -- project
-local project = require("project_nvim")
+local project = require("project")
 project.setup {
-    detection_methods = {"lsp", "pattern"},
     patterns = {".git", "Makefile", "package.json", ">dev"}
 }
 telescope.load_extension("projects")

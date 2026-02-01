@@ -1,21 +1,24 @@
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local capabilities = cmp_nvim_lsp.default_capabilities()
-local lspconfig = require("lspconfig")
 
--- python
-lspconfig.pyright.setup {capabilities = capabilities}
+vim.lsp.config("*",  {capabilities = capabilities})
+vim.lsp.enable("eslint")
+vim.lsp.enable("ocamllsp")
+vim.lsp.enable("pyright")
+vim.lsp.enable("zls")
 
 -- lua
-lspconfig.lua_ls.setup {
+vim.lsp.config("lua_ls", {
     cmd = {"lua-language-server"},
     settings = {
         Lua = {diagnostics = {globals = {'vim'}}, telemetry = {enable = false}}
     },
     capabilities = capabilities
-}
+})
+vim.lsp.enable("lua_ls")
 
 -- tex
-lspconfig.texlab.setup {
+vim.lsp.config("texlab", {
     capabilities = capabilities,
     settings = {
         texlab = {
@@ -35,26 +38,19 @@ lspconfig.texlab.setup {
             }
         }
     }
-}
-
--- ocaml
-lspconfig.ocamllsp.setup {capabilities = capabilities}
-
--- zig
-lspconfig.zls.setup {capabilities = capabilities}
+})
+vim.lsp.enable("texlab")
 
 -- java
-lspconfig.java_language_server.setup {cmd = {"java-language-server"}}
+vim.lsp.config("java_language_server", {cmd = {"java-language-server"}})
+vim.lsp.enable("java_language_server")
 
 -- lean
 local lean = require("lean")
 lean.setup {mappings = true}
 
--- eslint
-lspconfig.eslint.setup {}
-
 -- EFM
-lspconfig.efm.setup {
+vim.lsp.config("efm", {
     init_options = {documentFormatting = true},
     filetypes = {"nix", "python", "lua", "javascript", "verilog", "ocaml"},
     settings = {
@@ -84,7 +80,8 @@ lspconfig.efm.setup {
             }
         }
     }
-}
+})
+vim.lsp.enable("efm")
 
 -- which key
 local wk = require("which-key")

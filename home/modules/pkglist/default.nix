@@ -32,15 +32,12 @@ in
     mypkgs.crossfire
     mypkgs.ingrid
     # suyu.packages.${system}.suyu
-    mypkgs.ekhex
-    mypkgs.zyzzyva
-    mypkgs.xhaven-assistant
 
     # cmdline tools
     unar
     zathura
     ripgrep
-    du-dust
+    dust
     htop
     maim
     mupdf

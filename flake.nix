@@ -1,9 +1,9 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     flake-utils.url = "github:numtide/flake-utils";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     suyu = {
@@ -29,9 +29,6 @@
         pkgs = import nixpkgs {
           inherit system;
           config.allowAliases = false;
-          config.permittedInsecurePackages = [
-            "openssl-1.1.1w"
-          ];
         };
       in
       {

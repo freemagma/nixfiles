@@ -7,7 +7,7 @@ stdenv.mkDerivation {
   src = fetchurl {
     name = "ingrid.tar.gz";
     url = "https://releases.ingrid.cx/download/tar";
-    sha256 = "sha256-opRlRsCaur41iFY1wErePAxdIWOosizGNisLI4W+R+o=";
+    sha256 = "sha256-J9rWzrF0yNm4xVuyjBx1bBTp1s36jZvNwSCI5BcKAR8=";
   };
 
   nativeBuildInputs = [

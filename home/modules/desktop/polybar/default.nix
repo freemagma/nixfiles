@@ -10,7 +10,7 @@ _: { pkgs, lib, style, machine, ... }:
       pulseSupport = true;
     };
 
-    script = "polybar -q -r top & polybar -q -r bottom &";
+    script = "polybar top &";
 
     config = with style.color; {
       "global/wm" = {

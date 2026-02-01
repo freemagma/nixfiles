@@ -1,7 +1,7 @@
 _: { pkgs, style, config, username, ... }:
 
 {
-  home.packages = with pkgs; [ nerdfonts ];
+  home.packages = with pkgs; [ nerd-fonts.fira-code ];
 
   xsession.windowManager.i3 = {
     enable = true;
