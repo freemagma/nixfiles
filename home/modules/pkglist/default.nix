@@ -29,8 +29,10 @@ in
     mgba
     prismlauncher
     cubiomes-viewer
+    desmume
     mypkgs.crossfire
     mypkgs.ingrid
+    mypkgs.platkaizohex
     # suyu.packages.${system}.suyu
 
     # cmdline tools

@@ -2,6 +2,7 @@
 
 {
   pkhex = (pkgs.callPackage ./pkhex { });
+  platkaizohex = (pkgs.callPackage ./platkaizohex { });
   poryscript = (pkgs.callPackage ./poryscript { });
   porymap = (pkgs.callPackage ./porymap { });
   mytex = (pkgs.callPackage ./tex { });
