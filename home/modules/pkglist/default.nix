@@ -32,7 +32,7 @@ in
     desmume
     mypkgs.crossfire
     mypkgs.ingrid
-    mypkgs.platkaizohex
+    # mypkgs.platkaizohex
     # suyu.packages.${system}.suyu
 
     # cmdline tools

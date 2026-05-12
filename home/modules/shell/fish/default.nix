@@ -13,7 +13,7 @@
     enable = true;
     shellAbbrs = {
       la = "ls -lah";
-      nixr = "nixos-rebuild switch --use-remote-sudo --flake ~/dev/nixfiles";
+      nixr = "nixos-rebuild switch --sudo --flake ~/dev/nixfiles";
       # git
       gaa = "git add --all";
       gc = "git commit";

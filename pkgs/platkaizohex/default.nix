@@ -1,26 +1,22 @@
 { pkgs, ... }:
 with pkgs;
 
-stdenv.mkDerivation {
+buildDotnetModule {
+  # doesn't work right now :(
   name = "platkaizohex";
 
-  src = fetchurl {
-    url = "https://github.com/zuils/PlatKaizoHeX/releases/download/2.0/PlatKaizoHeX-V2.0.zip";
-    sha256 = "sha256-Lrfuy8fVrIg6p4cuklMe0lcyNiIFL9fFIIlZA2Wbgt0=";
+  src = fetchFromGitHub {
+    owner = "zuils";
+    repo = "PlatKaizoHeX";
+    rev = "2.0";
+    sha256 = "sha256-kgXUDSw26dIVCq4Xtr4M1W0vCeUO2uGIPu1CGMCau7E=";
   };
 
-  nativeBuildInputs = [
-    unzip
-  ];
+  dotnet-sdk = dotnetCorePackages.sdk_9_0;
+  dotnet-runtime = dotnetCorePackages.runtime_9_0;
 
-  dontConfigure = true;
-  dontBuild = true;
+  nugetDeps = ./deps.json;
 
-  installPhase = ''
-    echo "${mono}/bin/mono $out/opt/PlatKaizoHeX/PlatKaizoHeX.exe" > platkaizohex.sh
-
-    install -Dm755 -- platkaizohex.sh "$out/bin/platkaizohex"
-    install -Dm755 -- PlatKaizoHeX.exe "$out/opt/PlatKaizoHeX/PlatKaizoHeX.exe"
-  '';
+  projectFile = "PKHeX.sln";
 }
 
