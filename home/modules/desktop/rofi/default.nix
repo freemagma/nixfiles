@@ -3,9 +3,7 @@ _: { config, style, ... }:
 {
   programs.rofi = {
     enable = true;
-    extraConfig = {
-      modi = "drun,run,window";
-    };
+    # `modi` and friends are set in the theme's configuration block below
     theme = with style.color;
       let
         lit = config.lib.formats.rasi.mkLiteral;
@@ -15,7 +13,7 @@ _: { config, style, ... }:
           modi = "run,drun,window";
           icon-theme = "Oranchelo";
           show-icons = lit "true";
-          terminal = "alacritty";
+          terminal = "kitty";
           drun-display-format = "{icon} {name}";
           location = lit "0";
           disable-history = lit "false";

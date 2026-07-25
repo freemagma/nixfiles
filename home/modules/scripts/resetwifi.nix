@@ -1,7 +1,9 @@
 { pkgs, ... }:
-pkgs.writeShellScriptBin "resetwifi" ''
-  WIFI_NAME=$(nmcli c show --active | grep "wifi" | awk '{print $1;}')
-  nmcli c down ''${WIFI_NAME}
+
+let nmcli = "${pkgs.networkmanager}/bin/nmcli";
+in pkgs.writeShellScriptBin "resetwifi" ''
+  WIFI_NAME=$(${nmcli} c show --active | grep "wifi" | awk '{print $1;}')
+  ${nmcli} c down ''${WIFI_NAME}
   sleep 0.1
-  nmcli c up ''${WIFI_NAME}
+  ${nmcli} c up ''${WIFI_NAME}
 ''

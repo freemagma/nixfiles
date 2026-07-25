@@ -62,7 +62,6 @@ in
       lualine-nvim
       bufferline-nvim
       mypkgs.scope-nvim
-      indent-blankline-nvim
 
       # navigation
       nvim-tree-lua

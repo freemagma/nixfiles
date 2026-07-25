@@ -1,7 +1,10 @@
 {
   description = "my project description";
 
-  inputs.flake-utils.url = "github:numtide/flake-utils";
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    flake-utils.url = "github:numtide/flake-utils";
+  };
 
   outputs = { self, nixpkgs, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
@@ -28,9 +31,9 @@
           pg_ctl -D $PGDATA stop
         '';
       in {
-        devShell = mkShell {
+        devShells.default = mkShell {
           buildInputs =
-            [ git elixir nodejs-17_x inotify-tools postgresql phxinit pgstart pgstop ];
+            [ git elixir nodejs inotify-tools postgresql phxinit pgstart pgstop ];
           shellHook = ''
             mkdir -p .artifacts
             export ARTIFACT_DIR=$PWD/.artifacts

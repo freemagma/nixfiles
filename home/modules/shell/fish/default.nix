@@ -1,5 +1,4 @@
-{ self, ... }:
-{ pkgs, system, ... }:
+_: { pkgs, ... }:
 
 {
   home.packages = [ pkgs.bat ];
@@ -47,12 +46,5 @@
   programs.autojump = {
     enable = true;
     enableFishIntegration = true;
-  };
-
-  programs.git = {
-    enable = true;
-    userName = "Charles Gunn";
-    userEmail = "me@cjgunn.com";
-    extraConfig.init.defaultBranch = "main";
   };
 }

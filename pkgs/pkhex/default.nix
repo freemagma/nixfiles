@@ -4,12 +4,18 @@ with pkgs;
 stdenv.mkDerivation {
   name = "pkhex";
 
-  phases = [ "installPhase" ];
+  dontUnpack = true;
+  dontBuild = true;
+
+  nativeBuildInputs = [ makeWrapper ];
 
   installPhase = ''
-    echo "${mono}/bin/mono $out/opt/PKHeX/PKHeX.exe $@" > pkhex.sh
+    runHook preInstall
 
-    install -Dm755 -- pkhex.sh "$out/bin/pkhex"
-    install -Dm755 -- ${./PKHeX.exe} "$out/opt/PKHeX/PKHeX.exe"
+    install -Dm644 -- ${./PKHeX.exe} "$out/opt/PKHeX/PKHeX.exe"
+    makeWrapper ${mono}/bin/mono "$out/bin/pkhex" \
+      --add-flags "$out/opt/PKHeX/PKHeX.exe"
+
+    runHook postInstall
   '';
 }

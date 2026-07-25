@@ -1,4 +1,6 @@
 { pkgs, ... }:
-pkgs.writeShellScriptBin "resetblue" ''
-  bluetoothctl -- connect ''${1}
+
+let bluetoothctl = "${pkgs.bluez}/bin/bluetoothctl";
+in pkgs.writeShellScriptBin "resetblue" ''
+  ${bluetoothctl} -- connect ''${1}
 ''

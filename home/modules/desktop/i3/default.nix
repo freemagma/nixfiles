@@ -1,7 +1,14 @@
 _: { pkgs, style, config, username, ... }:
 
 {
-  home.packages = with pkgs; [ nerd-fonts.fira-code ];
+  # every one of these is invoked by a keybinding or startup entry below
+  home.packages = with pkgs; [
+    nerd-fonts.fira-code
+    nitrogen
+    brightnessctl
+    pamixer
+    maim
+  ];
 
   xsession.windowManager.i3 = {
     enable = true;
@@ -162,7 +169,7 @@ _: { pkgs, style, config, username, ... }:
           notification = false;
         }
         {
-          command = "rm ${config.xdg.configHome}/autostart/teams.desktop";
+          command = "rm -f ${config.xdg.configHome}/autostart/teams.desktop";
           always = true;
           notification = false;
         }

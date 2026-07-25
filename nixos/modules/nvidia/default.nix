@@ -7,13 +7,12 @@ let
 in
 {
   services.xserver.videoDrivers = [ "nvidia" ];
-  virtualisation.docker.enable = true;
   boot.extraModulePackages = [ nvidia_x11 ];
   environment.systemPackages = [ nvidia_x11 ];
   hardware.nvidia.open = false;
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
     extraPackages = [ nvidia_gl ];
     extraPackages32 = [ nvidia_gl_32 ];
   };

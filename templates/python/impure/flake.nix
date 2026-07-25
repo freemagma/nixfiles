@@ -1,7 +1,10 @@
 {
   description = "my project description";
 
-  inputs.flake-utils.url = "github:numtide/flake-utils";
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    flake-utils.url = "github:numtide/flake-utils";
+  };
 
   outputs = { self, nixpkgs, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
@@ -9,7 +12,7 @@
         config = { allowUnfree = true; };
         inherit system;
       }); {
-        devShell = let
+        devShells.default = let
           pythonPackages = python3Packages;
         in mkShell rec {
           name = "impurePythonEnv";

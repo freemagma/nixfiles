@@ -110,16 +110,12 @@ wk.add({
     {"<leader>ef", vim.lsp.buf.format, desc = "Format"},
     {
         "<leader>en",
-        function()
-            vim.diagnostic.goto_next {popup_opts = {show_header = false}}
-        end,
+        function() vim.diagnostic.jump {count = 1, float = true} end,
         desc = "Next diagnostic"
     },
     {
         "<leader>ep",
-        function()
-            vim.diagnostic.goto_prev {popup_opts = {show_header = false}}
-        end,
+        function() vim.diagnostic.jump {count = -1, float = true} end,
         desc = "Previous diagnostic"
     },
     {

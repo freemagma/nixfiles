@@ -8,7 +8,6 @@ vim.o.shiftwidth = 4
 vim.o.expandtab = true
 
 -- setup various plugins
--- require("indent_blankline").setup {}
 require('nvim-autopairs').setup {}
 require('Comment').setup {}
 require('guess-indent').setup {}

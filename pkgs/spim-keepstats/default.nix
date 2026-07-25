@@ -12,7 +12,7 @@ stdenv.mkDerivation {
   };
 
 
-  buildInputs = [ flex bison ];
+  nativeBuildInputs = [ flex bison makeWrapper ];
 
   buildPhase = ''
     cd spim
@@ -23,9 +23,7 @@ stdenv.mkDerivation {
     install -D -m 755 -- spim "$out/opt/spim/spim"
     install -D -m 0444 -- ../CPU/exceptions.s "$out/share/spim/exceptions.s"
 
-    echo "export SPIM_EXCEPTION_HANDLER=$out/share/spim/exceptions.s; $out/opt/spim/spim \$@" > spim.sh
-    install -D -m 755 -- spim.sh "$out/bin/spim"
+    makeWrapper "$out/opt/spim/spim" "$out/bin/spim" \
+      --set SPIM_EXCEPTION_HANDLER "$out/share/spim/exceptions.s"
   '';
-
-  SPIM_EXCEPTION_HANDLER = "$out/share/spim/exceptions.s";
 }

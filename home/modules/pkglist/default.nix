@@ -1,4 +1,4 @@
-{ self, suyu, ... }:
+{ self, suyu, claude-code-nix, ... }:
 { pkgs, system, ... }:
 
 let
@@ -7,10 +7,8 @@ in
 {
   home.packages = with pkgs; [
     # system control
-    nitrogen
-    brightnessctl
+    # nitrogen/brightnessctl/pamixer/maim live in the i3 module, which binds them
     pavucontrol
-    pamixer
 
     # apps
     firefox
@@ -32,7 +30,6 @@ in
     desmume
     mypkgs.crossfire
     mypkgs.ingrid
-    # mypkgs.platkaizohex
     # suyu.packages.${system}.suyu
 
     # cmdline tools
@@ -41,13 +38,13 @@ in
     ripgrep
     dust
     htop
-    maim
     mupdf
     ffmpeg-full
     yt-dlp
     lftp
     rclone
     xclip
+    claude-code-nix.packages.${system}.claude-code
 
     # ios
     libimobiledevice

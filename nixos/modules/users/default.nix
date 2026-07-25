@@ -11,6 +11,7 @@ with self.homeModules;
       pkglist
       kitty
       shell.fish
+      git
       desktop.bundles.i3
       scripts.bundles.all
       userdirs
