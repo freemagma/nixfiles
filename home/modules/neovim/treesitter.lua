@@ -23,7 +23,6 @@ treesitter.setup {
         "scss",
         "toml",
         "typescript",
-        "verilog",
         "yaml",
         "zig"
     },

@@ -52,7 +52,7 @@ lean.setup {mappings = true}
 -- EFM
 vim.lsp.config("efm", {
     init_options = {documentFormatting = true},
-    filetypes = {"nix", "python", "lua", "javascript", "verilog", "ocaml"},
+    filetypes = {"nix", "python", "lua", "javascript", "ocaml"},
     settings = {
         languages = {
             nix = {{formatCommand = "nixpkgs-fmt", formatStdin = true}},
@@ -71,9 +71,6 @@ vim.lsp.config("efm", {
                     formatCommand = "prettier --stdin-filepath ${INPUT}",
                     formatStdin = true
                 }
-            },
-            verilog = {
-                {formatCommand = "verible-verilog-format -", formatStdin = true}
             },
             ocaml = {
                 {formatCommand = "ocamlformat --name ${INPUT} -", formatStdin = true}
