@@ -1,5 +1,3 @@
-inputs:
-
 {
-  fish = import ./fish inputs;
+  fish = ./fish;
 }

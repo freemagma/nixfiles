@@ -1,8 +1,30 @@
-{ pkgs, ... }:
-with pkgs;
+{ lib
+, stdenv
+, fetchurl
+, autoPatchelfHook
+, wrapGAppsHook3
+, mesa
+, alsa-lib
+, at-spi2-atk
+, cairo
+, expat
+, gtk3
+, libdrm
+, libgcc
+, libxkbcommon
+, nspr
+, nss
+, pango
+, vivaldi-ffmpeg-codecs
+, systemd
+, libglvnd
+, vulkan-loader
+, xorg
+}:
 
 stdenv.mkDerivation {
-  name = "ingrid";
+  pname = "ingrid";
+  version = "unstable";
 
   src = fetchurl {
     name = "ingrid.tar.gz";
@@ -48,4 +70,11 @@ stdenv.mkDerivation {
     install -Dm755 Ingrid $out/opt/ingrid/Ingrid
     ln -s $out/opt/ingrid/Ingrid $out/bin/ingrid
   '';
+
+  meta = {
+    description = "Crossword construction program";
+    homepage = "https://ingrid.cx";
+    platforms = [ "x86_64-linux" ];
+    mainProgram = "ingrid";
+  };
 }

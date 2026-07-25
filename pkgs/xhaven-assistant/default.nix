@@ -1,11 +1,24 @@
-{ pkgs, ... }:
-with pkgs;
+{ lib
+, stdenv
+, fetchurl
+, autoPatchelfHook
+, unzip
+, gtk3
+, libepoxy
+, atkmm
+, pango
+, cairo
+, gdk-pixbuf
+, bzip2
+, glib
+}:
 
-stdenv.mkDerivation {
-  name = "xhaven-assistant";
+stdenv.mkDerivation rec {
+  pname = "xhaven-assistant";
+  version = "1.11.1";
 
   src = fetchurl {
-    url = "https://github.com/Tarmslitaren/FrosthavenAssistant/releases/download/v1.11.1/x-haven.assistant.1.11.1.linux.zip";
+    url = "https://github.com/Tarmslitaren/FrosthavenAssistant/releases/download/v${version}/x-haven.assistant.${version}.linux.zip";
     sha256 = "sha256-YHqfApYjYxje6WKgQPGCl54sPXVbPBzyJ5uI9d3ABWg=";
   };
 
@@ -36,5 +49,11 @@ stdenv.mkDerivation {
 
     runHook postInstall
   '';
-}
 
+  meta = {
+    description = "Digital assistant for the Frosthaven/Gloomhaven board games";
+    homepage = "https://github.com/Tarmslitaren/FrosthavenAssistant";
+    platforms = [ "x86_64-linux" ];
+    mainProgram = "xhaven-assistant";
+  };
+}

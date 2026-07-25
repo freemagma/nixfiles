@@ -1,15 +1,13 @@
-inputs:
-
 {
-  style = import ./style inputs;
-  pkglist = import ./pkglist inputs;
-  kitty = import ./kitty inputs;
-  shell = import ./shell inputs;
-  desktop = import ./desktop inputs;
-  userdirs = import ./userdirs inputs;
-  scripts = import ./scripts inputs;
-  git = import ./git inputs;
-  emacs = import ./emacs inputs;
-  neovim = import ./neovim inputs;
-  chess = import ./chess inputs;
+  style = import ./style;
+  pkglist = ./pkglist;
+  kitty = ./kitty;
+  shell = import ./shell;
+  desktop = import ./desktop;
+  userdirs = ./userdirs;
+  scripts = import ./scripts;
+  git = ./git;
+  emacs = ./emacs;
+  neovim = ./neovim;
+  chess = ./chess;
 }

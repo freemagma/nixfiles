@@ -1,5 +1,3 @@
-_:
-
 let
   addPkg = path: { pkgs, ... }: {
     home.packages = [ (pkgs.callPackage path { }) ];

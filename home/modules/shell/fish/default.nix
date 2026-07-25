@@ -1,4 +1,4 @@
-_: { pkgs, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = [ pkgs.bat ];

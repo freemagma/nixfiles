@@ -1,4 +1,4 @@
-{ nixpkgs, ... }:
+inputs@{ nixpkgs, ... }:
 
 let
   lib = nixpkgs.lib;
@@ -7,6 +7,8 @@ in
   makeSystem = { system, machine, modules ? [ ] }:
     lib.nixosSystem {
       inherit system;
+
+      specialArgs = { inherit inputs; };
 
       modules = modules ++ [
         {
@@ -35,7 +37,7 @@ in
       home-manager.useUserPackages = true;
       home-manager.users.${username} = {
         _module.args = {
-          inherit username system machine style;
+          inherit username system machine style inputs;
         };
         imports = modules;
         home.packages = extraPkgs pkgs;
@@ -43,4 +45,3 @@ in
       };
     };
 }
-

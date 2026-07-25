@@ -1,9 +1,8 @@
-_: { config, style, ... }:
+{ config, style, ... }:
 
 {
   programs.rofi = {
     enable = true;
-    # `modi` and friends are set in the theme's configuration block below
     theme = with style.color;
       let
         lit = config.lib.formats.rasi.mkLiteral;

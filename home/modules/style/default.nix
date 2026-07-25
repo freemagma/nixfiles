@@ -1,5 +1,3 @@
-_:
-
 rec {
   catppuccin-mocha = rec {
     rosewater = "#f5e0dc";

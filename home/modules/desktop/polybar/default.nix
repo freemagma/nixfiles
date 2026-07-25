@@ -1,4 +1,4 @@
-_: { pkgs, lib, style, machine, ... }:
+{ pkgs, lib, style, machine, ... }:
 
 {
   services.polybar = {

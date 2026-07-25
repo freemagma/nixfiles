@@ -1,7 +1,7 @@
-{ self, ... }: { pkgs, system, ... }:
+{ pkgs, system, inputs, ... }:
 
 let
-  mypkgs = self.packages.${system};
+  mypkgs = inputs.self.packages.${system};
 in
 {
   home.packages = with pkgs; [

@@ -1,9 +1,9 @@
 inputs:
 
 {
-  base = import ./base inputs;
-  desktop = import ./desktop inputs;
-  nvidia = import ./nvidia inputs;
+  base = ./base;
+  desktop = import ./desktop;
+  nvidia = ./nvidia;
   users = import ./users inputs;
-  overlays = import ./overlays inputs;
+  overlays = import ./overlays;
 }

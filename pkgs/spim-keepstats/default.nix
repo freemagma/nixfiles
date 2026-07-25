@@ -1,8 +1,8 @@
-{ pkgs, ... }:
-with pkgs;
+{ lib, stdenv, fetchFromGitHub, flex, bison, makeWrapper }:
 
 stdenv.mkDerivation {
-  name = "spim-keepstats";
+  pname = "spim-keepstats";
+  version = "unstable-2013-11-11";
 
   src = fetchFromGitHub {
     owner = "portersrc";
@@ -10,7 +10,6 @@ stdenv.mkDerivation {
     rev = "9d7acf26b4fb473df839b2fce9b737351a16f77d";
     sha256 = "sha256-BjaNcT1sEke66VTfL6+9t4PHw6FtNpRzVyuFbdbZzlc=";
   };
-
 
   nativeBuildInputs = [ flex bison makeWrapper ];
 
@@ -26,4 +25,11 @@ stdenv.mkDerivation {
     makeWrapper "$out/opt/spim/spim" "$out/bin/spim" \
       --set SPIM_EXCEPTION_HANDLER "$out/share/spim/exceptions.s"
   '';
+
+  meta = {
+    description = "MIPS simulator (SPIM fork that reports instruction statistics)";
+    homepage = "https://github.com/portersrc/spim-keepstats";
+    platforms = lib.platforms.linux;
+    mainProgram = "spim";
+  };
 }

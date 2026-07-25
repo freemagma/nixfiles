@@ -1,7 +1,9 @@
-{ pkgs, ... }:
+{ callPackage, texlive }:
 
-let math-cls.pkgs = [ (import ./math-cls.nix { inherit pkgs; }) ];
-in (pkgs.texlive.combine {
-  inherit (pkgs.texlive) scheme-full;
+let
+  math-cls.pkgs = [ (callPackage ./math-cls.nix { }) ];
+in
+texlive.combine {
+  inherit (texlive) scheme-full;
   inherit math-cls;
-})
+}

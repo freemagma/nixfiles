@@ -1,15 +1,13 @@
-{ self, ... }@inputs:
-
-rec {
-  i3 = import ./i3 inputs;
-  polybar = import ./polybar inputs;
-  rofi = import ./rofi inputs;
+{
+  i3 = ./i3;
+  polybar = ./polybar;
+  rofi = ./rofi;
 
   bundles.i3 = {
     imports = [
-      i3
-      polybar
-      rofi
+      ./i3
+      ./polybar
+      ./rofi
     ];
   };
 }

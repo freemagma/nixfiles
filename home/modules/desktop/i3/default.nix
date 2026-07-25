@@ -1,7 +1,6 @@
-_: { pkgs, style, config, username, ... }:
+{ pkgs, style, config, username, ... }:
 
 {
-  # every one of these is invoked by a keybinding or startup entry below
   home.packages = with pkgs; [
     nerd-fonts.fira-code
     nitrogen

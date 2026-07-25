@@ -1,13 +1,11 @@
-{ self, suyu, claude-code-nix, ... }:
-{ pkgs, system, ... }:
+{ pkgs, system, inputs, ... }:
 
 let
-  mypkgs = self.packages.${system};
+  mypkgs = inputs.self.packages.${system};
 in
 {
   home.packages = with pkgs; [
     # system control
-    # nitrogen/brightnessctl/pamixer/maim live in the i3 module, which binds them
     pavucontrol
 
     # apps
@@ -36,6 +34,7 @@ in
     unar
     zathura
     ripgrep
+    jq
     dust
     htop
     mupdf
@@ -44,7 +43,7 @@ in
     lftp
     rclone
     xclip
-    claude-code-nix.packages.${system}.claude-code
+    inputs.claude-code-nix.packages.${system}.claude-code
 
     # ios
     libimobiledevice

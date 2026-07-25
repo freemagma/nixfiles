@@ -1,8 +1,8 @@
-{ pkgs, ... }:
-with pkgs;
+{ lib, stdenv, makeWrapper, mono }:
 
 stdenv.mkDerivation {
-  name = "ekhex";
+  pname = "ekhex";
+  version = "unstable-2023-02-11";
 
   dontUnpack = true;
   dontBuild = true;
@@ -18,4 +18,10 @@ stdenv.mkDerivation {
 
     runHook postInstall
   '';
+
+  meta = {
+    description = "PKHeX fork for Pokemon Emerald Kaizo (vendored prebuilt binary)";
+    platforms = [ "x86_64-linux" ];
+    mainProgram = "ekhex";
+  };
 }

@@ -1,5 +1,3 @@
-_:
-
 {
   conda = {
     nixpkgs.overlays = [
@@ -30,4 +28,3 @@ _:
     ];
   };
 }
-    

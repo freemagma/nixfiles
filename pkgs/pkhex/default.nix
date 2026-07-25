@@ -1,8 +1,8 @@
-{ pkgs, ... }:
-with pkgs;
+{ lib, stdenv, makeWrapper, mono }:
 
 stdenv.mkDerivation {
-  name = "pkhex";
+  pname = "pkhex";
+  version = "unstable-2022-08-14";
 
   dontUnpack = true;
   dontBuild = true;
@@ -18,4 +18,11 @@ stdenv.mkDerivation {
 
     runHook postInstall
   '';
+
+  meta = {
+    description = "Pokemon save editor (vendored prebuilt binary)";
+    homepage = "https://github.com/kwsch/PKHeX";
+    platforms = [ "x86_64-linux" ];
+    mainProgram = "pkhex";
+  };
 }

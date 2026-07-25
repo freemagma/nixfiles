@@ -1,6 +1,3 @@
-inputs:
-
 {
-  i3 = import ./i3 inputs;
+  i3 = ./i3;
 }
-

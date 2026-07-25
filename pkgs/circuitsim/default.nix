@@ -1,24 +1,31 @@
-{ pkgs, ... }:
-with pkgs;
+{ lib, stdenv, makeWrapper, gtk3, openjdk11 }:
 
 let
+  schemaPath = "${gtk3}/share/gsettings-schemas/gtk+3-${gtk3.version}";
+in
+stdenv.mkDerivation {
   pname = "CircuitSim";
   version = "1.8.2-2110";
-  schemaPath = "${gtk3}/share/gsettings-schemas/gtk+3-${gtk3.version}";
-in stdenv.mkDerivation (rec {
-  inherit pname version;
 
-  buildInputs = [ makeWrapper ];
+  dontUnpack = true;
+  dontBuild = true;
 
-  unpackPhase = "true";
-  buildPhase = "true";
+  nativeBuildInputs = [ makeWrapper ];
 
   installPhase = ''
-    mkdir -p "$out/bin" "$out/share/java"
-    cp ${./csim.jar} "$out/share/java/CircuitSim.jar"
-    makeWrapper \
-      "${openjdk11}/bin/java" \
-      "$out/bin/${pname}" \
+    runHook preInstall
+
+    install -Dm644 -- ${./csim.jar} "$out/share/java/CircuitSim.jar"
+    makeWrapper "${openjdk11}/bin/java" "$out/bin/CircuitSim" \
       --prefix XDG_DATA_DIRS : "${schemaPath}" \
-      --add-flags "-jar $out/share/java/CircuitSim.jar" '';
-})
+      --add-flags "-jar $out/share/java/CircuitSim.jar"
+
+    runHook postInstall
+  '';
+
+  meta = {
+    description = "Circuit simulator used in Georgia Tech CS 2110";
+    platforms = [ "x86_64-linux" ];
+    mainProgram = "CircuitSim";
+  };
+}

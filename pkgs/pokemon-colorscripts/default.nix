@@ -1,8 +1,8 @@
-{ pkgs, ... }:
-with pkgs;
+{ lib, stdenv, fetchFromGitLab }:
 
 stdenv.mkDerivation {
-  name = "pokemon-colorscripts";
+  pname = "pokemon-colorscripts";
+  version = "unstable-2022-05-08";
 
   src = fetchFromGitLab {
     owner = "phoneybadger";
@@ -11,13 +11,11 @@ stdenv.mkDerivation {
     sha256 = "9rZwojTELZO6aUpd/U0oN9GWtnpnyKcNQJtbdgn8WG4=";
   };
 
-  buildInputs = [ ];
-
-  nativeBuildInputs = [ ];
-
-  buildPhase = "";
+  dontBuild = true;
 
   installPhase = ''
+    runHook preInstall
+
     mkdir -p $out/opt/pokemon-colorscripts
     cp -rf colorscripts $out/opt/pokemon-colorscripts/colorscripts
     install -Dm755 -- pokemon-colorscripts.sh $out/opt/pokemon-colorscripts/pokemon-colorscripts.sh
@@ -25,5 +23,14 @@ stdenv.mkDerivation {
 
     mkdir -p $out/bin
     ln -s $out/opt/pokemon-colorscripts/pokemon-colorscripts.sh $out/bin/pokemon-colorscripts
+
+    runHook postInstall
   '';
+
+  meta = {
+    description = "Print colored Pokemon sprites in the terminal";
+    homepage = "https://gitlab.com/phoneybadger/pokemon-colorscripts";
+    platforms = lib.platforms.unix;
+    mainProgram = "pokemon-colorscripts";
+  };
 }

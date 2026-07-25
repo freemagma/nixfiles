@@ -1,4 +1,4 @@
-_: { config, ... }:
+{ config, ... }:
 
 let
   nvidia_x11 = config.boot.kernelPackages.nvidia_x11;

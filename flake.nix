@@ -9,14 +9,16 @@
     suyu = {
       url = "github:Noodlez1232/suyu-flake";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
     };
     claude-code-nix = {
       url = "github:sadjow/claude-code-nix";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
     };
   };
 
-  outputs = { self, nixpkgs, flake-utils, home-manager, suyu, ... }@inputs:
+  outputs = { self, nixpkgs, flake-utils, home-manager, ... }@inputs:
     {
       nixosConfigurations = {
         jane = import ./nixos/configs/jane inputs;
@@ -24,7 +26,7 @@
       };
 
       nixosModules = import ./nixos/modules inputs;
-      homeModules = import ./home/modules inputs;
+      homeModules = import ./home/modules;
 
       lib = import ./lib inputs;
 
