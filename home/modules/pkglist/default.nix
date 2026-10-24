@@ -31,6 +31,7 @@ in
     # suyu.packages.${system}.suyu
 
     # cmdline tools
+    nvtopPackages.nvidia
     unar
     zathura
     ripgrep

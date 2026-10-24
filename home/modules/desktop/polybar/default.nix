@@ -58,7 +58,7 @@
         throttle-output = 5;
         throttle-output-for = 10;
 
-        screenchange-reload = true;
+        screenchange-reload = false;
 
         compositing-background = "source";
         compositing-foreground = "over";
@@ -190,6 +190,14 @@
         label = "%title%";
         label-maxlen = 70;
       };
+    };
+  };
+
+  systemd.user.services.polybar = {
+    Unit.StartLimitIntervalSec = 0;
+    Service = {
+      Restart = lib.mkForce "always";
+      RestartSec = 3;
     };
   };
 }

@@ -185,6 +185,13 @@
     backend = "xrender";
   };
 
+  xdg.configFile."xfce4/helpers.rc" = {
+    force = true;
+    text = ''
+      WebBrowser=firefox
+    '';
+  };
+
   gtk = {
     enable = true;
     iconTheme = {
