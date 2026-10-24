@@ -17,6 +17,7 @@
 
   # Docker
   virtualisation.docker.enable = true;
+  virtualisation.docker.package = pkgs.docker_29;
 
   # mullvad
   services.mullvad-vpn.enable = true;

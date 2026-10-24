@@ -61,7 +61,6 @@ in
         isort
       ]))
     conda
-    docker
     elan
   ];
 }
